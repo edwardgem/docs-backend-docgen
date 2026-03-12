@@ -14,11 +14,19 @@ try:
 except Exception:
     yaml = None
 
+_ACRONYMS = {"sse", "hitl", "rlhf", "llm", "api", "id", "url"}
+
 def _function_name_to_summary(function_name: str) -> str:
     """Convert a snake_case function name to a human-readable summary."""
     if not function_name:
         return "API Operation"
-    return " ".join(word.capitalize() for word in function_name.replace("-", "_").split("_"))
+    words = []
+    for word in function_name.replace("-", "_").split("_"):
+        if word.lower() in _ACRONYMS:
+            words.append(word.upper())
+        else:
+            words.append(word.capitalize())
+    return " ".join(words)
 
 TAG_DESCRIPTIONS = {
     "Agent Lifecycle": "Agent registration, launch, polling, and lifecycle operations.",
@@ -274,7 +282,7 @@ def _yaml_scalar(value: Any) -> str:
     text = str(value)
     if text == "":
         return "''"
-    needs_quote = any(ch in text for ch in [":", "#", "{", "}", "[", "]", ",", "&", "*", "?", "|", ">", "%", "@", "`", "\"", "'"]) or text.strip() != text
+    needs_quote = "\n" in text or any(ch in text for ch in [":", "#", "{", "}", "[", "]", ",", "&", "*", "?", "|", ">", "%", "@", "`", "\"", "'"]) or text.strip() != text
     if needs_quote:
         return json.dumps(text, ensure_ascii=True)
     return text
