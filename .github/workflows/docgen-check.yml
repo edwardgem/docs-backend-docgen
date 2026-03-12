@@ -1,0 +1,49 @@
+name: docgen-check
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    env:
+      APP_FILE: ../amp-backend/app.py
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Probe AMP backend source
+        id: probe
+        run: |
+          if [ -f "${APP_FILE}" ]; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            echo "Using APP_FILE=${APP_FILE}"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping generate/check: APP_FILE not found at ${APP_FILE}"
+          fi
+
+      - name: Generate artifacts
+        if: steps.probe.outputs.found == 'true'
+        run: |
+          make generate APP_FILE="${APP_FILE}"
+
+      - name: Check artifacts
+        if: steps.probe.outputs.found == 'true'
+        run: |
+          python3 scripts/check_outputs.py \
+            --inventory output/routes_inventory.json \
+            --openapi output/openapi.draft.json \
+            --allow-collisions

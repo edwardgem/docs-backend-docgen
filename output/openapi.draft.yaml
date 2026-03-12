@@ -1,0 +1,3740 @@
+openapi: 3.0.3
+info:
+  title: AMP API (Draft)
+  version: 0.1.0-draft
+  description: Auto-generated draft from AMP backend route inventory. This document is a bootstrap artifact for Milestone 1.
+servers:
+  -
+    url: "https://api.amp.example.com"
+    description: Production (placeholder)
+  -
+    url: "http://localhost:5000"
+    description: Local development
+tags:
+  -
+    name: Admin / Ops
+    description: Administrative and operator APIs.
+  -
+    name: Agent Lifecycle
+    description: "Agent registration, launch, polling, and lifecycle operations."
+  -
+    name: Analytics
+    description: Analytics and dashboard query APIs.
+  -
+    name: Auth / Sessions
+    description: Authentication and session-related APIs.
+  -
+    name: Dashboard
+    description: Dashboard-facing APIs (generally non-customer integration surface).
+  -
+    name: Frontend Shell
+    description: Frontend SPA shell routes.
+  -
+    name: HITL
+    description: Human-in-the-loop routing and decision APIs.
+  -
+    name: Internal
+    description: Internal service-to-service APIs.
+  -
+    name: LLM Utilities
+    description: Prompt classification and utility APIs.
+  -
+    name: Log Proxy
+    description: Agent log ingestion and proxy APIs.
+  -
+    name: Ops Utilities
+    description: Operational refresh/streaming utility APIs.
+  -
+    name: Presence
+    description: User presence and heartbeat APIs.
+  -
+    name: RLHF
+    description: "RLHF policy, runtime, and decision management APIs."
+  -
+    name: User Profile
+    description: End-user profile management APIs.
+  -
+    name: Workitems
+    description: Work item queue and status APIs for human review.
+  -
+    name: Worktray
+    description: Worktray-facing interactive APIs.
+paths:
+  /:
+    get:
+      summary: Fetch resource (Frontend Shell)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_spa_index_
+      tags:
+        - Frontend Shell
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: spa_index
+        line: 3104
+      x-audience: internal
+  /api/abort:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_abort_agent_api_abort
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: abort_agent
+        line: 6608
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/admin/organizations:
+    get:
+      summary: Fetch resource (Admin / Ops)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_admin_list_organizations_api_admin_organizations
+      tags:
+        - Admin / Ops
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: admin_list_organizations
+        line: 3581
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/admin/presence:
+    get:
+      summary: Fetch resource (Admin / Ops)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_admin_presence_overview_api_admin_presence
+      tags:
+        - Admin / Ops
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: admin_presence_overview
+        line: 3223
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/admin/presence/chat:
+    post:
+      summary: Create or trigger operation (Admin / Ops)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_admin_presence_chat_api_admin_presence_chat
+      tags:
+        - Admin / Ops
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: admin_presence_chat
+        line: 3247
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/admin/users:
+    post:
+      summary: Create or trigger operation (Admin / Ops)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_admin_create_user_api_admin_users
+      tags:
+        - Admin / Ops
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: admin_create_user
+        line: 3345
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    get:
+      summary: Fetch resource (Admin / Ops)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_admin_list_users_api_admin_users
+      tags:
+        - Admin / Ops
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: admin_list_users
+        line: 3604
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/admin/users/{target_username}:
+    put:
+      summary: Update resource (Admin / Ops)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: put_admin_update_user_api_admin_users_target_username
+      tags:
+        - Admin / Ops
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: admin_update_user
+        line: 3635
+      x-audience: partner
+      parameters:
+        -
+          name: target_username
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent-tasks/complete:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_complete_agent_task_api_agent_tasks_complete
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: complete_agent_task
+        line: 4568
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent-tasks/poll:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_poll_agent_tasks_api_agent_tasks_poll
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: poll_agent_tasks
+        line: 4513
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent-tasks/register:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_register_agent_api_agent_tasks_register
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: register_agent
+        line: 4629
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent-tasks/unregister:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_unregister_remote_agent_api_agent_tasks_unregister
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: unregister_remote_agent
+        line: 4594
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent/start:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_agent_start_api_agent_start
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: agent_start
+        line: 8518
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent/{agent_name}/autonomy_ops:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_agent_autonomy_ops_api_agent_agent_name_autonomy_ops
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_agent_autonomy_ops
+        line: 9627
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_save_agent_autonomy_ops_api_agent_agent_name_autonomy_ops
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: save_agent_autonomy_ops
+        line: 9666
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent/{agent_name}/criteria:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_agent_criteria_api_agent_agent_name_criteria
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_agent_criteria
+        line: 9492
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_save_agent_criteria_api_agent_agent_name_criteria
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: save_agent_criteria
+        line: 9535
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent/{agent_name}/features:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_agent_features_api_agent_agent_name_features
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_agent_features
+        line: 9309
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_save_agent_features_api_agent_agent_name_features
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: save_agent_features
+        line: 9399
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent/{agent_name}/features/generate-description:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_generate_feature_description_api_agent_agent_name_features_generate_description
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: generate_feature_description
+        line: 9888
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent/{agent_name}/policies/current/rlhf_enabled:
+    put:
+      summary: Update resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: put_update_rlhf_enabled_api_agent_agent_name_policies_current_rlhf_enabled
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: update_rlhf_enabled
+        line: 11779
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent/{agent_name}/policies/versions:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_policy_versions_api_agent_agent_name_policies_versions
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_policy_versions
+        line: 11699
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent/{agent_name}/policies/{version}:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_policy_version_api_agent_agent_name_policies_version
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_policy_version
+        line: 11751
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: version
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agent/{agent_name}/policy/approve:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_approve_rlhf_policy_api_agent_agent_name_policy_approve
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: approve_rlhf_policy
+        line: 9741
+      x-audience: public
+      parameters:
+        -
+          name: agent_name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agents:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_agents_api_agents
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_agents
+        line: 3958
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/agents/{instance_id}/llm_trace:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_llm_trace_api_agents_instance_id_llm_trace
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_llm_trace
+        line: 4124
+      x-audience: public
+      parameters:
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_alp_list_agents_api_alp_agents
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_list_agents
+        line: 7573
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/register-native:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_register_native_agent_api_alp_agents_register_native
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: register_native_agent
+        line: 4668
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/defaults:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_alp_get_defaults_api_alp_agents_name_defaults
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_get_defaults
+        line: 8237
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/defaults/artifacts:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_alp_list_default_artifacts_api_alp_agents_name_defaults_artifacts
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_list_default_artifacts
+        line: 8146
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/defaults/artifacts/{filename}:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_alp_get_default_artifact_api_alp_agents_name_defaults_artifacts_filename
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_get_default_artifact
+        line: 8179
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: filename
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/defaults/config:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_update_defaults_config_api_alp_agents_name_defaults_config
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_update_defaults_config
+        line: 8267
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/defaults/prompt:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_update_defaults_prompt_api_alp_agents_name_defaults_prompt
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_update_defaults_prompt
+        line: 8291
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_alp_list_instances_api_alp_agents_name_instances
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_list_instances
+        line: 7599
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}:
+    delete:
+      summary: Delete resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: delete_alp_delete_instance_api_alp_agents_name_instances_instance_id
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_delete_instance
+        line: 8215
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_alp_get_instance_api_alp_agents_name_instances_instance_id
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_get_instance
+        line: 7934
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/abort:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_abort_instance_api_alp_agents_name_instances_instance_id_abort
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_abort_instance
+        line: 11556
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/artifacts:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_alp_list_artifacts_api_alp_agents_name_instances_instance_id_artifacts
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_list_artifacts
+        line: 8098
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/artifacts/{filename}:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_upload_artifact_api_alp_agents_name_instances_instance_id_artifacts_filename
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: upload_artifact
+        line: 8804
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: filename
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_alp_get_artifact_api_alp_agents_name_instances_instance_id_artifacts_filename
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_get_artifact
+        line: 8196
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: filename
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/chat:
+    delete:
+      summary: Delete resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: delete_alp_instance_chat_api_alp_agents_name_instances_instance_id_chat
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_instance_chat
+        line: 7996
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_alp_instance_chat_api_alp_agents_name_instances_instance_id_chat
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_instance_chat
+        line: 7996
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_instance_chat_api_alp_agents_name_instances_instance_id_chat
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_instance_chat
+        line: 7996
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/config:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_update_instance_config_api_alp_agents_name_instances_instance_id_config
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_update_instance_config
+        line: 8644
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/execute:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_execute_instance_api_alp_agents_name_instances_instance_id_execute
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_execute_instance
+        line: 9298
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/files:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_instance_files_api_alp_agents_name_instances_instance_id_files
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_instance_files
+        line: 8696
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/hitl-callback:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_hitl_callback_api_alp_agents_name_instances_instance_id_hitl_callback
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_hitl_callback
+        line: 9303
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/launch:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_launch_instance_api_alp_agents_name_instances_instance_id_launch
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_launch_instance
+        line: 8838
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/log_initiated:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_log_initiated_api_alp_agents_name_instances_instance_id_log_initiated
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_log_initiated
+        line: 8913
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/meta:
+    put:
+      summary: Update resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: put_update_instance_meta_api_alp_agents_name_instances_instance_id_meta
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: update_instance_meta
+        line: 8734
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/progress:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_append_instance_progress_api_alp_agents_name_instances_instance_id_progress
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: append_instance_progress
+        line: 8765
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/prompt:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_update_instance_prompt_api_alp_agents_name_instances_instance_id_prompt
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_update_instance_prompt
+        line: 8669
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/instances/{instance_id}/summary:
+    get:
+      summary: Fetch resource (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_alp_get_instance_summary_api_alp_agents_name_instances_instance_id_summary
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_get_instance_summary
+        line: 7897
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_save_instance_summary_api_alp_agents_name_instances_instance_id_summary
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_save_instance_summary
+        line: 7913
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/alp/agents/{name}/runs:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_alp_create_run_api_alp_agents_name_runs
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: alp_create_run
+        line: 8315
+      x-audience: public
+      parameters:
+        -
+          name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/amp/chat:
+    post:
+      summary: Create or trigger operation (Dashboard)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_amp_chat_summary_api_amp_chat
+      tags:
+        - Dashboard
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: amp_chat_summary
+        line: 4329
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/amp/chat/history:
+    delete:
+      summary: Delete resource (Dashboard)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: delete_amp_chat_history_api_amp_chat_history
+      tags:
+        - Dashboard
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: amp_chat_history
+        line: 4301
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    get:
+      summary: Fetch resource (Dashboard)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_amp_chat_history_api_amp_chat_history
+      tags:
+        - Dashboard
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: amp_chat_history
+        line: 4301
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    post:
+      summary: Create or trigger operation (Dashboard)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_amp_chat_history_api_amp_chat_history
+      tags:
+        - Dashboard
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: amp_chat_history
+        line: 4301
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/amp/refresh-events:
+    get:
+      summary: Fetch resource (Ops Utilities)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_refresh_events_api_amp_refresh_events
+      tags:
+        - Ops Utilities
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: refresh_events
+        line: 5149
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/amp/sse-status:
+    get:
+      summary: Fetch resource (Ops Utilities)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_sse_status_api_amp_sse_status
+      tags:
+        - Ops Utilities
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: sse_status
+        line: 5266
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/amp/trigger-refresh:
+    post:
+      summary: Create or trigger operation (Ops Utilities)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_trigger_refresh_api_amp_trigger_refresh
+      tags:
+        - Ops Utilities
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: trigger_refresh
+        line: 5256
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/analytics/agent_events:
+    get:
+      summary: Fetch resource (Analytics)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_analytics_agent_events_api_analytics_agent_events
+      tags:
+        - Analytics
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: analytics_agent_events
+        line: 7104
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/analytics/config:
+    get:
+      summary: Fetch resource (Analytics)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_analytics_config_api_analytics_config
+      tags:
+        - Analytics
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: analytics_config
+        line: 7022
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/analytics/hitl_events:
+    get:
+      summary: Fetch resource (Analytics)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_analytics_hitl_events_api_analytics_hitl_events
+      tags:
+        - Analytics
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: analytics_hitl_events
+        line: 7153
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/analytics/page_view:
+    post:
+      summary: Create or trigger operation (Analytics)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_analytics_page_view_api_analytics_page_view
+      tags:
+        - Analytics
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: analytics_page_view
+        line: 7031
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/analytics/rlhf_autonomy:
+    get:
+      summary: Fetch resource (Analytics)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_analytics_rlhf_autonomy_api_analytics_rlhf_autonomy
+      tags:
+        - Analytics
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: analytics_rlhf_autonomy
+        line: 7243
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/analytics/rlhf_stages:
+    get:
+      summary: Fetch resource (Analytics)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_analytics_rlhf_stages_api_analytics_rlhf_stages
+      tags:
+        - Analytics
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: analytics_rlhf_stages
+        line: 7305
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/analytics/user_activity:
+    get:
+      summary: Fetch resource (Analytics)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_analytics_user_activity_api_analytics_user_activity
+      tags:
+        - Analytics
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: analytics_user_activity
+        line: 7200
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/classify_intent:
+    post:
+      summary: Create or trigger operation (LLM Utilities)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_classify_intent_api_api_classify_intent
+      tags:
+        - LLM Utilities
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: classify_intent_api
+        line: 11655
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/config:
+    get:
+      summary: Fetch resource (Auth / Sessions)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_config_api_config
+      tags:
+        - Auth / Sessions
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_config
+        line: 4474
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/dashboard/chat:
+    post:
+      summary: Create or trigger operation (Dashboard)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_dashboard_chat_api_dashboard_chat
+      tags:
+        - Dashboard
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: dashboard_chat
+        line: 6847
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/dashboard/chat/history:
+    get:
+      summary: Fetch resource (Dashboard)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_dashboard_chat_history_api_dashboard_chat_history
+      tags:
+        - Dashboard
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: dashboard_chat_history
+        line: 7009
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/dashboard/demo-data/{filename}:
+    get:
+      summary: Fetch resource (Dashboard)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_dashboard_demo_data_api_dashboard_demo_data_filename
+      tags:
+        - Dashboard
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: dashboard_demo_data
+        line: 7350
+      x-audience: partner
+      parameters:
+        -
+          name: filename
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/hitl-agent:
+    post:
+      summary: Create or trigger operation (HITL)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_proxy_hitl_api_hitl_agent
+      tags:
+        - HITL
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: proxy_hitl
+        line: 4759
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/init_agent:
+    post:
+      summary: Create or trigger operation (Agent Lifecycle)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_init_agent_api_init_agent
+      tags:
+        - Agent Lifecycle
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: init_agent
+        line: 6599
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/internal/users/resolve:
+    post:
+      summary: Create or trigger operation (Internal)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_resolve_user_identity_api_internal_users_resolve
+      tags:
+        - Internal
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: resolve_user_identity
+        line: 10163
+      x-audience: internal
+  /api/llm/classify:
+    post:
+      summary: Create or trigger operation (LLM Utilities)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_classify_llm_prompt_api_llm_classify
+      tags:
+        - LLM Utilities
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: classify_llm_prompt
+        line: 11666
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/log:
+    post:
+      summary: Create or trigger operation (Log Proxy)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_proxy_log_api_log
+      tags:
+        - Log Proxy
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: proxy_log
+        line: 4970
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/log/hitl-progress:
+    get:
+      summary: Fetch resource (Log Proxy)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_proxy_log_hitl_progress_api_log_hitl_progress
+      tags:
+        - Log Proxy
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: proxy_log_hitl_progress
+        line: 5038
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/log/progress-all:
+    get:
+      summary: Fetch resource (Log Proxy)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_proxy_log_progress_all_api_log_progress_all
+      tags:
+        - Log Proxy
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: proxy_log_progress_all
+        line: 5026
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/log_llm:
+    post:
+      summary: Create or trigger operation (Log Proxy)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_log_llm_response_api_log_llm
+      tags:
+        - Log Proxy
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: log_llm_response
+        line: 3939
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/login:
+    post:
+      summary: Create or trigger operation (Auth / Sessions)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_login_api_login
+      tags:
+        - Auth / Sessions
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: login
+        line: 3124
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/logout:
+    post:
+      summary: Create or trigger operation (Auth / Sessions)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_logout_api_logout
+      tags:
+        - Auth / Sessions
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: logout
+        line: 3194
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/password/change:
+    post:
+      summary: Create or trigger operation (Auth / Sessions)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_change_password_api_password_change
+      tags:
+        - Auth / Sessions
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: change_password
+        line: 3433
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/password/setup:
+    post:
+      summary: Create or trigger operation (Auth / Sessions)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_setup_password_api_password_setup
+      tags:
+        - Auth / Sessions
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: setup_password
+        line: 3464
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/presence/ping:
+    post:
+      summary: Create or trigger operation (Presence)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_presence_ping_api_presence_ping
+      tags:
+        - Presence
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: presence_ping
+        line: 3206
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/register:
+    options:
+      summary: Operation (Auth / Sessions)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: options_register_api_register
+      tags:
+        - Auth / Sessions
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: register
+        line: 11627
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    post:
+      summary: Create or trigger operation (Auth / Sessions)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_register_api_register
+      tags:
+        - Auth / Sessions
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: register
+        line: 11627
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/approval_request:
+    get:
+      summary: Fetch resource (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_rlhf_fetch_approval_request_api_rlhf_approval_request
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_fetch_approval_request
+        line: 10477
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/bootstrap:
+    post:
+      summary: Create or trigger operation (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_rlhf_bootstrap_agent_api_rlhf_bootstrap
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_bootstrap_agent
+        line: 11290
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/contract/approve:
+    post:
+      summary: Create or trigger operation (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_rlhf_approve_contract_api_rlhf_contract_approve
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_approve_contract
+        line: 10083
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/decision/bind_workitem:
+    post:
+      summary: Create or trigger operation (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_rlhf_bind_workitem_api_rlhf_decision_bind_workitem
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_bind_workitem
+        line: 10211
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/decision_status:
+    get:
+      summary: Fetch resource (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_rlhf_decision_status_api_rlhf_decision_status
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_decision_status
+        line: 10578
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/jobs/enqueue:
+    post:
+      summary: Create or trigger operation (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_rlhf_enqueue_job_api_rlhf_jobs_enqueue
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_enqueue_job
+        line: 11352
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/models:
+    get:
+      summary: Fetch resource (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_rlhf_model_registry_list_api_rlhf_models
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_model_registry_list
+        line: 11885
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/models/{model_id}/activate:
+    post:
+      summary: Create or trigger operation (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_rlhf_model_registry_activate_api_rlhf_models_model_id_activate
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_model_registry_activate
+        line: 11943
+      x-audience: public
+      parameters:
+        -
+          name: model_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/models/{model_id}/retire:
+    post:
+      summary: Create or trigger operation (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_rlhf_model_registry_retire_api_rlhf_models_model_id_retire
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_model_registry_retire
+        line: 11992
+      x-audience: public
+      parameters:
+        -
+          name: model_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/outcome:
+    post:
+      summary: Create or trigger operation (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_rlhf_submit_outcome_api_rlhf_outcome
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_submit_outcome
+        line: 10340
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/policy:
+    get:
+      summary: Fetch resource (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_rlhf_get_policy_api_rlhf_policy
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_get_policy
+        line: 9991
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/policy/save:
+    post:
+      summary: Create or trigger operation (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_rlhf_save_policy_api_rlhf_policy_save
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_save_policy
+        line: 10050
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/stage_tick/trigger:
+    post:
+      summary: Create or trigger operation (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_rlhf_trigger_stage_tick_api_rlhf_stage_tick_trigger
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_trigger_stage_tick
+        line: 11424
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/status:
+    get:
+      summary: Fetch resource (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_rlhf_status_api_rlhf_status
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_status
+        line: 10652
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/rlhf/test/reset:
+    post:
+      summary: Create or trigger operation (RLHF)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_rlhf_reset_test_state_api_rlhf_test_reset
+      tags:
+        - RLHF
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: rlhf_reset_test_state
+        line: 11493
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/settings/api-key:
+    post:
+      summary: Create or trigger operation (Auth / Sessions)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_settings_generate_api_key_api_settings_api_key
+      tags:
+        - Auth / Sessions
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: settings_generate_api_key
+        line: 8606
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    get:
+      summary: Fetch resource (Auth / Sessions)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_settings_get_api_key_api_settings_api_key
+      tags:
+        - Auth / Sessions
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: settings_get_api_key
+        line: 8617
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    delete:
+      summary: Delete resource (Auth / Sessions)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: delete_settings_revoke_api_key_api_settings_api_key
+      tags:
+        - Auth / Sessions
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: settings_revoke_api_key
+        line: 8628
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/user/profile:
+    get:
+      summary: Fetch resource (User Profile)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_user_profile_api_user_profile
+      tags:
+        - User Profile
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_user_profile
+        line: 3529
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    put:
+      summary: Update resource (User Profile)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: put_update_user_profile_api_user_profile
+      tags:
+        - User Profile
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: update_user_profile
+        line: 3552
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/workitems:
+    post:
+      summary: Create or trigger operation (Workitems)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_create_workitem_api_workitems
+      tags:
+        - Workitems
+        - HITL
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: create_workitem
+        line: 5616
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+    get:
+      summary: Fetch resource (Workitems)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_get_workitems_api_workitems
+      tags:
+        - Workitems
+        - HITL
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: get_workitems
+        line: 5278
+      x-audience: public
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/workitems/{workitem_id}:
+    delete:
+      summary: Delete resource (Workitems)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: delete_delete_workitem_api_workitems_workitem_id
+      tags:
+        - Workitems
+        - HITL
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: delete_workitem
+        line: 6451
+      x-audience: public
+      parameters:
+        -
+          name: workitem_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/workitems/{workitem_id}/status:
+    put:
+      summary: Update resource (Workitems)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: put_update_workitem_status_api_workitems_workitem_id_status
+      tags:
+        - Workitems
+        - HITL
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: update_workitem_status
+        line: 6304
+      x-audience: public
+      parameters:
+        -
+          name: workitem_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /api/worktray/chat:
+    post:
+      summary: Create or trigger operation (Worktray)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: post_worktray_chat_api_worktray_chat
+      tags:
+        - Worktray
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: worktray_chat
+        line: 6496
+      x-audience: partner
+      security:
+        -
+          ApiKeyAuth:
+            []
+        -
+          SessionToken:
+            []
+  /{path}:
+    get:
+      summary: Fetch resource (Frontend Shell)
+      description: Auto-generated operation draft from Flask route inventory. Refine request/response schemas and examples before customer publication.
+      operationId: get_spa_index_path
+      tags:
+        - Frontend Shell
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad request
+        401:
+          description: Unauthorized
+        500:
+          description: Server error
+      x-source:
+        file: /Users/edwardc/Projects/amp-backend/app.py
+        function: spa_index
+        line: 3104
+      x-audience: internal
+      parameters:
+        -
+          name: path
+          in: path
+          required: true
+          schema:
+            type: string
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+    SessionToken:
+      type: apiKey
+      in: header
+      name: X-Session-Token
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        detail:
+          type: string
+x-route-collisions-resolved:
+  -
+    path: "/api/alp/agents/{name}/instances/{instance_id}/hitl-callback"
+    method: post
+    reason: preferred_handler_kept
+    preferred_function: alp_hitl_callback
+    dropped_function: hitl_callback_remote

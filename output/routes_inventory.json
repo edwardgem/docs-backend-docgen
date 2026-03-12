@@ -1,0 +1,1370 @@
+{
+  "source": "/Users/edwardc/Projects/amp-backend/app.py",
+  "route_count": 111,
+  "tag_counts": {
+    "Admin / Ops": 6,
+    "Agent Lifecycle": 48,
+    "Analytics": 7,
+    "Auth / Sessions": 9,
+    "Dashboard": 5,
+    "Frontend Shell": 2,
+    "HITL": 5,
+    "Internal": 1,
+    "LLM Utilities": 2,
+    "Log Proxy": 4,
+    "Ops Utilities": 3,
+    "Presence": 1,
+    "RLHF": 15,
+    "User Profile": 2,
+    "Workitems": 4,
+    "Worktray": 1
+  },
+  "audience_counts": {
+    "internal": 3,
+    "partner": 27,
+    "public": 81
+  },
+  "routes": [
+    {
+      "path": "/",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "spa_index",
+      "line": 3104,
+      "tags": [
+        "Frontend Shell"
+      ],
+      "audience": "internal"
+    },
+    {
+      "path": "/<path:path>",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "spa_index",
+      "line": 3104,
+      "tags": [
+        "Frontend Shell"
+      ],
+      "audience": "internal"
+    },
+    {
+      "path": "/api/abort",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "abort_agent",
+      "line": 6608,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/admin/organizations",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "admin_list_organizations",
+      "line": 3581,
+      "tags": [
+        "Admin / Ops"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/admin/presence",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "admin_presence_overview",
+      "line": 3223,
+      "tags": [
+        "Admin / Ops"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/admin/presence/chat",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "admin_presence_chat",
+      "line": 3247,
+      "tags": [
+        "Admin / Ops"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/admin/users",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "admin_create_user",
+      "line": 3345,
+      "tags": [
+        "Admin / Ops"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/admin/users",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "admin_list_users",
+      "line": 3604,
+      "tags": [
+        "Admin / Ops"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/admin/users/<path:target_username>",
+      "methods": [
+        "PUT"
+      ],
+      "function_name": "admin_update_user",
+      "line": 3635,
+      "tags": [
+        "Admin / Ops"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/agent-tasks/complete",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "complete_agent_task",
+      "line": 4568,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent-tasks/poll",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "poll_agent_tasks",
+      "line": 4513,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent-tasks/register",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "register_agent",
+      "line": 4629,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent-tasks/unregister",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "unregister_remote_agent",
+      "line": 4594,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/autonomy_ops",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_agent_autonomy_ops",
+      "line": 9627,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/autonomy_ops",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "save_agent_autonomy_ops",
+      "line": 9666,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/criteria",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_agent_criteria",
+      "line": 9492,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/criteria",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "save_agent_criteria",
+      "line": 9535,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/features",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_agent_features",
+      "line": 9309,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/features",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "save_agent_features",
+      "line": 9399,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/features/generate-description",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "generate_feature_description",
+      "line": 9888,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/policies/<version>",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_policy_version",
+      "line": 11751,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/policies/current/rlhf_enabled",
+      "methods": [
+        "PUT"
+      ],
+      "function_name": "update_rlhf_enabled",
+      "line": 11779,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/policies/versions",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_policy_versions",
+      "line": 11699,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/<agent_name>/policy/approve",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "approve_rlhf_policy",
+      "line": 9741,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agent/start",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "agent_start",
+      "line": 8518,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agents",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_agents",
+      "line": 3958,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/agents/<instance_id>/llm_trace",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_llm_trace",
+      "line": 4124,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "alp_list_agents",
+      "line": 7573,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/defaults",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "alp_get_defaults",
+      "line": 8237,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/defaults/artifacts",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "alp_list_default_artifacts",
+      "line": 8146,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/defaults/artifacts/<path:filename>",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "alp_get_default_artifact",
+      "line": 8179,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/defaults/config",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_update_defaults_config",
+      "line": 8267,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/defaults/prompt",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_update_defaults_prompt",
+      "line": 8291,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "alp_list_instances",
+      "line": 7599,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>",
+      "methods": [
+        "DELETE"
+      ],
+      "function_name": "alp_delete_instance",
+      "line": 8215,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "alp_get_instance",
+      "line": 7934,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/abort",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_abort_instance",
+      "line": 11556,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/artifacts",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "alp_list_artifacts",
+      "line": 8098,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/artifacts/<filename>",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "upload_artifact",
+      "line": 8804,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/artifacts/<path:filename>",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "alp_get_artifact",
+      "line": 8196,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/chat",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "function_name": "alp_instance_chat",
+      "line": 7996,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/config",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_update_instance_config",
+      "line": 8644,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/execute",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_execute_instance",
+      "line": 9298,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/files",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_instance_files",
+      "line": 8696,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/hitl-callback",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_hitl_callback",
+      "line": 9303,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/hitl-callback",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "hitl_callback_remote",
+      "line": 5052,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/launch",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_launch_instance",
+      "line": 8838,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/log_initiated",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_log_initiated",
+      "line": 8913,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/meta",
+      "methods": [
+        "PUT"
+      ],
+      "function_name": "update_instance_meta",
+      "line": 8734,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/progress",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "append_instance_progress",
+      "line": 8765,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/prompt",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_update_instance_prompt",
+      "line": 8669,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/summary",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "alp_get_instance_summary",
+      "line": 7897,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/instances/<instance_id>/summary",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_save_instance_summary",
+      "line": 7913,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/<name>/runs",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "alp_create_run",
+      "line": 8315,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/alp/agents/register-native",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "register_native_agent",
+      "line": 4668,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/amp/chat",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "amp_chat_summary",
+      "line": 4329,
+      "tags": [
+        "Dashboard"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/amp/chat/history",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "function_name": "amp_chat_history",
+      "line": 4301,
+      "tags": [
+        "Dashboard"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/amp/refresh-events",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "refresh_events",
+      "line": 5149,
+      "tags": [
+        "Ops Utilities"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/amp/sse-status",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "sse_status",
+      "line": 5266,
+      "tags": [
+        "Ops Utilities"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/amp/trigger-refresh",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "trigger_refresh",
+      "line": 5256,
+      "tags": [
+        "Ops Utilities"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/analytics/agent_events",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "analytics_agent_events",
+      "line": 7104,
+      "tags": [
+        "Analytics"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/analytics/config",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "analytics_config",
+      "line": 7022,
+      "tags": [
+        "Analytics"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/analytics/hitl_events",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "analytics_hitl_events",
+      "line": 7153,
+      "tags": [
+        "Analytics"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/analytics/page_view",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "analytics_page_view",
+      "line": 7031,
+      "tags": [
+        "Analytics"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/analytics/rlhf_autonomy",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "analytics_rlhf_autonomy",
+      "line": 7243,
+      "tags": [
+        "Analytics"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/analytics/rlhf_stages",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "analytics_rlhf_stages",
+      "line": 7305,
+      "tags": [
+        "Analytics"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/analytics/user_activity",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "analytics_user_activity",
+      "line": 7200,
+      "tags": [
+        "Analytics"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/classify_intent",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "classify_intent_api",
+      "line": 11655,
+      "tags": [
+        "LLM Utilities"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/config",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_config",
+      "line": 4474,
+      "tags": [
+        "Auth / Sessions"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/dashboard/chat",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "dashboard_chat",
+      "line": 6847,
+      "tags": [
+        "Dashboard"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/dashboard/chat/history",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "dashboard_chat_history",
+      "line": 7009,
+      "tags": [
+        "Dashboard"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/dashboard/demo-data/<path:filename>",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "dashboard_demo_data",
+      "line": 7350,
+      "tags": [
+        "Dashboard"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/hitl-agent",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "proxy_hitl",
+      "line": 4759,
+      "tags": [
+        "HITL"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/init_agent",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "init_agent",
+      "line": 6599,
+      "tags": [
+        "Agent Lifecycle"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/internal/users/resolve",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "resolve_user_identity",
+      "line": 10163,
+      "tags": [
+        "Internal"
+      ],
+      "audience": "internal"
+    },
+    {
+      "path": "/api/llm/classify",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "classify_llm_prompt",
+      "line": 11666,
+      "tags": [
+        "LLM Utilities"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/log",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "proxy_log",
+      "line": 4970,
+      "tags": [
+        "Log Proxy"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/log/hitl-progress",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "proxy_log_hitl_progress",
+      "line": 5038,
+      "tags": [
+        "Log Proxy"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/log/progress-all",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "proxy_log_progress_all",
+      "line": 5026,
+      "tags": [
+        "Log Proxy"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/log_llm",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "log_llm_response",
+      "line": 3939,
+      "tags": [
+        "Log Proxy"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/login",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "login",
+      "line": 3124,
+      "tags": [
+        "Auth / Sessions"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/logout",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "logout",
+      "line": 3194,
+      "tags": [
+        "Auth / Sessions"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/password/change",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "change_password",
+      "line": 3433,
+      "tags": [
+        "Auth / Sessions"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/password/setup",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "setup_password",
+      "line": 3464,
+      "tags": [
+        "Auth / Sessions"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/presence/ping",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "presence_ping",
+      "line": 3206,
+      "tags": [
+        "Presence"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/register",
+      "methods": [
+        "OPTIONS",
+        "POST"
+      ],
+      "function_name": "register",
+      "line": 11627,
+      "tags": [
+        "Auth / Sessions"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/approval_request",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "rlhf_fetch_approval_request",
+      "line": 10477,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/bootstrap",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "rlhf_bootstrap_agent",
+      "line": 11290,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/contract/approve",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "rlhf_approve_contract",
+      "line": 10083,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/decision/bind_workitem",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "rlhf_bind_workitem",
+      "line": 10211,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/decision_status",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "rlhf_decision_status",
+      "line": 10578,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/jobs/enqueue",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "rlhf_enqueue_job",
+      "line": 11352,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/rlhf/models",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "rlhf_model_registry_list",
+      "line": 11885,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/models/<int:model_id>/activate",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "rlhf_model_registry_activate",
+      "line": 11943,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/models/<int:model_id>/retire",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "rlhf_model_registry_retire",
+      "line": 11992,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/outcome",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "rlhf_submit_outcome",
+      "line": 10340,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/policy",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "rlhf_get_policy",
+      "line": 9991,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/policy/save",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "rlhf_save_policy",
+      "line": 10050,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/rlhf/stage_tick/trigger",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "rlhf_trigger_stage_tick",
+      "line": 11424,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/rlhf/status",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "rlhf_status",
+      "line": 10652,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/rlhf/test/reset",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "rlhf_reset_test_state",
+      "line": 11493,
+      "tags": [
+        "RLHF"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/settings/api-key",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "settings_generate_api_key",
+      "line": 8606,
+      "tags": [
+        "Auth / Sessions"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/settings/api-key",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "settings_get_api_key",
+      "line": 8617,
+      "tags": [
+        "Auth / Sessions"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/settings/api-key",
+      "methods": [
+        "DELETE"
+      ],
+      "function_name": "settings_revoke_api_key",
+      "line": 8628,
+      "tags": [
+        "Auth / Sessions"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/user/profile",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_user_profile",
+      "line": 3529,
+      "tags": [
+        "User Profile"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/user/profile",
+      "methods": [
+        "PUT"
+      ],
+      "function_name": "update_user_profile",
+      "line": 3552,
+      "tags": [
+        "User Profile"
+      ],
+      "audience": "partner"
+    },
+    {
+      "path": "/api/workitems",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "create_workitem",
+      "line": 5616,
+      "tags": [
+        "Workitems",
+        "HITL"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/workitems",
+      "methods": [
+        "GET"
+      ],
+      "function_name": "get_workitems",
+      "line": 5278,
+      "tags": [
+        "Workitems",
+        "HITL"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/workitems/<workitem_id>",
+      "methods": [
+        "DELETE"
+      ],
+      "function_name": "delete_workitem",
+      "line": 6451,
+      "tags": [
+        "Workitems",
+        "HITL"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/workitems/<workitem_id>/status",
+      "methods": [
+        "PUT"
+      ],
+      "function_name": "update_workitem_status",
+      "line": 6304,
+      "tags": [
+        "Workitems",
+        "HITL"
+      ],
+      "audience": "public"
+    },
+    {
+      "path": "/api/worktray/chat",
+      "methods": [
+        "POST"
+      ],
+      "function_name": "worktray_chat",
+      "line": 6496,
+      "tags": [
+        "Worktray"
+      ],
+      "audience": "partner"
+    }
+  ]
+}
