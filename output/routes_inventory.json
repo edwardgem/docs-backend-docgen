@@ -35,7 +35,8 @@
       "tags": [
         "Frontend Shell"
       ],
-      "audience": "internal"
+      "audience": "internal",
+      "description": "Serve static files from frontend/dist; fallback to index.html for SPA routes.\n\nIf the build output is missing, return a friendly message suggesting to\nrun `npm run build` in the frontend directory."
     },
     {
       "path": "/<path:path>",
@@ -47,7 +48,8 @@
       "tags": [
         "Frontend Shell"
       ],
-      "audience": "internal"
+      "audience": "internal",
+      "description": "Serve static files from frontend/dist; fallback to index.html for SPA routes.\n\nIf the build output is missing, return a friendly message suggesting to\nrun `npm run build` in the frontend directory."
     },
     {
       "path": "/api/abort",
@@ -55,11 +57,12 @@
         "POST"
       ],
       "function_name": "abort_agent",
-      "line": 6608,
+      "line": 6675,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Append an \"aborted\" entry for the given agent_id to the log service."
     },
     {
       "path": "/api/admin/organizations",
@@ -71,7 +74,8 @@
       "tags": [
         "Admin / Ops"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "List all organizations for dropdown use. Admins see all."
     },
     {
       "path": "/api/admin/presence",
@@ -83,7 +87,8 @@
       "tags": [
         "Admin / Ops"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Return a summary of active/idle users on AMP for admin roles."
     },
     {
       "path": "/api/admin/presence/chat",
@@ -95,7 +100,8 @@
       "tags": [
         "Admin / Ops"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "LLM-powered assistant for presence dashboard questions."
     },
     {
       "path": "/api/admin/users",
@@ -107,7 +113,8 @@
       "tags": [
         "Admin / Ops"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Provision a new user (email + org) without a password."
     },
     {
       "path": "/api/admin/users",
@@ -119,7 +126,8 @@
       "tags": [
         "Admin / Ops"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "List users. Superadmin sees all; admin sees users in their own company."
     },
     {
       "path": "/api/admin/users/<path:target_username>",
@@ -131,7 +139,8 @@
       "tags": [
         "Admin / Ops"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Superadmin edits any user's profile and role. Admin edits users in their company."
     },
     {
       "path": "/api/agent-tasks/complete",
@@ -139,11 +148,12 @@
         "POST"
       ],
       "function_name": "complete_agent_task",
-      "line": 4568,
+      "line": 4588,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Mark a task as completed (for remote agents).\n\nRemote agents call this after successfully processing a task.\n\nBody:\n    agent_name: Name of the agent (required)\n    task_id: ID of the completed task (required)\n\nReturns:\n    JSON with 'ok' field"
     },
     {
       "path": "/api/agent-tasks/poll",
@@ -151,11 +161,12 @@
         "GET"
       ],
       "function_name": "poll_agent_tasks",
-      "line": 4513,
+      "line": 4533,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Poll for pending tasks (for remote agents).\n\nRemote agents call this endpoint periodically to check for launch/abort tasks.\nAgents also auto-register themselves on first poll.\n\nQuery params:\n    agent_name: Name of the agent (required)\n    owner: Owner's email/username (required)\n    long_name: Display name (optional, for registration)\n    description: Agent description (optional, for registration)\n\nReturns:\n    JSON with 'tasks' array"
     },
     {
       "path": "/api/agent-tasks/register",
@@ -163,11 +174,12 @@
         "POST"
       ],
       "function_name": "register_agent",
-      "line": 4629,
+      "line": 4649,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Register a remote agent. Agent ID is auto-generated from display name.\n\nBody:\n    long_name: Display name for the agent (required)\n    description: Agent description (optional)\n    auto_start: Allow agent-initiated instances to start immediately (optional, default false)\n\nReturns:\n    JSON with registered agent info including generated agent_name"
     },
     {
       "path": "/api/agent-tasks/unregister",
@@ -175,11 +187,12 @@
         "POST"
       ],
       "function_name": "unregister_remote_agent",
-      "line": 4594,
+      "line": 4614,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Unregister a remote agent (remove from registry).\n\nThis allows users to remove stale or unwanted remote agents.\nRequires authentication - users can only unregister their own agents.\n\nBody:\n    agent_name: Name of the agent to unregister (required)\n\nReturns:\n    JSON with 'ok' field"
     },
     {
       "path": "/api/agent/<agent_name>/autonomy_ops",
@@ -187,11 +200,12 @@
         "GET"
       ],
       "function_name": "get_agent_autonomy_ops",
-      "line": 9627,
+      "line": 9694,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Get autonomy_ops from policy.json for an agent."
     },
     {
       "path": "/api/agent/<agent_name>/autonomy_ops",
@@ -199,11 +213,12 @@
         "POST"
       ],
       "function_name": "save_agent_autonomy_ops",
-      "line": 9666,
+      "line": 9733,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Save autonomy_ops to policy.json for an agent."
     },
     {
       "path": "/api/agent/<agent_name>/criteria",
@@ -211,11 +226,12 @@
         "GET"
       ],
       "function_name": "get_agent_criteria",
-      "line": 9492,
+      "line": 9559,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Get criteria from policy.json for an agent."
     },
     {
       "path": "/api/agent/<agent_name>/criteria",
@@ -223,11 +239,12 @@
         "POST"
       ],
       "function_name": "save_agent_criteria",
-      "line": 9535,
+      "line": 9602,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Save criteria to policy.json for an agent."
     },
     {
       "path": "/api/agent/<agent_name>/features",
@@ -235,11 +252,12 @@
         "GET"
       ],
       "function_name": "get_agent_features",
-      "line": 9309,
+      "line": 9376,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Get policy.json for an agent (features section)."
     },
     {
       "path": "/api/agent/<agent_name>/features",
@@ -247,11 +265,12 @@
         "POST"
       ],
       "function_name": "save_agent_features",
-      "line": 9399,
+      "line": 9466,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Save policy.json for an agent (features section)."
     },
     {
       "path": "/api/agent/<agent_name>/features/generate-description",
@@ -259,11 +278,12 @@
         "POST"
       ],
       "function_name": "generate_feature_description",
-      "line": 9888,
+      "line": 9955,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Generate a description for a feature field using LLM."
     },
     {
       "path": "/api/agent/<agent_name>/policies/<version>",
@@ -271,11 +291,12 @@
         "GET"
       ],
       "function_name": "get_policy_version",
-      "line": 11751,
+      "line": 11833,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Get a specific policy version."
     },
     {
       "path": "/api/agent/<agent_name>/policies/current/rlhf_enabled",
@@ -283,11 +304,12 @@
         "PUT"
       ],
       "function_name": "update_rlhf_enabled",
-      "line": 11779,
+      "line": 11861,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Update RLHF enabled status for the current policy."
     },
     {
       "path": "/api/agent/<agent_name>/policies/versions",
@@ -295,11 +317,12 @@
         "GET"
       ],
       "function_name": "get_policy_versions",
-      "line": 11699,
+      "line": 11781,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Get all policy versions for an agent."
     },
     {
       "path": "/api/agent/<agent_name>/policy/approve",
@@ -307,11 +330,12 @@
         "POST"
       ],
       "function_name": "approve_rlhf_policy",
-      "line": 9741,
+      "line": 9808,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Approve and version the RLHF policy for an agent."
     },
     {
       "path": "/api/agent/start",
@@ -319,11 +343,12 @@
         "POST"
       ],
       "function_name": "agent_start",
-      "line": 8518,
+      "line": 8585,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Create a new instance via API key auth (agent-initiated).\n\nHeaders:\n    X-API-Key: amp_k_... (required unless AMP_REQUIRE_API_KEY is false)\n\nBody:\n    agent_name: Name of the agent (required)\n    prompt: The prompt/task for this instance (required)\n    config: Config dict (optional, defaults to {})\n    metadata: Agent metadata to store in meta.json (optional)\n    long_name: Display name for agent registration (optional)\n    description: Agent description for registration (optional)\n\nReturns:\n    JSON with instance_id, agent_name, status\n    If auto_start is disabled, also returns requires_approval=true"
     },
     {
       "path": "/api/agents",
@@ -331,11 +356,12 @@
         "GET"
       ],
       "function_name": "get_agents",
-      "line": 3958,
+      "line": 3978,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return parsed records for the requested month/year; defaults to current."
     },
     {
       "path": "/api/agents/<instance_id>/llm_trace",
@@ -343,11 +369,12 @@
         "GET"
       ],
       "function_name": "get_llm_trace",
-      "line": 4124,
+      "line": 4144,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return the closest LLM trace entry for an instance and timestamp."
     },
     {
       "path": "/api/alp/agents",
@@ -355,11 +382,12 @@
         "GET"
       ],
       "function_name": "alp_list_agents",
-      "line": 7573,
+      "line": 7640,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "List available ALP agents from AGENT_ROOT.\n\nAn agent is any directory under AGENT_ROOT that contains a config.json.\nReturns objects with { name, long_name, description }."
     },
     {
       "path": "/api/alp/agents/<name>/defaults",
@@ -367,11 +395,12 @@
         "GET"
       ],
       "function_name": "alp_get_defaults",
-      "line": 8237,
+      "line": 8304,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return agent-level default config and prompt."
     },
     {
       "path": "/api/alp/agents/<name>/defaults/artifacts",
@@ -379,11 +408,12 @@
         "GET"
       ],
       "function_name": "alp_list_default_artifacts",
-      "line": 8146,
+      "line": 8213,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "List artifact files stored at the agent root (template artifacts)."
     },
     {
       "path": "/api/alp/agents/<name>/defaults/artifacts/<path:filename>",
@@ -391,11 +421,12 @@
         "GET"
       ],
       "function_name": "alp_get_default_artifact",
-      "line": 8179,
+      "line": 8246,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Serve agent-level (template) artifacts."
     },
     {
       "path": "/api/alp/agents/<name>/defaults/config",
@@ -403,11 +434,12 @@
         "POST"
       ],
       "function_name": "alp_update_defaults_config",
-      "line": 8267,
+      "line": 8334,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Persist agent-level default config.json."
     },
     {
       "path": "/api/alp/agents/<name>/defaults/prompt",
@@ -415,11 +447,12 @@
         "POST"
       ],
       "function_name": "alp_update_defaults_prompt",
-      "line": 8291,
+      "line": 8358,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Persist agent-level default prompt.txt."
     },
     {
       "path": "/api/alp/agents/<name>/instances",
@@ -427,11 +460,12 @@
         "GET"
       ],
       "function_name": "alp_list_instances",
-      "line": 7599,
+      "line": 7666,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "List ALP instances for a given agent by reading its subfolders with meta.json."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>",
@@ -439,11 +473,12 @@
         "DELETE"
       ],
       "function_name": "alp_delete_instance",
-      "line": 8215,
+      "line": 8282,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Delete an ALP instance directory recursively.\n\nReturns 200 with { deleted: true } on success. If the instance directory\nis missing, returns 200 with { deleted: false, missing: true } for idempotency."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>",
@@ -451,11 +486,12 @@
         "GET"
       ],
       "function_name": "alp_get_instance",
-      "line": 7934,
+      "line": 8001,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return meta, config, and prompt for a specific instance. Falls back to agent defaults when missing."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/abort",
@@ -463,11 +499,12 @@
         "POST"
       ],
       "function_name": "alp_abort_instance",
-      "line": 11556,
+      "line": 11638,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Send abort signal to agent instance and log the event.\n\nSupports two modes:\n- direct: Call agent API immediately (default, existing behavior)\n- polling: Queue abort task for agent to poll (new, for remote agents)"
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/artifacts",
@@ -475,11 +512,12 @@
         "GET"
       ],
       "function_name": "alp_list_artifacts",
-      "line": 8098,
+      "line": 8165,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "List artifact files under an instance's artifacts directory.\n\nReturns a list of { name, size, mtime, ext, content_type }."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/artifacts/<filename>",
@@ -487,11 +525,12 @@
         "POST"
       ],
       "function_name": "upload_artifact",
-      "line": 8804,
+      "line": 8871,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Upload an artifact file from remote agent.\n\nBody: raw file data\nRemote agents use this to upload output files (results, reports, etc.)"
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/artifacts/<path:filename>",
@@ -499,11 +538,12 @@
         "GET"
       ],
       "function_name": "alp_get_artifact",
-      "line": 8196,
+      "line": 8263,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Serve an artifact file inline when possible (browser decides how to open)."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/chat",
@@ -513,11 +553,12 @@
         "POST"
       ],
       "function_name": "alp_instance_chat",
-      "line": 7996,
+      "line": 8063,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Chat with the LLM configured for this agent instance."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/config",
@@ -525,11 +566,12 @@
         "POST"
       ],
       "function_name": "alp_update_instance_config",
-      "line": 8644,
+      "line": 8711,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Update instance config.json; allowed only before status becomes 'active'."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/execute",
@@ -537,11 +579,12 @@
         "POST"
       ],
       "function_name": "alp_execute_instance",
-      "line": 9298,
+      "line": 9365,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Proxy endpoint to execute agent actions securely."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/files",
@@ -549,11 +592,12 @@
         "GET"
       ],
       "function_name": "get_instance_files",
-      "line": 8696,
+      "line": 8763,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Get all instance files for remote agent.\n\nReturns config.json, prompt.txt, and meta.json.\nThis endpoint is used by remote agents to download their instance files."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/hitl-callback",
@@ -561,11 +605,12 @@
         "POST"
       ],
       "function_name": "alp_hitl_callback",
-      "line": 9303,
+      "line": 9370,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Proxy endpoint for HITL callbacks (approve/reject) securely."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/hitl-callback",
@@ -573,11 +618,12 @@
         "POST"
       ],
       "function_name": "hitl_callback_remote",
-      "line": 5052,
+      "line": 5082,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "HITL callback endpoint for remote agents.\n\nCalled by HITL service when user approves/modifies/rejects.\nRoutes based on agent_mode:\n- polling: Queue resume task for remote agent\n- direct: Forward to agent's callback endpoint"
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/launch",
@@ -585,11 +631,12 @@
         "POST"
       ],
       "function_name": "alp_launch_instance",
-      "line": 8838,
+      "line": 8905,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Transition an ALP instance from 'initiated' to 'active'.\n\nSupports two modes:\n- direct: Call agent API immediately (default, existing behavior)\n- polling: Queue task for agent to poll (new, for remote agents)"
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/log_initiated",
@@ -597,11 +644,12 @@
         "POST"
       ],
       "function_name": "alp_log_initiated",
-      "line": 8913,
+      "line": 8980,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Append a 'state - initiated' entry for a specific ALP instance.\n\n- Validates the instance directory exists for the agent.\n- Updates the instance's meta.json status to 'initiated' and sets owner to current username.\n- Appends a state change log line to the current month AMP logfile."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/meta",
@@ -609,11 +657,12 @@
         "PUT"
       ],
       "function_name": "update_instance_meta",
-      "line": 8734,
+      "line": 8801,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Update meta.json for remote agent.\n\nBody should be a partial or full meta.json object.\nRemote agents use this to update status, timestamps, etc."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/progress",
@@ -621,11 +670,12 @@
         "POST"
       ],
       "function_name": "append_instance_progress",
-      "line": 8765,
+      "line": 8832,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Append a progress entry to meta.json.\n\nBody: {\"message\": \"Processing...\"}\nRemote agents use this to report progress to the UI."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/prompt",
@@ -633,11 +683,12 @@
         "POST"
       ],
       "function_name": "alp_update_instance_prompt",
-      "line": 8669,
+      "line": 8736,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Update instance prompt.txt; allowed only before status becomes 'active'."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/summary",
@@ -645,11 +696,12 @@
         "GET"
       ],
       "function_name": "alp_get_instance_summary",
-      "line": 7897,
+      "line": 7964,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return the contents of summary.txt for an instance, if present."
     },
     {
       "path": "/api/alp/agents/<name>/instances/<instance_id>/summary",
@@ -657,11 +709,12 @@
         "POST"
       ],
       "function_name": "alp_save_instance_summary",
-      "line": 7913,
+      "line": 7980,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Write summary.txt for an instance."
     },
     {
       "path": "/api/alp/agents/<name>/runs",
@@ -669,11 +722,12 @@
         "POST"
       ],
       "function_name": "alp_create_run",
-      "line": 8315,
+      "line": 8382,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Create a new instance folder with provided config/prompt; status 'initiated'."
     },
     {
       "path": "/api/alp/agents/register-native",
@@ -681,11 +735,12 @@
         "POST"
       ],
       "function_name": "register_native_agent",
-      "line": 4668,
+      "line": 4688,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Register a native agent: adds entry to org's config.json and creates agent directory.\n\nBody:\n    long_name: Display name for the agent (required)\n    name: Agent slug/folder name (required, lowercase letters, numbers, hyphens)\n    description: Agent description (optional)\n    status: Agent status (optional, default \"active\")\n\nReturns:\n    JSON with registered agent info, or 409 if name already taken"
     },
     {
       "path": "/api/amp/chat",
@@ -693,11 +748,12 @@
         "POST"
       ],
       "function_name": "amp_chat_summary",
-      "line": 4329,
+      "line": 4349,
       "tags": [
         "Dashboard"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Generate a conversational response about AMP activity using authorized records."
     },
     {
       "path": "/api/amp/chat/history",
@@ -707,11 +763,12 @@
         "POST"
       ],
       "function_name": "amp_chat_history",
-      "line": 4301,
+      "line": 4321,
       "tags": [
         "Dashboard"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Persist and retrieve AMP chat transcripts per user."
     },
     {
       "path": "/api/amp/refresh-events",
@@ -719,11 +776,12 @@
         "GET"
       ],
       "function_name": "refresh_events",
-      "line": 5149,
+      "line": 5179,
       "tags": [
         "Ops Utilities"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "SSE endpoint for frontend connections to receive real-time refresh signals."
     },
     {
       "path": "/api/amp/sse-status",
@@ -731,11 +789,12 @@
         "GET"
       ],
       "function_name": "sse_status",
-      "line": 5266,
+      "line": 5296,
       "tags": [
         "Ops Utilities"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Debug endpoint to check current SSE connections."
     },
     {
       "path": "/api/amp/trigger-refresh",
@@ -743,11 +802,12 @@
         "POST"
       ],
       "function_name": "trigger_refresh",
-      "line": 5256,
+      "line": 5286,
       "tags": [
         "Ops Utilities"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Trigger endpoint for logger service to call when new records are written."
     },
     {
       "path": "/api/analytics/agent_events",
@@ -755,11 +815,12 @@
         "GET"
       ],
       "function_name": "analytics_agent_events",
-      "line": 7104,
+      "line": 7171,
       "tags": [
         "Analytics"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return org-scoped agent_events rows as a JSON array.\n\nQuery params: start_date, end_date (YYYY-MM-DD; default last 30 days).\nsuperadmin may pass ?org_id= to override scope."
     },
     {
       "path": "/api/analytics/config",
@@ -767,11 +828,12 @@
         "GET"
       ],
       "function_name": "analytics_config",
-      "line": 7022,
+      "line": 7089,
       "tags": [
         "Analytics"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return the current analytics data source configuration."
     },
     {
       "path": "/api/analytics/hitl_events",
@@ -779,11 +841,12 @@
         "GET"
       ],
       "function_name": "analytics_hitl_events",
-      "line": 7153,
+      "line": 7220,
       "tags": [
         "Analytics"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return org-scoped hitl_events rows as a JSON array.\n\nQuery params: start_date, end_date (YYYY-MM-DD; default last 30 days).\nsuperadmin may pass ?org_id= to override scope."
     },
     {
       "path": "/api/analytics/page_view",
@@ -791,11 +854,12 @@
         "POST"
       ],
       "function_name": "analytics_page_view",
-      "line": 7031,
+      "line": 7098,
       "tags": [
         "Analytics"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Record a page view counter for the current user."
     },
     {
       "path": "/api/analytics/rlhf_autonomy",
@@ -803,11 +867,12 @@
         "GET"
       ],
       "function_name": "analytics_rlhf_autonomy",
-      "line": 7243,
+      "line": 7310,
       "tags": [
         "Analytics"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return org-scoped RLHF approval_events aggregated by date and agent.\n\nQuery params: start_date, end_date (YYYY-MM-DD; default last 90 days).\nsuperadmin may pass ?org_id= to override scope."
     },
     {
       "path": "/api/analytics/rlhf_stages",
@@ -815,11 +880,12 @@
         "GET"
       ],
       "function_name": "analytics_rlhf_stages",
-      "line": 7305,
+      "line": 7372,
       "tags": [
         "Analytics"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return org-scoped current autonomy stage and stage transition history.\n\nReturns: { current: [{agent_name, autonomy_stage, stage_entered_at,\n                       model_version, kill_switch_enabled}],\n           transitions: [{agent_name, from_stage, to_stage, actor_type,\n                           reason, timestamp, previous_model_version,\n                           new_model_version}] }\nsuperadmin may pass ?org_id= to override scope."
     },
     {
       "path": "/api/analytics/user_activity",
@@ -827,11 +893,12 @@
         "GET"
       ],
       "function_name": "analytics_user_activity",
-      "line": 7200,
+      "line": 7267,
       "tags": [
         "Analytics"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Return org-scoped user_activity_daily rows as a JSON array.\n\nQuery params: start_date, end_date (YYYY-MM-DD; default last 30 days).\nsuperadmin may pass ?org_id= to override scope."
     },
     {
       "path": "/api/classify_intent",
@@ -839,11 +906,12 @@
         "POST"
       ],
       "function_name": "classify_intent_api",
-      "line": 11655,
+      "line": 11737,
       "tags": [
         "LLM Utilities"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Proxy to llm_client.classify_intent for chat command understanding."
     },
     {
       "path": "/api/config",
@@ -851,11 +919,12 @@
         "GET"
       ],
       "function_name": "get_config",
-      "line": 4474,
+      "line": 4494,
       "tags": [
         "Auth / Sessions"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Expose frontend config including available agent names and LLM settings."
     },
     {
       "path": "/api/dashboard/chat",
@@ -863,11 +932,12 @@
         "POST"
       ],
       "function_name": "dashboard_chat",
-      "line": 6847,
+      "line": 6914,
       "tags": [
         "Dashboard"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "LLM chat endpoint for the AMP dashboard."
     },
     {
       "path": "/api/dashboard/chat/history",
@@ -875,11 +945,12 @@
         "GET"
       ],
       "function_name": "dashboard_chat_history",
-      "line": 7009,
+      "line": 7076,
       "tags": [
         "Dashboard"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": ""
     },
     {
       "path": "/api/dashboard/demo-data/<path:filename>",
@@ -887,11 +958,12 @@
         "GET"
       ],
       "function_name": "dashboard_demo_data",
-      "line": 7350,
+      "line": 7417,
       "tags": [
         "Dashboard"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Serve dashboard demo CSVs from the backend."
     },
     {
       "path": "/api/hitl-agent",
@@ -899,11 +971,12 @@
         "POST"
       ],
       "function_name": "proxy_hitl",
-      "line": 4759,
+      "line": 4779,
       "tags": [
         "HITL"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Proxy endpoint for HITL requests from remote agents.\nForwards requests to internal HITL service."
     },
     {
       "path": "/api/init_agent",
@@ -911,11 +984,12 @@
         "POST"
       ],
       "function_name": "init_agent",
-      "line": 6599,
+      "line": 6666,
       "tags": [
         "Agent Lifecycle"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Append an \"initiated\" entry for the requested agent to the log service."
     },
     {
       "path": "/api/internal/users/resolve",
@@ -923,11 +997,12 @@
         "POST"
       ],
       "function_name": "resolve_user_identity",
-      "line": 10163,
+      "line": 10245,
       "tags": [
         "Internal"
       ],
-      "audience": "internal"
+      "audience": "internal",
+      "description": "Internal helper to resolve org_id/user_id for a username."
     },
     {
       "path": "/api/llm/classify",
@@ -935,11 +1010,12 @@
         "POST"
       ],
       "function_name": "classify_llm_prompt",
-      "line": 11666,
+      "line": 11748,
       "tags": [
         "LLM Utilities"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Classify a prompt using the configured LLM (internal-only)."
     },
     {
       "path": "/api/log",
@@ -947,11 +1023,12 @@
         "POST"
       ],
       "function_name": "proxy_log",
-      "line": 4970,
+      "line": 4990,
       "tags": [
         "Log Proxy"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Proxy endpoint for logging requests from remote agents.\nForwards requests to internal Logger service."
     },
     {
       "path": "/api/log/hitl-progress",
@@ -959,11 +1036,12 @@
         "GET"
       ],
       "function_name": "proxy_log_hitl_progress",
-      "line": 5038,
+      "line": 5063,
       "tags": [
         "Log Proxy"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Proxy a HITL progress request to the log service.\n\nForwards query parameters and any internal secret header. Returns 503\nif the log service is unreachable."
     },
     {
       "path": "/api/log/progress-all",
@@ -971,11 +1049,12 @@
         "GET"
       ],
       "function_name": "proxy_log_progress_all",
-      "line": 5026,
+      "line": 5046,
       "tags": [
         "Log Proxy"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Proxy a progress-all status request to the log service.\n\nForwards query parameters and any internal secret header. Returns 503\nif the log service is unreachable."
     },
     {
       "path": "/api/log_llm",
@@ -983,11 +1062,12 @@
         "POST"
       ],
       "function_name": "log_llm_response",
-      "line": 3939,
+      "line": 3959,
       "tags": [
         "Log Proxy"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Append a USER/LLM exchange to logs/amp.log for later auditing/debugging."
     },
     {
       "path": "/api/login",
@@ -999,7 +1079,8 @@
       "tags": [
         "Auth / Sessions"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Authenticate a user and issue an in-memory session token."
     },
     {
       "path": "/api/logout",
@@ -1011,7 +1092,8 @@
       "tags": [
         "Auth / Sessions"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Invalidate the caller's active session."
     },
     {
       "path": "/api/password/change",
@@ -1023,7 +1105,8 @@
       "tags": [
         "Auth / Sessions"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Allow a user to change their password by providing the current password."
     },
     {
       "path": "/api/password/setup",
@@ -1035,7 +1118,8 @@
       "tags": [
         "Auth / Sessions"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Set an initial password for a user record that lacks a stored hash."
     },
     {
       "path": "/api/presence/ping",
@@ -1047,7 +1131,8 @@
       "tags": [
         "Presence"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Record a heartbeat indicating the caller is active."
     },
     {
       "path": "/api/register",
@@ -1056,11 +1141,12 @@
         "POST"
       ],
       "function_name": "register",
-      "line": 11627,
+      "line": 11709,
       "tags": [
         "Auth / Sessions"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Create a new local user in SQLite using PBKDF2-SHA256."
     },
     {
       "path": "/api/rlhf/approval_request",
@@ -1068,11 +1154,12 @@
         "GET"
       ],
       "function_name": "rlhf_fetch_approval_request",
-      "line": 10477,
+      "line": 10559,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Fetch a stored RLHF approval request by decision_point_id."
     },
     {
       "path": "/api/rlhf/bootstrap",
@@ -1080,11 +1167,12 @@
         "POST"
       ],
       "function_name": "rlhf_bootstrap_agent",
-      "line": 11290,
+      "line": 11372,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Bootstrap rlhf_agent_config/state from policy and optionally enqueue STAGE_TICK."
     },
     {
       "path": "/api/rlhf/contract/approve",
@@ -1092,11 +1180,12 @@
         "POST"
       ],
       "function_name": "rlhf_approve_contract",
-      "line": 10083,
+      "line": 10160,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Approve an RLHF policy contract binding the policy to an org and agent.\n\nCalculates an approval hash over the policy, allowlists, and approver info,\nthen stores the contract record in the database."
     },
     {
       "path": "/api/rlhf/decision/bind_workitem",
@@ -1104,11 +1193,12 @@
         "POST"
       ],
       "function_name": "rlhf_bind_workitem",
-      "line": 10211,
+      "line": 10293,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Atomically bind an RLHF decision request to a workitem for human-routed decisions.\nReturns deterministic routing fields for client integrators."
     },
     {
       "path": "/api/rlhf/decision_status",
@@ -1116,11 +1206,12 @@
         "GET"
       ],
       "function_name": "rlhf_decision_status",
-      "line": 10578,
+      "line": 10660,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Deterministic status for one decision_point_id (routing, mode, and workitem linkage)."
     },
     {
       "path": "/api/rlhf/jobs/enqueue",
@@ -1128,11 +1219,12 @@
         "POST"
       ],
       "function_name": "rlhf_enqueue_job",
-      "line": 11352,
+      "line": 11434,
       "tags": [
         "RLHF"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Admin endpoint for deterministic RLHF job enqueue (E2E + ops)."
     },
     {
       "path": "/api/rlhf/models",
@@ -1140,11 +1232,12 @@
         "GET"
       ],
       "function_name": "rlhf_model_registry_list",
-      "line": 11885,
+      "line": 11967,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "List model versions in the registry, optionally filtered by org/agent/status."
     },
     {
       "path": "/api/rlhf/models/<int:model_id>/activate",
@@ -1152,11 +1245,12 @@
         "POST"
       ],
       "function_name": "rlhf_model_registry_activate",
-      "line": 11943,
+      "line": 12025,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Activate a model version. Retires the currently active model for\nthe same (org_id, agent_name) and marks this one as active.\nSuperadmin only."
     },
     {
       "path": "/api/rlhf/models/<int:model_id>/retire",
@@ -1164,11 +1258,12 @@
         "POST"
       ],
       "function_name": "rlhf_model_registry_retire",
-      "line": 11992,
+      "line": 12074,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Retire a model version. Superadmin only."
     },
     {
       "path": "/api/rlhf/outcome",
@@ -1176,11 +1271,12 @@
         "POST"
       ],
       "function_name": "rlhf_submit_outcome",
-      "line": 10340,
+      "line": 10422,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Submit RLHF approval outcome to HITL agent (internal wiring)."
     },
     {
       "path": "/api/rlhf/policy",
@@ -1188,11 +1284,12 @@
         "GET"
       ],
       "function_name": "rlhf_get_policy",
-      "line": 9991,
+      "line": 10058,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Retrieve the active RLHF policy for an agent.\n\nReturns the policy JSON, version, feature schema version, current autonomy\nstage, and RLHF status flags."
     },
     {
       "path": "/api/rlhf/policy/save",
@@ -1200,11 +1297,12 @@
         "POST"
       ],
       "function_name": "rlhf_save_policy",
-      "line": 10050,
+      "line": 10122,
       "tags": [
         "RLHF"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Save a new RLHF policy JSON for an agent.\n\nValidates against the policy schema, stamps the version, and persists via\n_save_rlhf_policy. Returns the saved version and policy."
     },
     {
       "path": "/api/rlhf/stage_tick/trigger",
@@ -1212,11 +1310,12 @@
         "POST"
       ],
       "function_name": "rlhf_trigger_stage_tick",
-      "line": 11424,
+      "line": 11506,
       "tags": [
         "RLHF"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Enqueue deterministic STAGE_TICK job for accelerated/local test runs."
     },
     {
       "path": "/api/rlhf/status",
@@ -1224,11 +1323,12 @@
         "GET"
       ],
       "function_name": "rlhf_status",
-      "line": 10652,
+      "line": 10734,
       "tags": [
         "RLHF"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Admin runtime status for one (org_id, agent_name) RLHF pipeline."
     },
     {
       "path": "/api/rlhf/test/reset",
@@ -1236,11 +1336,12 @@
         "POST"
       ],
       "function_name": "rlhf_reset_test_state",
-      "line": 11493,
+      "line": 11575,
       "tags": [
         "RLHF"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Reset RLHF runtime tables for one org+agent to support repeatable E2E runs."
     },
     {
       "path": "/api/settings/api-key",
@@ -1248,11 +1349,12 @@
         "POST"
       ],
       "function_name": "settings_generate_api_key",
-      "line": 8606,
+      "line": 8673,
       "tags": [
         "Auth / Sessions"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Generate or regenerate an API key for the current user."
     },
     {
       "path": "/api/settings/api-key",
@@ -1260,11 +1362,12 @@
         "GET"
       ],
       "function_name": "settings_get_api_key",
-      "line": 8617,
+      "line": 8684,
       "tags": [
         "Auth / Sessions"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Get API key info (prefix, timestamps) for the current user."
     },
     {
       "path": "/api/settings/api-key",
@@ -1272,11 +1375,12 @@
         "DELETE"
       ],
       "function_name": "settings_revoke_api_key",
-      "line": 8628,
+      "line": 8695,
       "tags": [
         "Auth / Sessions"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Revoke the current user's API key."
     },
     {
       "path": "/api/user/profile",
@@ -1288,7 +1392,8 @@
       "tags": [
         "User Profile"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Return the authenticated user's own profile."
     },
     {
       "path": "/api/user/profile",
@@ -1300,7 +1405,8 @@
       "tags": [
         "User Profile"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Update the authenticated user's own profile fields."
     },
     {
       "path": "/api/workitems",
@@ -1308,12 +1414,13 @@
         "POST"
       ],
       "function_name": "create_workitem",
-      "line": 5616,
+      "line": 5646,
       "tags": [
         "Workitems",
         "HITL"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Create a workitem; remove prior completed items with the same instance_id and username."
     },
     {
       "path": "/api/workitems",
@@ -1321,12 +1428,13 @@
         "GET"
       ],
       "function_name": "get_workitems",
-      "line": 5278,
+      "line": 5308,
       "tags": [
         "Workitems",
         "HITL"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Get workitems for a specific user."
     },
     {
       "path": "/api/workitems/<workitem_id>",
@@ -1334,12 +1442,13 @@
         "DELETE"
       ],
       "function_name": "delete_workitem",
-      "line": 6451,
+      "line": 6518,
       "tags": [
         "Workitems",
         "HITL"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Delete a specific workitem."
     },
     {
       "path": "/api/workitems/<workitem_id>/status",
@@ -1347,12 +1456,13 @@
         "PUT"
       ],
       "function_name": "update_workitem_status",
-      "line": 6304,
+      "line": 6371,
       "tags": [
         "Workitems",
         "HITL"
       ],
-      "audience": "public"
+      "audience": "public",
+      "description": "Update the status of a specific workitem."
     },
     {
       "path": "/api/worktray/chat",
@@ -1360,11 +1470,12 @@
         "POST"
       ],
       "function_name": "worktray_chat",
-      "line": 6496,
+      "line": 6563,
       "tags": [
         "Worktray"
       ],
-      "audience": "partner"
+      "audience": "partner",
+      "description": "Chat endpoint for worktray page with access to workitems context."
     }
   ]
 }

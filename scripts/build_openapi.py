@@ -101,7 +101,7 @@ def _make_operation(route: dict[str, Any], method: str, openapi_path: str, path_
 
     operation: dict[str, Any] = {
         "summary": summary,
-        "description": "",
+        "description": route.get("description") or "",
         "operationId": op_id,
         "tags": route.get("tags") or ["Uncategorized"],
         "responses": {

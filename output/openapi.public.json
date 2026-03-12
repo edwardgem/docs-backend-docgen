@@ -49,7 +49,7 @@
     "/api/abort": {
       "post": {
         "summary": "Abort Agent",
-        "description": "",
+        "description": "Append an \"aborted\" entry for the given agent_id to the log service.",
         "operationId": "post_abort_agent_api_abort",
         "tags": [
           "Agent Lifecycle"
@@ -71,7 +71,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "abort_agent",
-          "line": 6608
+          "line": 6675
         },
         "x-audience": "public",
         "security": [
@@ -87,7 +87,7 @@
     "/api/agent-tasks/complete": {
       "post": {
         "summary": "Complete Agent Task",
-        "description": "",
+        "description": "Mark a task as completed (for remote agents).\n\nRemote agents call this after successfully processing a task.\n\nBody:\n    agent_name: Name of the agent (required)\n    task_id: ID of the completed task (required)\n\nReturns:\n    JSON with 'ok' field",
         "operationId": "post_complete_agent_task_api_agent_tasks_complete",
         "tags": [
           "Agent Lifecycle"
@@ -109,7 +109,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "complete_agent_task",
-          "line": 4568
+          "line": 4588
         },
         "x-audience": "public",
         "security": [
@@ -125,7 +125,7 @@
     "/api/agent-tasks/poll": {
       "get": {
         "summary": "Poll Agent Tasks",
-        "description": "",
+        "description": "Poll for pending tasks (for remote agents).\n\nRemote agents call this endpoint periodically to check for launch/abort tasks.\nAgents also auto-register themselves on first poll.\n\nQuery params:\n    agent_name: Name of the agent (required)\n    owner: Owner's email/username (required)\n    long_name: Display name (optional, for registration)\n    description: Agent description (optional, for registration)\n\nReturns:\n    JSON with 'tasks' array",
         "operationId": "get_poll_agent_tasks_api_agent_tasks_poll",
         "tags": [
           "Agent Lifecycle"
@@ -147,7 +147,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "poll_agent_tasks",
-          "line": 4513
+          "line": 4533
         },
         "x-audience": "public",
         "security": [
@@ -163,7 +163,7 @@
     "/api/agent-tasks/register": {
       "post": {
         "summary": "Register Agent",
-        "description": "",
+        "description": "Register a remote agent. Agent ID is auto-generated from display name.\n\nBody:\n    long_name: Display name for the agent (required)\n    description: Agent description (optional)\n    auto_start: Allow agent-initiated instances to start immediately (optional, default false)\n\nReturns:\n    JSON with registered agent info including generated agent_name",
         "operationId": "post_register_agent_api_agent_tasks_register",
         "tags": [
           "Agent Lifecycle"
@@ -185,7 +185,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "register_agent",
-          "line": 4629
+          "line": 4649
         },
         "x-audience": "public",
         "security": [
@@ -201,7 +201,7 @@
     "/api/agent-tasks/unregister": {
       "post": {
         "summary": "Unregister Remote Agent",
-        "description": "",
+        "description": "Unregister a remote agent (remove from registry).\n\nThis allows users to remove stale or unwanted remote agents.\nRequires authentication - users can only unregister their own agents.\n\nBody:\n    agent_name: Name of the agent to unregister (required)\n\nReturns:\n    JSON with 'ok' field",
         "operationId": "post_unregister_remote_agent_api_agent_tasks_unregister",
         "tags": [
           "Agent Lifecycle"
@@ -223,7 +223,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "unregister_remote_agent",
-          "line": 4594
+          "line": 4614
         },
         "x-audience": "public",
         "security": [
@@ -239,7 +239,7 @@
     "/api/agent/start": {
       "post": {
         "summary": "Agent Start",
-        "description": "",
+        "description": "Create a new instance via API key auth (agent-initiated).\n\nHeaders:\n    X-API-Key: amp_k_... (required unless AMP_REQUIRE_API_KEY is false)\n\nBody:\n    agent_name: Name of the agent (required)\n    prompt: The prompt/task for this instance (required)\n    config: Config dict (optional, defaults to {})\n    metadata: Agent metadata to store in meta.json (optional)\n    long_name: Display name for agent registration (optional)\n    description: Agent description for registration (optional)\n\nReturns:\n    JSON with instance_id, agent_name, status\n    If auto_start is disabled, also returns requires_approval=true",
         "operationId": "post_agent_start_api_agent_start",
         "tags": [
           "Agent Lifecycle"
@@ -261,7 +261,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "agent_start",
-          "line": 8518
+          "line": 8585
         },
         "x-audience": "public",
         "security": [
@@ -277,7 +277,7 @@
     "/api/agent/{agent_name}/autonomy_ops": {
       "get": {
         "summary": "Get Agent Autonomy Ops",
-        "description": "",
+        "description": "Get autonomy_ops from policy.json for an agent.",
         "operationId": "get_get_agent_autonomy_ops_api_agent_agent_name_autonomy_ops",
         "tags": [
           "Agent Lifecycle"
@@ -299,7 +299,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agent_autonomy_ops",
-          "line": 9627
+          "line": 9694
         },
         "x-audience": "public",
         "parameters": [
@@ -323,7 +323,7 @@
       },
       "post": {
         "summary": "Save Agent Autonomy Ops",
-        "description": "",
+        "description": "Save autonomy_ops to policy.json for an agent.",
         "operationId": "post_save_agent_autonomy_ops_api_agent_agent_name_autonomy_ops",
         "tags": [
           "Agent Lifecycle"
@@ -345,7 +345,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "save_agent_autonomy_ops",
-          "line": 9666
+          "line": 9733
         },
         "x-audience": "public",
         "parameters": [
@@ -371,7 +371,7 @@
     "/api/agent/{agent_name}/criteria": {
       "get": {
         "summary": "Get Agent Criteria",
-        "description": "",
+        "description": "Get criteria from policy.json for an agent.",
         "operationId": "get_get_agent_criteria_api_agent_agent_name_criteria",
         "tags": [
           "Agent Lifecycle"
@@ -393,7 +393,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agent_criteria",
-          "line": 9492
+          "line": 9559
         },
         "x-audience": "public",
         "parameters": [
@@ -417,7 +417,7 @@
       },
       "post": {
         "summary": "Save Agent Criteria",
-        "description": "",
+        "description": "Save criteria to policy.json for an agent.",
         "operationId": "post_save_agent_criteria_api_agent_agent_name_criteria",
         "tags": [
           "Agent Lifecycle"
@@ -439,7 +439,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "save_agent_criteria",
-          "line": 9535
+          "line": 9602
         },
         "x-audience": "public",
         "parameters": [
@@ -465,7 +465,7 @@
     "/api/agent/{agent_name}/features": {
       "get": {
         "summary": "Get Agent Features",
-        "description": "",
+        "description": "Get policy.json for an agent (features section).",
         "operationId": "get_get_agent_features_api_agent_agent_name_features",
         "tags": [
           "Agent Lifecycle"
@@ -487,7 +487,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agent_features",
-          "line": 9309
+          "line": 9376
         },
         "x-audience": "public",
         "parameters": [
@@ -511,7 +511,7 @@
       },
       "post": {
         "summary": "Save Agent Features",
-        "description": "",
+        "description": "Save policy.json for an agent (features section).",
         "operationId": "post_save_agent_features_api_agent_agent_name_features",
         "tags": [
           "Agent Lifecycle"
@@ -533,7 +533,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "save_agent_features",
-          "line": 9399
+          "line": 9466
         },
         "x-audience": "public",
         "parameters": [
@@ -559,7 +559,7 @@
     "/api/agent/{agent_name}/features/generate-description": {
       "post": {
         "summary": "Generate Feature Description",
-        "description": "",
+        "description": "Generate a description for a feature field using LLM.",
         "operationId": "post_generate_feature_description_api_agent_agent_name_features_generate_description",
         "tags": [
           "Agent Lifecycle"
@@ -581,7 +581,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "generate_feature_description",
-          "line": 9888
+          "line": 9955
         },
         "x-audience": "public",
         "parameters": [
@@ -607,7 +607,7 @@
     "/api/agent/{agent_name}/policies/current/rlhf_enabled": {
       "put": {
         "summary": "Update Rlhf Enabled",
-        "description": "",
+        "description": "Update RLHF enabled status for the current policy.",
         "operationId": "put_update_rlhf_enabled_api_agent_agent_name_policies_current_rlhf_enabled",
         "tags": [
           "Agent Lifecycle"
@@ -629,7 +629,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "update_rlhf_enabled",
-          "line": 11779
+          "line": 11861
         },
         "x-audience": "public",
         "parameters": [
@@ -655,7 +655,7 @@
     "/api/agent/{agent_name}/policies/versions": {
       "get": {
         "summary": "Get Policy Versions",
-        "description": "",
+        "description": "Get all policy versions for an agent.",
         "operationId": "get_get_policy_versions_api_agent_agent_name_policies_versions",
         "tags": [
           "Agent Lifecycle"
@@ -677,7 +677,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_policy_versions",
-          "line": 11699
+          "line": 11781
         },
         "x-audience": "public",
         "parameters": [
@@ -703,7 +703,7 @@
     "/api/agent/{agent_name}/policies/{version}": {
       "get": {
         "summary": "Get Policy Version",
-        "description": "",
+        "description": "Get a specific policy version.",
         "operationId": "get_get_policy_version_api_agent_agent_name_policies_version",
         "tags": [
           "Agent Lifecycle"
@@ -725,7 +725,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_policy_version",
-          "line": 11751
+          "line": 11833
         },
         "x-audience": "public",
         "parameters": [
@@ -759,7 +759,7 @@
     "/api/agent/{agent_name}/policy/approve": {
       "post": {
         "summary": "Approve Rlhf Policy",
-        "description": "",
+        "description": "Approve and version the RLHF policy for an agent.",
         "operationId": "post_approve_rlhf_policy_api_agent_agent_name_policy_approve",
         "tags": [
           "Agent Lifecycle"
@@ -781,7 +781,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "approve_rlhf_policy",
-          "line": 9741
+          "line": 9808
         },
         "x-audience": "public",
         "parameters": [
@@ -807,7 +807,7 @@
     "/api/agents": {
       "get": {
         "summary": "Get Agents",
-        "description": "",
+        "description": "Return parsed records for the requested month/year; defaults to current.",
         "operationId": "get_get_agents_api_agents",
         "tags": [
           "Agent Lifecycle"
@@ -829,7 +829,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agents",
-          "line": 3958
+          "line": 3978
         },
         "x-audience": "public",
         "security": [
@@ -845,7 +845,7 @@
     "/api/agents/{instance_id}/llm_trace": {
       "get": {
         "summary": "Get Llm Trace",
-        "description": "",
+        "description": "Return the closest LLM trace entry for an instance and timestamp.",
         "operationId": "get_get_llm_trace_api_agents_instance_id_llm_trace",
         "tags": [
           "Agent Lifecycle"
@@ -867,7 +867,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_llm_trace",
-          "line": 4124
+          "line": 4144
         },
         "x-audience": "public",
         "parameters": [
@@ -893,7 +893,7 @@
     "/api/alp/agents": {
       "get": {
         "summary": "Alp List Agents",
-        "description": "",
+        "description": "List available ALP agents from AGENT_ROOT.\n\nAn agent is any directory under AGENT_ROOT that contains a config.json.\nReturns objects with { name, long_name, description }.",
         "operationId": "get_alp_list_agents_api_alp_agents",
         "tags": [
           "Agent Lifecycle"
@@ -915,7 +915,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_agents",
-          "line": 7573
+          "line": 7640
         },
         "x-audience": "public",
         "security": [
@@ -931,7 +931,7 @@
     "/api/alp/agents/register-native": {
       "post": {
         "summary": "Register Native Agent",
-        "description": "",
+        "description": "Register a native agent: adds entry to org's config.json and creates agent directory.\n\nBody:\n    long_name: Display name for the agent (required)\n    name: Agent slug/folder name (required, lowercase letters, numbers, hyphens)\n    description: Agent description (optional)\n    status: Agent status (optional, default \"active\")\n\nReturns:\n    JSON with registered agent info, or 409 if name already taken",
         "operationId": "post_register_native_agent_api_alp_agents_register_native",
         "tags": [
           "Agent Lifecycle"
@@ -953,7 +953,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "register_native_agent",
-          "line": 4668
+          "line": 4688
         },
         "x-audience": "public",
         "security": [
@@ -969,7 +969,7 @@
     "/api/alp/agents/{name}/defaults": {
       "get": {
         "summary": "Alp Get Defaults",
-        "description": "",
+        "description": "Return agent-level default config and prompt.",
         "operationId": "get_alp_get_defaults_api_alp_agents_name_defaults",
         "tags": [
           "Agent Lifecycle"
@@ -991,7 +991,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_defaults",
-          "line": 8237
+          "line": 8304
         },
         "x-audience": "public",
         "parameters": [
@@ -1017,7 +1017,7 @@
     "/api/alp/agents/{name}/defaults/artifacts": {
       "get": {
         "summary": "Alp List Default Artifacts",
-        "description": "",
+        "description": "List artifact files stored at the agent root (template artifacts).",
         "operationId": "get_alp_list_default_artifacts_api_alp_agents_name_defaults_artifacts",
         "tags": [
           "Agent Lifecycle"
@@ -1039,7 +1039,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_default_artifacts",
-          "line": 8146
+          "line": 8213
         },
         "x-audience": "public",
         "parameters": [
@@ -1065,7 +1065,7 @@
     "/api/alp/agents/{name}/defaults/artifacts/{filename}": {
       "get": {
         "summary": "Alp Get Default Artifact",
-        "description": "",
+        "description": "Serve agent-level (template) artifacts.",
         "operationId": "get_alp_get_default_artifact_api_alp_agents_name_defaults_artifacts_filename",
         "tags": [
           "Agent Lifecycle"
@@ -1087,7 +1087,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_default_artifact",
-          "line": 8179
+          "line": 8246
         },
         "x-audience": "public",
         "parameters": [
@@ -1121,7 +1121,7 @@
     "/api/alp/agents/{name}/defaults/config": {
       "post": {
         "summary": "Alp Update Defaults Config",
-        "description": "",
+        "description": "Persist agent-level default config.json.",
         "operationId": "post_alp_update_defaults_config_api_alp_agents_name_defaults_config",
         "tags": [
           "Agent Lifecycle"
@@ -1143,7 +1143,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_defaults_config",
-          "line": 8267
+          "line": 8334
         },
         "x-audience": "public",
         "parameters": [
@@ -1169,7 +1169,7 @@
     "/api/alp/agents/{name}/defaults/prompt": {
       "post": {
         "summary": "Alp Update Defaults Prompt",
-        "description": "",
+        "description": "Persist agent-level default prompt.txt.",
         "operationId": "post_alp_update_defaults_prompt_api_alp_agents_name_defaults_prompt",
         "tags": [
           "Agent Lifecycle"
@@ -1191,7 +1191,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_defaults_prompt",
-          "line": 8291
+          "line": 8358
         },
         "x-audience": "public",
         "parameters": [
@@ -1217,7 +1217,7 @@
     "/api/alp/agents/{name}/instances": {
       "get": {
         "summary": "Alp List Instances",
-        "description": "",
+        "description": "List ALP instances for a given agent by reading its subfolders with meta.json.",
         "operationId": "get_alp_list_instances_api_alp_agents_name_instances",
         "tags": [
           "Agent Lifecycle"
@@ -1239,7 +1239,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_instances",
-          "line": 7599
+          "line": 7666
         },
         "x-audience": "public",
         "parameters": [
@@ -1265,7 +1265,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}": {
       "delete": {
         "summary": "Alp Delete Instance",
-        "description": "",
+        "description": "Delete an ALP instance directory recursively.\n\nReturns 200 with { deleted: true } on success. If the instance directory\nis missing, returns 200 with { deleted: false, missing: true } for idempotency.",
         "operationId": "delete_alp_delete_instance_api_alp_agents_name_instances_instance_id",
         "tags": [
           "Agent Lifecycle"
@@ -1287,7 +1287,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_delete_instance",
-          "line": 8215
+          "line": 8282
         },
         "x-audience": "public",
         "parameters": [
@@ -1319,7 +1319,7 @@
       },
       "get": {
         "summary": "Alp Get Instance",
-        "description": "",
+        "description": "Return meta, config, and prompt for a specific instance. Falls back to agent defaults when missing.",
         "operationId": "get_alp_get_instance_api_alp_agents_name_instances_instance_id",
         "tags": [
           "Agent Lifecycle"
@@ -1341,7 +1341,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_instance",
-          "line": 7934
+          "line": 8001
         },
         "x-audience": "public",
         "parameters": [
@@ -1375,7 +1375,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/abort": {
       "post": {
         "summary": "Alp Abort Instance",
-        "description": "",
+        "description": "Send abort signal to agent instance and log the event.\n\nSupports two modes:\n- direct: Call agent API immediately (default, existing behavior)\n- polling: Queue abort task for agent to poll (new, for remote agents)",
         "operationId": "post_alp_abort_instance_api_alp_agents_name_instances_instance_id_abort",
         "tags": [
           "Agent Lifecycle"
@@ -1397,7 +1397,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_abort_instance",
-          "line": 11556
+          "line": 11638
         },
         "x-audience": "public",
         "parameters": [
@@ -1431,7 +1431,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/artifacts": {
       "get": {
         "summary": "Alp List Artifacts",
-        "description": "",
+        "description": "List artifact files under an instance's artifacts directory.\n\nReturns a list of { name, size, mtime, ext, content_type }.",
         "operationId": "get_alp_list_artifacts_api_alp_agents_name_instances_instance_id_artifacts",
         "tags": [
           "Agent Lifecycle"
@@ -1453,7 +1453,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_artifacts",
-          "line": 8098
+          "line": 8165
         },
         "x-audience": "public",
         "parameters": [
@@ -1487,7 +1487,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/artifacts/{filename}": {
       "post": {
         "summary": "Upload Artifact",
-        "description": "",
+        "description": "Upload an artifact file from remote agent.\n\nBody: raw file data\nRemote agents use this to upload output files (results, reports, etc.)",
         "operationId": "post_upload_artifact_api_alp_agents_name_instances_instance_id_artifacts_filename",
         "tags": [
           "Agent Lifecycle"
@@ -1509,7 +1509,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "upload_artifact",
-          "line": 8804
+          "line": 8871
         },
         "x-audience": "public",
         "parameters": [
@@ -1549,7 +1549,7 @@
       },
       "get": {
         "summary": "Alp Get Artifact",
-        "description": "",
+        "description": "Serve an artifact file inline when possible (browser decides how to open).",
         "operationId": "get_alp_get_artifact_api_alp_agents_name_instances_instance_id_artifacts_filename",
         "tags": [
           "Agent Lifecycle"
@@ -1571,7 +1571,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_artifact",
-          "line": 8196
+          "line": 8263
         },
         "x-audience": "public",
         "parameters": [
@@ -1613,7 +1613,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/chat": {
       "delete": {
         "summary": "Alp Instance Chat",
-        "description": "",
+        "description": "Chat with the LLM configured for this agent instance.",
         "operationId": "delete_alp_instance_chat_api_alp_agents_name_instances_instance_id_chat",
         "tags": [
           "Agent Lifecycle"
@@ -1635,7 +1635,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_instance_chat",
-          "line": 7996
+          "line": 8063
         },
         "x-audience": "public",
         "parameters": [
@@ -1667,7 +1667,7 @@
       },
       "get": {
         "summary": "Alp Instance Chat",
-        "description": "",
+        "description": "Chat with the LLM configured for this agent instance.",
         "operationId": "get_alp_instance_chat_api_alp_agents_name_instances_instance_id_chat",
         "tags": [
           "Agent Lifecycle"
@@ -1689,7 +1689,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_instance_chat",
-          "line": 7996
+          "line": 8063
         },
         "x-audience": "public",
         "parameters": [
@@ -1721,7 +1721,7 @@
       },
       "post": {
         "summary": "Alp Instance Chat",
-        "description": "",
+        "description": "Chat with the LLM configured for this agent instance.",
         "operationId": "post_alp_instance_chat_api_alp_agents_name_instances_instance_id_chat",
         "tags": [
           "Agent Lifecycle"
@@ -1743,7 +1743,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_instance_chat",
-          "line": 7996
+          "line": 8063
         },
         "x-audience": "public",
         "parameters": [
@@ -1777,7 +1777,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/config": {
       "post": {
         "summary": "Alp Update Instance Config",
-        "description": "",
+        "description": "Update instance config.json; allowed only before status becomes 'active'.",
         "operationId": "post_alp_update_instance_config_api_alp_agents_name_instances_instance_id_config",
         "tags": [
           "Agent Lifecycle"
@@ -1799,7 +1799,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_instance_config",
-          "line": 8644
+          "line": 8711
         },
         "x-audience": "public",
         "parameters": [
@@ -1833,7 +1833,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/execute": {
       "post": {
         "summary": "Alp Execute Instance",
-        "description": "",
+        "description": "Proxy endpoint to execute agent actions securely.",
         "operationId": "post_alp_execute_instance_api_alp_agents_name_instances_instance_id_execute",
         "tags": [
           "Agent Lifecycle"
@@ -1855,7 +1855,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_execute_instance",
-          "line": 9298
+          "line": 9365
         },
         "x-audience": "public",
         "parameters": [
@@ -1889,7 +1889,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/files": {
       "get": {
         "summary": "Get Instance Files",
-        "description": "",
+        "description": "Get all instance files for remote agent.\n\nReturns config.json, prompt.txt, and meta.json.\nThis endpoint is used by remote agents to download their instance files.",
         "operationId": "get_get_instance_files_api_alp_agents_name_instances_instance_id_files",
         "tags": [
           "Agent Lifecycle"
@@ -1911,7 +1911,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_instance_files",
-          "line": 8696
+          "line": 8763
         },
         "x-audience": "public",
         "parameters": [
@@ -1945,7 +1945,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/hitl-callback": {
       "post": {
         "summary": "Alp Hitl Callback",
-        "description": "",
+        "description": "Proxy endpoint for HITL callbacks (approve/reject) securely.",
         "operationId": "post_alp_hitl_callback_api_alp_agents_name_instances_instance_id_hitl_callback",
         "tags": [
           "Agent Lifecycle"
@@ -1967,7 +1967,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_hitl_callback",
-          "line": 9303
+          "line": 9370
         },
         "x-audience": "public",
         "parameters": [
@@ -2001,7 +2001,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/launch": {
       "post": {
         "summary": "Alp Launch Instance",
-        "description": "",
+        "description": "Transition an ALP instance from 'initiated' to 'active'.\n\nSupports two modes:\n- direct: Call agent API immediately (default, existing behavior)\n- polling: Queue task for agent to poll (new, for remote agents)",
         "operationId": "post_alp_launch_instance_api_alp_agents_name_instances_instance_id_launch",
         "tags": [
           "Agent Lifecycle"
@@ -2023,7 +2023,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_launch_instance",
-          "line": 8838
+          "line": 8905
         },
         "x-audience": "public",
         "parameters": [
@@ -2057,7 +2057,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/log_initiated": {
       "post": {
         "summary": "Alp Log Initiated",
-        "description": "",
+        "description": "Append a 'state - initiated' entry for a specific ALP instance.\n\n- Validates the instance directory exists for the agent.\n- Updates the instance's meta.json status to 'initiated' and sets owner to current username.\n- Appends a state change log line to the current month AMP logfile.",
         "operationId": "post_alp_log_initiated_api_alp_agents_name_instances_instance_id_log_initiated",
         "tags": [
           "Agent Lifecycle"
@@ -2079,7 +2079,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_log_initiated",
-          "line": 8913
+          "line": 8980
         },
         "x-audience": "public",
         "parameters": [
@@ -2113,7 +2113,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/meta": {
       "put": {
         "summary": "Update Instance Meta",
-        "description": "",
+        "description": "Update meta.json for remote agent.\n\nBody should be a partial or full meta.json object.\nRemote agents use this to update status, timestamps, etc.",
         "operationId": "put_update_instance_meta_api_alp_agents_name_instances_instance_id_meta",
         "tags": [
           "Agent Lifecycle"
@@ -2135,7 +2135,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "update_instance_meta",
-          "line": 8734
+          "line": 8801
         },
         "x-audience": "public",
         "parameters": [
@@ -2169,7 +2169,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/progress": {
       "post": {
         "summary": "Append Instance Progress",
-        "description": "",
+        "description": "Append a progress entry to meta.json.\n\nBody: {\"message\": \"Processing...\"}\nRemote agents use this to report progress to the UI.",
         "operationId": "post_append_instance_progress_api_alp_agents_name_instances_instance_id_progress",
         "tags": [
           "Agent Lifecycle"
@@ -2191,7 +2191,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "append_instance_progress",
-          "line": 8765
+          "line": 8832
         },
         "x-audience": "public",
         "parameters": [
@@ -2225,7 +2225,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/prompt": {
       "post": {
         "summary": "Alp Update Instance Prompt",
-        "description": "",
+        "description": "Update instance prompt.txt; allowed only before status becomes 'active'.",
         "operationId": "post_alp_update_instance_prompt_api_alp_agents_name_instances_instance_id_prompt",
         "tags": [
           "Agent Lifecycle"
@@ -2247,7 +2247,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_instance_prompt",
-          "line": 8669
+          "line": 8736
         },
         "x-audience": "public",
         "parameters": [
@@ -2281,7 +2281,7 @@
     "/api/alp/agents/{name}/instances/{instance_id}/summary": {
       "get": {
         "summary": "Alp Get Instance Summary",
-        "description": "",
+        "description": "Return the contents of summary.txt for an instance, if present.",
         "operationId": "get_alp_get_instance_summary_api_alp_agents_name_instances_instance_id_summary",
         "tags": [
           "Agent Lifecycle"
@@ -2303,7 +2303,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_instance_summary",
-          "line": 7897
+          "line": 7964
         },
         "x-audience": "public",
         "parameters": [
@@ -2335,7 +2335,7 @@
       },
       "post": {
         "summary": "Alp Save Instance Summary",
-        "description": "",
+        "description": "Write summary.txt for an instance.",
         "operationId": "post_alp_save_instance_summary_api_alp_agents_name_instances_instance_id_summary",
         "tags": [
           "Agent Lifecycle"
@@ -2357,7 +2357,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_save_instance_summary",
-          "line": 7913
+          "line": 7980
         },
         "x-audience": "public",
         "parameters": [
@@ -2391,7 +2391,7 @@
     "/api/alp/agents/{name}/runs": {
       "post": {
         "summary": "Alp Create Run",
-        "description": "",
+        "description": "Create a new instance folder with provided config/prompt; status 'initiated'.",
         "operationId": "post_alp_create_run_api_alp_agents_name_runs",
         "tags": [
           "Agent Lifecycle"
@@ -2413,7 +2413,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_create_run",
-          "line": 8315
+          "line": 8382
         },
         "x-audience": "public",
         "parameters": [
@@ -2439,7 +2439,7 @@
     "/api/analytics/agent_events": {
       "get": {
         "summary": "Analytics Agent Events",
-        "description": "",
+        "description": "Return org-scoped agent_events rows as a JSON array.\n\nQuery params: start_date, end_date (YYYY-MM-DD; default last 30 days).\nsuperadmin may pass ?org_id= to override scope.",
         "operationId": "get_analytics_agent_events_api_analytics_agent_events",
         "tags": [
           "Analytics"
@@ -2461,7 +2461,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_agent_events",
-          "line": 7104
+          "line": 7171
         },
         "x-audience": "public",
         "security": [
@@ -2477,7 +2477,7 @@
     "/api/analytics/config": {
       "get": {
         "summary": "Analytics Config",
-        "description": "",
+        "description": "Return the current analytics data source configuration.",
         "operationId": "get_analytics_config_api_analytics_config",
         "tags": [
           "Analytics"
@@ -2499,7 +2499,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_config",
-          "line": 7022
+          "line": 7089
         },
         "x-audience": "public",
         "security": [
@@ -2515,7 +2515,7 @@
     "/api/analytics/hitl_events": {
       "get": {
         "summary": "Analytics Hitl Events",
-        "description": "",
+        "description": "Return org-scoped hitl_events rows as a JSON array.\n\nQuery params: start_date, end_date (YYYY-MM-DD; default last 30 days).\nsuperadmin may pass ?org_id= to override scope.",
         "operationId": "get_analytics_hitl_events_api_analytics_hitl_events",
         "tags": [
           "Analytics"
@@ -2537,7 +2537,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_hitl_events",
-          "line": 7153
+          "line": 7220
         },
         "x-audience": "public",
         "security": [
@@ -2553,7 +2553,7 @@
     "/api/analytics/page_view": {
       "post": {
         "summary": "Analytics Page View",
-        "description": "",
+        "description": "Record a page view counter for the current user.",
         "operationId": "post_analytics_page_view_api_analytics_page_view",
         "tags": [
           "Analytics"
@@ -2575,7 +2575,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_page_view",
-          "line": 7031
+          "line": 7098
         },
         "x-audience": "public",
         "security": [
@@ -2591,7 +2591,7 @@
     "/api/analytics/rlhf_autonomy": {
       "get": {
         "summary": "Analytics Rlhf Autonomy",
-        "description": "",
+        "description": "Return org-scoped RLHF approval_events aggregated by date and agent.\n\nQuery params: start_date, end_date (YYYY-MM-DD; default last 90 days).\nsuperadmin may pass ?org_id= to override scope.",
         "operationId": "get_analytics_rlhf_autonomy_api_analytics_rlhf_autonomy",
         "tags": [
           "Analytics"
@@ -2613,7 +2613,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_rlhf_autonomy",
-          "line": 7243
+          "line": 7310
         },
         "x-audience": "public",
         "security": [
@@ -2629,7 +2629,7 @@
     "/api/analytics/rlhf_stages": {
       "get": {
         "summary": "Analytics Rlhf Stages",
-        "description": "",
+        "description": "Return org-scoped current autonomy stage and stage transition history.\n\nReturns: { current: [{agent_name, autonomy_stage, stage_entered_at,\n                       model_version, kill_switch_enabled}],\n           transitions: [{agent_name, from_stage, to_stage, actor_type,\n                           reason, timestamp, previous_model_version,\n                           new_model_version}] }\nsuperadmin may pass ?org_id= to override scope.",
         "operationId": "get_analytics_rlhf_stages_api_analytics_rlhf_stages",
         "tags": [
           "Analytics"
@@ -2651,7 +2651,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_rlhf_stages",
-          "line": 7305
+          "line": 7372
         },
         "x-audience": "public",
         "security": [
@@ -2667,7 +2667,7 @@
     "/api/analytics/user_activity": {
       "get": {
         "summary": "Analytics User Activity",
-        "description": "",
+        "description": "Return org-scoped user_activity_daily rows as a JSON array.\n\nQuery params: start_date, end_date (YYYY-MM-DD; default last 30 days).\nsuperadmin may pass ?org_id= to override scope.",
         "operationId": "get_analytics_user_activity_api_analytics_user_activity",
         "tags": [
           "Analytics"
@@ -2689,7 +2689,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_user_activity",
-          "line": 7200
+          "line": 7267
         },
         "x-audience": "public",
         "security": [
@@ -2705,7 +2705,7 @@
     "/api/config": {
       "get": {
         "summary": "Get Config",
-        "description": "",
+        "description": "Expose frontend config including available agent names and LLM settings.",
         "operationId": "get_get_config_api_config",
         "tags": [
           "Auth / Sessions"
@@ -2727,7 +2727,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_config",
-          "line": 4474
+          "line": 4494
         },
         "x-audience": "public",
         "security": [
@@ -2743,7 +2743,7 @@
     "/api/hitl-agent": {
       "post": {
         "summary": "Proxy Hitl",
-        "description": "",
+        "description": "Proxy endpoint for HITL requests from remote agents.\nForwards requests to internal HITL service.",
         "operationId": "post_proxy_hitl_api_hitl_agent",
         "tags": [
           "HITL"
@@ -2765,7 +2765,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_hitl",
-          "line": 4759
+          "line": 4779
         },
         "x-audience": "public",
         "security": [
@@ -2781,7 +2781,7 @@
     "/api/init_agent": {
       "post": {
         "summary": "Init Agent",
-        "description": "",
+        "description": "Append an \"initiated\" entry for the requested agent to the log service.",
         "operationId": "post_init_agent_api_init_agent",
         "tags": [
           "Agent Lifecycle"
@@ -2803,7 +2803,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "init_agent",
-          "line": 6599
+          "line": 6666
         },
         "x-audience": "public",
         "security": [
@@ -2819,7 +2819,7 @@
     "/api/log": {
       "post": {
         "summary": "Proxy Log",
-        "description": "",
+        "description": "Proxy endpoint for logging requests from remote agents.\nForwards requests to internal Logger service.",
         "operationId": "post_proxy_log_api_log",
         "tags": [
           "Log Proxy"
@@ -2841,7 +2841,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_log",
-          "line": 4970
+          "line": 4990
         },
         "x-audience": "public",
         "security": [
@@ -2857,7 +2857,7 @@
     "/api/log/hitl-progress": {
       "get": {
         "summary": "Proxy Log Hitl Progress",
-        "description": "",
+        "description": "Proxy a HITL progress request to the log service.\n\nForwards query parameters and any internal secret header. Returns 503\nif the log service is unreachable.",
         "operationId": "get_proxy_log_hitl_progress_api_log_hitl_progress",
         "tags": [
           "Log Proxy"
@@ -2879,7 +2879,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_log_hitl_progress",
-          "line": 5038
+          "line": 5063
         },
         "x-audience": "public",
         "security": [
@@ -2895,7 +2895,7 @@
     "/api/log/progress-all": {
       "get": {
         "summary": "Proxy Log Progress All",
-        "description": "",
+        "description": "Proxy a progress-all status request to the log service.\n\nForwards query parameters and any internal secret header. Returns 503\nif the log service is unreachable.",
         "operationId": "get_proxy_log_progress_all_api_log_progress_all",
         "tags": [
           "Log Proxy"
@@ -2917,7 +2917,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_log_progress_all",
-          "line": 5026
+          "line": 5046
         },
         "x-audience": "public",
         "security": [
@@ -2933,7 +2933,7 @@
     "/api/log_llm": {
       "post": {
         "summary": "Log Llm Response",
-        "description": "",
+        "description": "Append a USER/LLM exchange to logs/amp.log for later auditing/debugging.",
         "operationId": "post_log_llm_response_api_log_llm",
         "tags": [
           "Log Proxy"
@@ -2955,7 +2955,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "log_llm_response",
-          "line": 3939
+          "line": 3959
         },
         "x-audience": "public",
         "security": [
@@ -2971,7 +2971,7 @@
     "/api/login": {
       "post": {
         "summary": "Login",
-        "description": "",
+        "description": "Authenticate a user and issue an in-memory session token.",
         "operationId": "post_login_api_login",
         "tags": [
           "Auth / Sessions"
@@ -3009,7 +3009,7 @@
     "/api/logout": {
       "post": {
         "summary": "Logout",
-        "description": "",
+        "description": "Invalidate the caller's active session.",
         "operationId": "post_logout_api_logout",
         "tags": [
           "Auth / Sessions"
@@ -3047,7 +3047,7 @@
     "/api/password/change": {
       "post": {
         "summary": "Change Password",
-        "description": "",
+        "description": "Allow a user to change their password by providing the current password.",
         "operationId": "post_change_password_api_password_change",
         "tags": [
           "Auth / Sessions"
@@ -3085,7 +3085,7 @@
     "/api/password/setup": {
       "post": {
         "summary": "Setup Password",
-        "description": "",
+        "description": "Set an initial password for a user record that lacks a stored hash.",
         "operationId": "post_setup_password_api_password_setup",
         "tags": [
           "Auth / Sessions"
@@ -3123,7 +3123,7 @@
     "/api/register": {
       "options": {
         "summary": "Register",
-        "description": "",
+        "description": "Create a new local user in SQLite using PBKDF2-SHA256.",
         "operationId": "options_register_api_register",
         "tags": [
           "Auth / Sessions"
@@ -3145,7 +3145,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "register",
-          "line": 11627
+          "line": 11709
         },
         "x-audience": "public",
         "security": [
@@ -3159,7 +3159,7 @@
       },
       "post": {
         "summary": "Register",
-        "description": "",
+        "description": "Create a new local user in SQLite using PBKDF2-SHA256.",
         "operationId": "post_register_api_register",
         "tags": [
           "Auth / Sessions"
@@ -3181,7 +3181,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "register",
-          "line": 11627
+          "line": 11709
         },
         "x-audience": "public",
         "security": [
@@ -3197,7 +3197,7 @@
     "/api/rlhf/approval_request": {
       "get": {
         "summary": "Rlhf Fetch Approval Request",
-        "description": "",
+        "description": "Fetch a stored RLHF approval request by decision_point_id.",
         "operationId": "get_rlhf_fetch_approval_request_api_rlhf_approval_request",
         "tags": [
           "RLHF"
@@ -3219,7 +3219,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_fetch_approval_request",
-          "line": 10477
+          "line": 10559
         },
         "x-audience": "public",
         "security": [
@@ -3235,7 +3235,7 @@
     "/api/rlhf/bootstrap": {
       "post": {
         "summary": "Rlhf Bootstrap Agent",
-        "description": "",
+        "description": "Bootstrap rlhf_agent_config/state from policy and optionally enqueue STAGE_TICK.",
         "operationId": "post_rlhf_bootstrap_agent_api_rlhf_bootstrap",
         "tags": [
           "RLHF"
@@ -3257,7 +3257,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_bootstrap_agent",
-          "line": 11290
+          "line": 11372
         },
         "x-audience": "public",
         "security": [
@@ -3273,7 +3273,7 @@
     "/api/rlhf/contract/approve": {
       "post": {
         "summary": "Rlhf Approve Contract",
-        "description": "",
+        "description": "Approve an RLHF policy contract binding the policy to an org and agent.\n\nCalculates an approval hash over the policy, allowlists, and approver info,\nthen stores the contract record in the database.",
         "operationId": "post_rlhf_approve_contract_api_rlhf_contract_approve",
         "tags": [
           "RLHF"
@@ -3295,7 +3295,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_approve_contract",
-          "line": 10083
+          "line": 10160
         },
         "x-audience": "public",
         "security": [
@@ -3311,7 +3311,7 @@
     "/api/rlhf/decision/bind_workitem": {
       "post": {
         "summary": "Rlhf Bind Workitem",
-        "description": "",
+        "description": "Atomically bind an RLHF decision request to a workitem for human-routed decisions.\nReturns deterministic routing fields for client integrators.",
         "operationId": "post_rlhf_bind_workitem_api_rlhf_decision_bind_workitem",
         "tags": [
           "RLHF"
@@ -3333,7 +3333,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_bind_workitem",
-          "line": 10211
+          "line": 10293
         },
         "x-audience": "public",
         "security": [
@@ -3349,7 +3349,7 @@
     "/api/rlhf/decision_status": {
       "get": {
         "summary": "Rlhf Decision Status",
-        "description": "",
+        "description": "Deterministic status for one decision_point_id (routing, mode, and workitem linkage).",
         "operationId": "get_rlhf_decision_status_api_rlhf_decision_status",
         "tags": [
           "RLHF"
@@ -3371,7 +3371,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_decision_status",
-          "line": 10578
+          "line": 10660
         },
         "x-audience": "public",
         "security": [
@@ -3387,7 +3387,7 @@
     "/api/rlhf/models": {
       "get": {
         "summary": "Rlhf Model Registry List",
-        "description": "",
+        "description": "List model versions in the registry, optionally filtered by org/agent/status.",
         "operationId": "get_rlhf_model_registry_list_api_rlhf_models",
         "tags": [
           "RLHF"
@@ -3409,7 +3409,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_model_registry_list",
-          "line": 11885
+          "line": 11967
         },
         "x-audience": "public",
         "security": [
@@ -3425,7 +3425,7 @@
     "/api/rlhf/models/{model_id}/activate": {
       "post": {
         "summary": "Rlhf Model Registry Activate",
-        "description": "",
+        "description": "Activate a model version. Retires the currently active model for\nthe same (org_id, agent_name) and marks this one as active.\nSuperadmin only.",
         "operationId": "post_rlhf_model_registry_activate_api_rlhf_models_model_id_activate",
         "tags": [
           "RLHF"
@@ -3447,7 +3447,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_model_registry_activate",
-          "line": 11943
+          "line": 12025
         },
         "x-audience": "public",
         "parameters": [
@@ -3473,7 +3473,7 @@
     "/api/rlhf/models/{model_id}/retire": {
       "post": {
         "summary": "Rlhf Model Registry Retire",
-        "description": "",
+        "description": "Retire a model version. Superadmin only.",
         "operationId": "post_rlhf_model_registry_retire_api_rlhf_models_model_id_retire",
         "tags": [
           "RLHF"
@@ -3495,7 +3495,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_model_registry_retire",
-          "line": 11992
+          "line": 12074
         },
         "x-audience": "public",
         "parameters": [
@@ -3521,7 +3521,7 @@
     "/api/rlhf/outcome": {
       "post": {
         "summary": "Rlhf Submit Outcome",
-        "description": "",
+        "description": "Submit RLHF approval outcome to HITL agent (internal wiring).",
         "operationId": "post_rlhf_submit_outcome_api_rlhf_outcome",
         "tags": [
           "RLHF"
@@ -3543,7 +3543,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_submit_outcome",
-          "line": 10340
+          "line": 10422
         },
         "x-audience": "public",
         "security": [
@@ -3559,7 +3559,7 @@
     "/api/rlhf/policy": {
       "get": {
         "summary": "Rlhf Get Policy",
-        "description": "",
+        "description": "Retrieve the active RLHF policy for an agent.\n\nReturns the policy JSON, version, feature schema version, current autonomy\nstage, and RLHF status flags.",
         "operationId": "get_rlhf_get_policy_api_rlhf_policy",
         "tags": [
           "RLHF"
@@ -3581,7 +3581,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_get_policy",
-          "line": 9991
+          "line": 10058
         },
         "x-audience": "public",
         "security": [
@@ -3597,7 +3597,7 @@
     "/api/rlhf/policy/save": {
       "post": {
         "summary": "Rlhf Save Policy",
-        "description": "",
+        "description": "Save a new RLHF policy JSON for an agent.\n\nValidates against the policy schema, stamps the version, and persists via\n_save_rlhf_policy. Returns the saved version and policy.",
         "operationId": "post_rlhf_save_policy_api_rlhf_policy_save",
         "tags": [
           "RLHF"
@@ -3619,7 +3619,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_save_policy",
-          "line": 10050
+          "line": 10122
         },
         "x-audience": "public",
         "security": [
@@ -3635,7 +3635,7 @@
     "/api/workitems": {
       "post": {
         "summary": "Create Workitem",
-        "description": "",
+        "description": "Create a workitem; remove prior completed items with the same instance_id and username.",
         "operationId": "post_create_workitem_api_workitems",
         "tags": [
           "Workitems",
@@ -3658,7 +3658,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "create_workitem",
-          "line": 5616
+          "line": 5646
         },
         "x-audience": "public",
         "security": [
@@ -3672,7 +3672,7 @@
       },
       "get": {
         "summary": "Get Workitems",
-        "description": "",
+        "description": "Get workitems for a specific user.",
         "operationId": "get_get_workitems_api_workitems",
         "tags": [
           "Workitems",
@@ -3695,7 +3695,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_workitems",
-          "line": 5278
+          "line": 5308
         },
         "x-audience": "public",
         "security": [
@@ -3711,7 +3711,7 @@
     "/api/workitems/{workitem_id}": {
       "delete": {
         "summary": "Delete Workitem",
-        "description": "",
+        "description": "Delete a specific workitem.",
         "operationId": "delete_delete_workitem_api_workitems_workitem_id",
         "tags": [
           "Workitems",
@@ -3734,7 +3734,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "delete_workitem",
-          "line": 6451
+          "line": 6518
         },
         "x-audience": "public",
         "parameters": [
@@ -3760,7 +3760,7 @@
     "/api/workitems/{workitem_id}/status": {
       "put": {
         "summary": "Update Workitem Status",
-        "description": "",
+        "description": "Update the status of a specific workitem.",
         "operationId": "put_update_workitem_status_api_workitems_workitem_id_status",
         "tags": [
           "Workitems",
@@ -3783,7 +3783,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "update_workitem_status",
-          "line": 6304
+          "line": 6371
         },
         "x-audience": "public",
         "parameters": [

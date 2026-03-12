@@ -21,6 +21,7 @@ class RouteRecord:
     line: int
     tags: list[str]
     audience: str
+    description: str = ""
 
 
 def _safe_literal(node: ast.AST) -> Any:
@@ -133,6 +134,7 @@ def _extract_routes(app_file: Path) -> list[RouteRecord]:
                 continue
 
             tags, audience = _categorize(path)
+            docstring = ast.get_docstring(node) or ""
             results.append(
                 RouteRecord(
                     path=path,
@@ -141,6 +143,7 @@ def _extract_routes(app_file: Path) -> list[RouteRecord]:
                     line=node.lineno,
                     tags=tags,
                     audience=audience,
+                    description=docstring,
                 )
             )
 
@@ -174,6 +177,7 @@ def _to_json(records: list[RouteRecord], source_file: Path) -> dict[str, Any]:
                 "line": r.line,
                 "tags": r.tags,
                 "audience": r.audience,
+                "description": r.description,
             }
             for r in records
         ],
