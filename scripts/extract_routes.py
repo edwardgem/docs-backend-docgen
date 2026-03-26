@@ -85,19 +85,19 @@ def _categorize(path: str) -> tuple[list[str], str]:
         return ["RLHF"], audience
     if p.startswith("/api/workitems"):
         return ["Workitems", "HITL"], audience
-    if p.startswith("/api/hitl-agent"):
+    if p.startswith("/api/hitl/") or p.startswith("/api/hitl-agent"):
         return ["HITL"], audience
     if p.startswith("/api/log"):
         return ["Log Proxy"], audience
     if p.startswith("/api/analytics/"):
         return ["Analytics"], audience
-    if p.startswith("/api/agent-tasks") or p.startswith("/api/agent/start") or p.startswith("/api/agent/"):
+    if p.startswith("/api/agent-tasks") or p.startswith("/api/agent/init") or p.startswith("/api/agent/"):
         return ["Agent Lifecycle"], audience
     if p.startswith("/api/alp/"):
         return ["Agent Lifecycle"], audience
     if p.startswith("/api/agents/") or p == "/api/agents":
         return ["Agent Lifecycle"], audience
-    if p.startswith("/api/init_agent") or p.startswith("/api/abort"):
+    if p.startswith("/api/abort"):
         return ["Agent Lifecycle"], audience
     return ["Uncategorized"], audience
 

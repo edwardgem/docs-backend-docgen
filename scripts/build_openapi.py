@@ -53,6 +53,33 @@ _PREFERRED_HANDLER_BY_PATH_METHOD = {
     ("/api/alp/agents/{name}/instances/{instance_id}/hitl-callback", "post"): "alp_hitl_callback",
 }
 
+# Endpoint-specific wording overrides for customer-facing clarity.
+# Keep this map small and only use it where function-name summaries/docstrings
+# are too generic for external docs.
+_OPERATION_OVERRIDES: dict[tuple[str, str], dict[str, str]] = {
+    (
+        "/api/hitl/request",
+        "post",
+    ): {
+        "summary": "HITL Request",
+        "description": (
+            "Submit a Human-in-the-Loop (HITL) review request for an agent action.\n\n"
+            "Use this endpoint when an automated flow needs human approval or input. "
+            "AMP forwards the request to the internal HITL service, which creates and "
+            "tracks the review task.\n\n"
+            "Typical outcome:\n"
+            "- 200: request accepted and routed for human review\n"
+            "- 4xx/5xx: request rejected or routing failed"
+        ),
+    },
+}
+
+# Deprecated public aliases we intentionally hide from generated docs.
+# Canonical HITL endpoints are under /api/hitl/*.
+_HIDDEN_PATH_PREFIXES = (
+    "/api/hitl-agent",
+)
+
 
 def _slug(text: str) -> str:
     cleaned = []
@@ -105,11 +132,12 @@ def _make_operation(route: dict[str, Any], method: str, openapi_path: str, path_
     method_lc = method.lower()
     function_name = route.get("function_name") or ""
     summary = _function_name_to_summary(function_name)
+    override = _OPERATION_OVERRIDES.get((openapi_path, method_lc), {})
     op_id = f"{method_lc}_{_slug(function_name or 'route')}_{_slug(openapi_path)}"
 
     operation: dict[str, Any] = {
-        "summary": summary,
-        "description": route.get("description") or "",
+        "summary": override.get("summary", summary),
+        "description": override.get("description", route.get("description") or ""),
         "operationId": op_id,
         "tags": route.get("tags") or ["Uncategorized"],
         "responses": {
@@ -166,6 +194,8 @@ def _build_spec(inventory: dict[str, Any], include_audiences: set[str] | None = 
             continue
 
         openapi_path, path_params = _normalize_flask_path(flask_path)
+        if any(openapi_path.startswith(prefix) for prefix in _HIDDEN_PATH_PREFIXES):
+            continue
         route["source_file"] = source
         methods = route.get("methods") or ["GET"]
         path_item = paths.setdefault(openapi_path, {})

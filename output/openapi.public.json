@@ -17,10 +17,6 @@
   ],
   "tags": [
     {
-      "name": "Admin / Ops",
-      "description": "Administrative and operator APIs."
-    },
-    {
       "name": "Agent Lifecycle",
       "description": "Agent registration, launch, polling, and lifecycle operations."
     },
@@ -33,85 +29,23 @@
       "description": "Authentication and session-related APIs."
     },
     {
-      "name": "Dashboard",
-      "description": "Dashboard-facing APIs (generally non-customer integration surface)."
-    },
-    {
-      "name": "Frontend Shell",
-      "description": "Frontend SPA shell routes."
-    },
-    {
       "name": "HITL",
       "description": "Human-in-the-loop routing and decision APIs."
-    },
-    {
-      "name": "Internal",
-      "description": "Internal service-to-service APIs."
-    },
-    {
-      "name": "LLM Utilities",
-      "description": "Prompt classification and utility APIs."
     },
     {
       "name": "Log Proxy",
       "description": "Agent log ingestion and proxy APIs."
     },
     {
-      "name": "Ops Utilities",
-      "description": "Operational refresh/streaming utility APIs."
-    },
-    {
-      "name": "Presence",
-      "description": "User presence and heartbeat APIs."
-    },
-    {
       "name": "RLHF",
       "description": "RLHF policy, runtime, and decision management APIs."
     },
     {
-      "name": "User Profile",
-      "description": "End-user profile management APIs."
-    },
-    {
       "name": "Workitems",
       "description": "Work item queue and status APIs for human review."
-    },
-    {
-      "name": "Worktray",
-      "description": "Worktray-facing interactive APIs."
     }
   ],
   "paths": {
-    "/": {
-      "get": {
-        "summary": "Spa Index",
-        "description": "Serve static files from frontend/dist; fallback to index.html for SPA routes.\n\nIf the build output is missing, return a friendly message suggesting to\nrun `npm run build` in the frontend directory.",
-        "operationId": "get_spa_index_",
-        "tags": [
-          "Frontend Shell"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "spa_index",
-          "line": 3104
-        },
-        "x-audience": "internal"
-      }
-    },
     "/api/abort": {
       "post": {
         "summary": "Abort Agent",
@@ -137,245 +71,9 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "abort_agent",
-          "line": 6675
+          "line": 7358
         },
         "x-audience": "public",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/admin/organizations": {
-      "get": {
-        "summary": "Admin List Organizations",
-        "description": "List all organizations for dropdown use. Admins see all.",
-        "operationId": "get_admin_list_organizations_api_admin_organizations",
-        "tags": [
-          "Admin / Ops"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "admin_list_organizations",
-          "line": 3581
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/admin/presence": {
-      "get": {
-        "summary": "Admin Presence Overview",
-        "description": "Return a summary of active/idle users on AMP for admin roles.",
-        "operationId": "get_admin_presence_overview_api_admin_presence",
-        "tags": [
-          "Admin / Ops"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "admin_presence_overview",
-          "line": 3223
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/admin/presence/chat": {
-      "post": {
-        "summary": "Admin Presence Chat",
-        "description": "LLM-powered assistant for presence dashboard questions.",
-        "operationId": "post_admin_presence_chat_api_admin_presence_chat",
-        "tags": [
-          "Admin / Ops"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "admin_presence_chat",
-          "line": 3247
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/admin/users": {
-      "post": {
-        "summary": "Admin Create User",
-        "description": "Provision a new user (email + org) without a password.",
-        "operationId": "post_admin_create_user_api_admin_users",
-        "tags": [
-          "Admin / Ops"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "admin_create_user",
-          "line": 3345
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      },
-      "get": {
-        "summary": "Admin List Users",
-        "description": "List users. Superadmin sees all; admin sees users in their own company.",
-        "operationId": "get_admin_list_users_api_admin_users",
-        "tags": [
-          "Admin / Ops"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "admin_list_users",
-          "line": 3604
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/admin/users/{target_username}": {
-      "put": {
-        "summary": "Admin Update User",
-        "description": "Superadmin edits any user's profile and role. Admin edits users in their company.",
-        "operationId": "put_admin_update_user_api_admin_users_target_username",
-        "tags": [
-          "Admin / Ops"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "admin_update_user",
-          "line": 3635
-        },
-        "x-audience": "partner",
-        "parameters": [
-          {
-            "name": "target_username",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "security": [
           {
             "ApiKeyAuth": []
@@ -411,7 +109,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "complete_agent_task",
-          "line": 4588
+          "line": 4964
         },
         "x-audience": "public",
         "security": [
@@ -449,7 +147,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "poll_agent_tasks",
-          "line": 4533
+          "line": 4909
         },
         "x-audience": "public",
         "security": [
@@ -465,7 +163,7 @@
     "/api/agent-tasks/register": {
       "post": {
         "summary": "Register Agent",
-        "description": "Register a remote agent. Agent ID is auto-generated from display name.\n\nBody:\n    long_name: Display name for the agent (required)\n    description: Agent description (optional)\n    auto_start: Allow agent-initiated instances to start immediately (optional, default false)\n\nReturns:\n    JSON with registered agent info including generated agent_name",
+        "description": "Deprecated: register a remote agent. Agent ID is auto-generated from display name.\n\nBody:\n    long_name: Display name for the agent (required)\n    description: Agent description (optional)\n    auto_start: Allow agent-initiated instances to start immediately (optional, default false)\n\nReturns:\n    JSON with registered agent info including generated agent_name",
         "operationId": "post_register_agent_api_agent_tasks_register",
         "tags": [
           "Agent Lifecycle"
@@ -487,7 +185,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "register_agent",
-          "line": 4649
+          "line": 5025
         },
         "x-audience": "public",
         "security": [
@@ -525,7 +223,83 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "unregister_remote_agent",
-          "line": 4614
+          "line": 4990
+        },
+        "x-audience": "public",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "SessionToken": []
+          }
+        ]
+      }
+    },
+    "/api/agent/init": {
+      "post": {
+        "summary": "Agent Init",
+        "description": "Create a new instance via API key auth (agent-initiated).",
+        "operationId": "post_agent_init_api_agent_init",
+        "tags": [
+          "Agent Lifecycle"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        },
+        "x-source": {
+          "file": "/Users/edwardc/Projects/amp-backend/app.py",
+          "function": "agent_init",
+          "line": 9406
+        },
+        "x-audience": "public",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "SessionToken": []
+          }
+        ]
+      }
+    },
+    "/api/agent/setState": {
+      "post": {
+        "summary": "Agent Set State",
+        "description": "Set lifecycle status in instance meta.json.\n\nPayload:\n    agent_name: str (required)\n    instance_id: str (required)\n    state: one of initiated|active|finished|wait|abort (required)",
+        "operationId": "post_agent_set_state_api_agent_setstate",
+        "tags": [
+          "Agent Lifecycle"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        },
+        "x-source": {
+          "file": "/Users/edwardc/Projects/amp-backend/app.py",
+          "function": "agent_set_state",
+          "line": 9423
         },
         "x-audience": "public",
         "security": [
@@ -541,7 +315,7 @@
     "/api/agent/start": {
       "post": {
         "summary": "Agent Start",
-        "description": "Create a new instance via API key auth (agent-initiated).\n\nHeaders:\n    X-API-Key: amp_k_... (required unless AMP_REQUIRE_API_KEY is false)\n\nBody:\n    agent_name: Name of the agent (required)\n    prompt: The prompt/task for this instance (required)\n    config: Config dict (optional, defaults to {})\n    metadata: Agent metadata to store in meta.json (optional)\n    long_name: Display name for agent registration (optional)\n    description: Agent description for registration (optional)\n\nReturns:\n    JSON with instance_id, agent_name, status\n    If auto_start is disabled, also returns requires_approval=true",
+        "description": "Deprecated alias for /api/agent/init.",
         "operationId": "post_agent_start_api_agent_start",
         "tags": [
           "Agent Lifecycle"
@@ -563,7 +337,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "agent_start",
-          "line": 8585
+          "line": 9412
         },
         "x-audience": "public",
         "security": [
@@ -601,7 +375,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agent_autonomy_ops",
-          "line": 9694
+          "line": 10567
         },
         "x-audience": "public",
         "parameters": [
@@ -647,7 +421,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "save_agent_autonomy_ops",
-          "line": 9733
+          "line": 10606
         },
         "x-audience": "public",
         "parameters": [
@@ -695,7 +469,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agent_criteria",
-          "line": 9559
+          "line": 10432
         },
         "x-audience": "public",
         "parameters": [
@@ -741,7 +515,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "save_agent_criteria",
-          "line": 9602
+          "line": 10475
         },
         "x-audience": "public",
         "parameters": [
@@ -789,7 +563,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agent_features",
-          "line": 9376
+          "line": 10249
         },
         "x-audience": "public",
         "parameters": [
@@ -835,7 +609,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "save_agent_features",
-          "line": 9466
+          "line": 10339
         },
         "x-audience": "public",
         "parameters": [
@@ -883,7 +657,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "generate_feature_description",
-          "line": 9955
+          "line": 10828
         },
         "x-audience": "public",
         "parameters": [
@@ -931,7 +705,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "update_rlhf_enabled",
-          "line": 11861
+          "line": 12938
         },
         "x-audience": "public",
         "parameters": [
@@ -979,7 +753,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_policy_versions",
-          "line": 11781
+          "line": 12858
         },
         "x-audience": "public",
         "parameters": [
@@ -1027,7 +801,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_policy_version",
-          "line": 11833
+          "line": 12910
         },
         "x-audience": "public",
         "parameters": [
@@ -1083,7 +857,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "approve_rlhf_policy",
-          "line": 9808
+          "line": 10681
         },
         "x-audience": "public",
         "parameters": [
@@ -1131,7 +905,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agents",
-          "line": 3978
+          "line": 4351
         },
         "x-audience": "public",
         "security": [
@@ -1169,7 +943,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_llm_trace",
-          "line": 4144
+          "line": 4520
         },
         "x-audience": "public",
         "parameters": [
@@ -1217,7 +991,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_agents",
-          "line": 7640
+          "line": 8323
         },
         "x-audience": "public",
         "security": [
@@ -1255,7 +1029,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "register_native_agent",
-          "line": 4688
+          "line": 5067
         },
         "x-audience": "public",
         "security": [
@@ -1293,7 +1067,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_defaults",
-          "line": 8304
+          "line": 8987
         },
         "x-audience": "public",
         "parameters": [
@@ -1341,7 +1115,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_default_artifacts",
-          "line": 8213
+          "line": 8896
         },
         "x-audience": "public",
         "parameters": [
@@ -1389,7 +1163,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_default_artifact",
-          "line": 8246
+          "line": 8929
         },
         "x-audience": "public",
         "parameters": [
@@ -1445,7 +1219,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_defaults_config",
-          "line": 8334
+          "line": 9017
         },
         "x-audience": "public",
         "parameters": [
@@ -1493,7 +1267,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_defaults_prompt",
-          "line": 8358
+          "line": 9041
         },
         "x-audience": "public",
         "parameters": [
@@ -1541,7 +1315,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_instances",
-          "line": 7666
+          "line": 8349
         },
         "x-audience": "public",
         "parameters": [
@@ -1589,7 +1363,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_delete_instance",
-          "line": 8282
+          "line": 8965
         },
         "x-audience": "public",
         "parameters": [
@@ -1643,7 +1417,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_instance",
-          "line": 8001
+          "line": 8684
         },
         "x-audience": "public",
         "parameters": [
@@ -1699,7 +1473,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_abort_instance",
-          "line": 11638
+          "line": 12715
         },
         "x-audience": "public",
         "parameters": [
@@ -1755,7 +1529,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_artifacts",
-          "line": 8165
+          "line": 8848
         },
         "x-audience": "public",
         "parameters": [
@@ -1811,7 +1585,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "upload_artifact",
-          "line": 8871
+          "line": 9735
         },
         "x-audience": "public",
         "parameters": [
@@ -1873,7 +1647,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_artifact",
-          "line": 8263
+          "line": 8946
         },
         "x-audience": "public",
         "parameters": [
@@ -1937,7 +1711,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_instance_chat",
-          "line": 8063
+          "line": 8746
         },
         "x-audience": "public",
         "parameters": [
@@ -1991,7 +1765,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_instance_chat",
-          "line": 8063
+          "line": 8746
         },
         "x-audience": "public",
         "parameters": [
@@ -2045,7 +1819,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_instance_chat",
-          "line": 8063
+          "line": 8746
         },
         "x-audience": "public",
         "parameters": [
@@ -2101,7 +1875,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_instance_config",
-          "line": 8711
+          "line": 9549
         },
         "x-audience": "public",
         "parameters": [
@@ -2157,7 +1931,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_execute_instance",
-          "line": 9365
+          "line": 10238
         },
         "x-audience": "public",
         "parameters": [
@@ -2213,7 +1987,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_instance_files",
-          "line": 8763
+          "line": 9601
         },
         "x-audience": "public",
         "parameters": [
@@ -2269,7 +2043,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_hitl_callback",
-          "line": 9370
+          "line": 10243
         },
         "x-audience": "public",
         "parameters": [
@@ -2325,7 +2099,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_launch_instance",
-          "line": 8905
+          "line": 9769
         },
         "x-audience": "public",
         "parameters": [
@@ -2381,7 +2155,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_log_initiated",
-          "line": 8980
+          "line": 9844
         },
         "x-audience": "public",
         "parameters": [
@@ -2437,7 +2211,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "update_instance_meta",
-          "line": 8801
+          "line": 9639
         },
         "x-audience": "public",
         "parameters": [
@@ -2493,7 +2267,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "append_instance_progress",
-          "line": 8832
+          "line": 9696
         },
         "x-audience": "public",
         "parameters": [
@@ -2549,7 +2323,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_instance_prompt",
-          "line": 8736
+          "line": 9574
         },
         "x-audience": "public",
         "parameters": [
@@ -2605,7 +2379,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_instance_summary",
-          "line": 7964
+          "line": 8647
         },
         "x-audience": "public",
         "parameters": [
@@ -2659,7 +2433,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_save_instance_summary",
-          "line": 7980
+          "line": 8663
         },
         "x-audience": "public",
         "parameters": [
@@ -2715,7 +2489,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_create_run",
-          "line": 8382
+          "line": 9065
         },
         "x-audience": "public",
         "parameters": [
@@ -2728,268 +2502,6 @@
             }
           }
         ],
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/amp/chat": {
-      "post": {
-        "summary": "Amp Chat Summary",
-        "description": "Generate a conversational response about AMP activity using authorized records.",
-        "operationId": "post_amp_chat_summary_api_amp_chat",
-        "tags": [
-          "Dashboard"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "amp_chat_summary",
-          "line": 4349
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/amp/chat/history": {
-      "delete": {
-        "summary": "Amp Chat History",
-        "description": "Persist and retrieve AMP chat transcripts per user.",
-        "operationId": "delete_amp_chat_history_api_amp_chat_history",
-        "tags": [
-          "Dashboard"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "amp_chat_history",
-          "line": 4321
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      },
-      "get": {
-        "summary": "Amp Chat History",
-        "description": "Persist and retrieve AMP chat transcripts per user.",
-        "operationId": "get_amp_chat_history_api_amp_chat_history",
-        "tags": [
-          "Dashboard"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "amp_chat_history",
-          "line": 4321
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      },
-      "post": {
-        "summary": "Amp Chat History",
-        "description": "Persist and retrieve AMP chat transcripts per user.",
-        "operationId": "post_amp_chat_history_api_amp_chat_history",
-        "tags": [
-          "Dashboard"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "amp_chat_history",
-          "line": 4321
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/amp/refresh-events": {
-      "get": {
-        "summary": "Refresh Events",
-        "description": "SSE endpoint for frontend connections to receive real-time refresh signals.",
-        "operationId": "get_refresh_events_api_amp_refresh_events",
-        "tags": [
-          "Ops Utilities"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "refresh_events",
-          "line": 5179
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/amp/sse-status": {
-      "get": {
-        "summary": "SSE Status",
-        "description": "Debug endpoint to check current SSE connections.",
-        "operationId": "get_sse_status_api_amp_sse_status",
-        "tags": [
-          "Ops Utilities"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "sse_status",
-          "line": 5296
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/amp/trigger-refresh": {
-      "post": {
-        "summary": "Trigger Refresh",
-        "description": "Trigger endpoint for logger service to call when new records are written.",
-        "operationId": "post_trigger_refresh_api_amp_trigger_refresh",
-        "tags": [
-          "Ops Utilities"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "trigger_refresh",
-          "line": 5286
-        },
-        "x-audience": "partner",
         "security": [
           {
             "ApiKeyAuth": []
@@ -3025,7 +2537,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_agent_events",
-          "line": 7171
+          "line": 7854
         },
         "x-audience": "public",
         "security": [
@@ -3063,7 +2575,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_config",
-          "line": 7089
+          "line": 7772
         },
         "x-audience": "public",
         "security": [
@@ -3101,7 +2613,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_hitl_events",
-          "line": 7220
+          "line": 7903
         },
         "x-audience": "public",
         "security": [
@@ -3139,7 +2651,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_page_view",
-          "line": 7098
+          "line": 7781
         },
         "x-audience": "public",
         "security": [
@@ -3177,7 +2689,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_rlhf_autonomy",
-          "line": 7310
+          "line": 7993
         },
         "x-audience": "public",
         "security": [
@@ -3215,7 +2727,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_rlhf_stages",
-          "line": 7372
+          "line": 8055
         },
         "x-audience": "public",
         "security": [
@@ -3253,47 +2765,9 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_user_activity",
-          "line": 7267
+          "line": 7950
         },
         "x-audience": "public",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/classify_intent": {
-      "post": {
-        "summary": "Classify Intent API",
-        "description": "Proxy to llm_client.classify_intent for chat command understanding.",
-        "operationId": "post_classify_intent_api_api_classify_intent",
-        "tags": [
-          "LLM Utilities"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "classify_intent_api",
-          "line": 11737
-        },
-        "x-audience": "partner",
         "security": [
           {
             "ApiKeyAuth": []
@@ -3329,7 +2803,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_config",
-          "line": 4494
+          "line": 4870
         },
         "x-audience": "public",
         "security": [
@@ -3342,51 +2816,13 @@
         ]
       }
     },
-    "/api/dashboard/chat": {
-      "post": {
-        "summary": "Dashboard Chat",
-        "description": "LLM chat endpoint for the AMP dashboard.",
-        "operationId": "post_dashboard_chat_api_dashboard_chat",
-        "tags": [
-          "Dashboard"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "dashboard_chat",
-          "line": 6914
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/dashboard/chat/history": {
+    "/api/hitl/get-decision": {
       "get": {
-        "summary": "Dashboard Chat History",
-        "description": "",
-        "operationId": "get_dashboard_chat_history_api_dashboard_chat_history",
+        "summary": "HITL Get Decision",
+        "description": "Return normalized HITL decision state for a caller without exposing stage routing details.",
+        "operationId": "get_hitl_get_decision_api_hitl_get_decision",
         "tags": [
-          "Dashboard"
+          "HITL"
         ],
         "responses": {
           "200": {
@@ -3404,10 +2840,10 @@
         },
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "dashboard_chat_history",
-          "line": 7076
+          "function": "hitl_get_decision",
+          "line": 5329
         },
-        "x-audience": "partner",
+        "x-audience": "public",
         "security": [
           {
             "ApiKeyAuth": []
@@ -3418,13 +2854,13 @@
         ]
       }
     },
-    "/api/dashboard/demo-data/{filename}": {
+    "/api/hitl/progress": {
       "get": {
-        "summary": "Dashboard Demo Data",
-        "description": "Serve dashboard demo CSVs from the backend.",
-        "operationId": "get_dashboard_demo_data_api_dashboard_demo_data_filename",
+        "summary": "Proxy HITL Progress",
+        "description": "Proxy HITL progress requests.",
+        "operationId": "get_proxy_hitl_progress_api_hitl_progress",
         "tags": [
-          "Dashboard"
+          "HITL"
         ],
         "responses": {
           "200": {
@@ -3442,20 +2878,10 @@
         },
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "dashboard_demo_data",
-          "line": 7417
+          "function": "proxy_hitl_progress",
+          "line": 5252
         },
-        "x-audience": "partner",
-        "parameters": [
-          {
-            "name": "filename",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "x-audience": "public",
         "security": [
           {
             "ApiKeyAuth": []
@@ -3466,11 +2892,11 @@
         ]
       }
     },
-    "/api/hitl-agent": {
+    "/api/hitl/request": {
       "post": {
-        "summary": "Proxy HITL",
-        "description": "Proxy endpoint for HITL requests from remote agents.\nForwards requests to internal HITL service.",
-        "operationId": "post_proxy_hitl_api_hitl_agent",
+        "summary": "HITL Request",
+        "description": "Submit a Human-in-the-Loop (HITL) review request for an agent action.\n\nUse this endpoint when an automated flow needs human approval or input. AMP forwards the request to the internal HITL service, which creates and tracks the review task.\n\nTypical outcome:\n- 200: request accepted and routed for human review\n- 4xx/5xx: request rejected or routing failed",
+        "operationId": "post_proxy_hitl_api_hitl_request",
         "tags": [
           "HITL"
         ],
@@ -3491,7 +2917,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_hitl",
-          "line": 4779
+          "line": 5200
         },
         "x-audience": "public",
         "security": [
@@ -3504,13 +2930,13 @@
         ]
       }
     },
-    "/api/init_agent": {
-      "post": {
-        "summary": "Init Agent",
-        "description": "Append an \"initiated\" entry for the requested agent to the log service.",
-        "operationId": "post_init_agent_api_init_agent",
+    "/api/hitl/status": {
+      "get": {
+        "summary": "Proxy HITL Status",
+        "description": "Proxy HITL status requests.",
+        "operationId": "get_proxy_hitl_status_api_hitl_status",
         "tags": [
-          "Agent Lifecycle"
+          "HITL"
         ],
         "responses": {
           "200": {
@@ -3528,78 +2954,10 @@
         },
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "init_agent",
-          "line": 6666
+          "function": "proxy_hitl_status",
+          "line": 5238
         },
         "x-audience": "public",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/internal/users/resolve": {
-      "post": {
-        "summary": "Resolve User Identity",
-        "description": "Internal helper to resolve org_id/user_id for a username.",
-        "operationId": "post_resolve_user_identity_api_internal_users_resolve",
-        "tags": [
-          "Internal"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "resolve_user_identity",
-          "line": 10245
-        },
-        "x-audience": "internal"
-      }
-    },
-    "/api/llm/classify": {
-      "post": {
-        "summary": "Classify LLM Prompt",
-        "description": "Classify a prompt using the configured LLM (internal-only).",
-        "operationId": "post_classify_llm_prompt_api_llm_classify",
-        "tags": [
-          "LLM Utilities"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "classify_llm_prompt",
-          "line": 11748
-        },
-        "x-audience": "partner",
         "security": [
           {
             "ApiKeyAuth": []
@@ -3635,7 +2993,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_log",
-          "line": 4990
+          "line": 5610
         },
         "x-audience": "public",
         "security": [
@@ -3673,7 +3031,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_log_hitl_progress",
-          "line": 5063
+          "line": 5683
         },
         "x-audience": "public",
         "security": [
@@ -3711,7 +3069,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_log_progress_all",
-          "line": 5046
+          "line": 5666
         },
         "x-audience": "public",
         "security": [
@@ -3749,7 +3107,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "log_llm_response",
-          "line": 3959
+          "line": 4332
         },
         "x-audience": "public",
         "security": [
@@ -3787,7 +3145,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "login",
-          "line": 3124
+          "line": 3247
         },
         "x-audience": "public",
         "security": [
@@ -3825,7 +3183,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "logout",
-          "line": 3194
+          "line": 3317
         },
         "x-audience": "public",
         "security": [
@@ -3863,7 +3221,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "change_password",
-          "line": 3433
+          "line": 3555
         },
         "x-audience": "public",
         "security": [
@@ -3901,47 +3259,9 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "setup_password",
-          "line": 3464
+          "line": 3586
         },
         "x-audience": "public",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/presence/ping": {
-      "post": {
-        "summary": "Presence Ping",
-        "description": "Record a heartbeat indicating the caller is active.",
-        "operationId": "post_presence_ping_api_presence_ping",
-        "tags": [
-          "Presence"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "presence_ping",
-          "line": 3206
-        },
-        "x-audience": "partner",
         "security": [
           {
             "ApiKeyAuth": []
@@ -3955,7 +3275,7 @@
     "/api/register": {
       "options": {
         "summary": "Register",
-        "description": "Create a new local user in SQLite using PBKDF2-SHA256.",
+        "description": "Create a new local user in the database using PBKDF2-SHA256.",
         "operationId": "options_register_api_register",
         "tags": [
           "Auth / Sessions"
@@ -3977,7 +3297,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "register",
-          "line": 11709
+          "line": 12786
         },
         "x-audience": "public",
         "security": [
@@ -3991,7 +3311,7 @@
       },
       "post": {
         "summary": "Register",
-        "description": "Create a new local user in SQLite using PBKDF2-SHA256.",
+        "description": "Create a new local user in the database using PBKDF2-SHA256.",
         "operationId": "post_register_api_register",
         "tags": [
           "Auth / Sessions"
@@ -4013,7 +3333,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "register",
-          "line": 11709
+          "line": 12786
         },
         "x-audience": "public",
         "security": [
@@ -4051,7 +3371,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_fetch_approval_request",
-          "line": 10559
+          "line": 11596
         },
         "x-audience": "public",
         "security": [
@@ -4089,7 +3409,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_bootstrap_agent",
-          "line": 11372
+          "line": 12449
         },
         "x-audience": "public",
         "security": [
@@ -4127,7 +3447,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_approve_contract",
-          "line": 10160
+          "line": 11033
         },
         "x-audience": "public",
         "security": [
@@ -4165,7 +3485,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_bind_workitem",
-          "line": 10293
+          "line": 11240
         },
         "x-audience": "public",
         "security": [
@@ -4203,47 +3523,9 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_decision_status",
-          "line": 10660
+          "line": 11697
         },
         "x-audience": "public",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/rlhf/jobs/enqueue": {
-      "post": {
-        "summary": "RLHF Enqueue Job",
-        "description": "Admin endpoint for deterministic RLHF job enqueue (E2E + ops).",
-        "operationId": "post_rlhf_enqueue_job_api_rlhf_jobs_enqueue",
-        "tags": [
-          "RLHF"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "rlhf_enqueue_job",
-          "line": 11434
-        },
-        "x-audience": "partner",
         "security": [
           {
             "ApiKeyAuth": []
@@ -4279,7 +3561,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_model_registry_list",
-          "line": 11967
+          "line": 13044
         },
         "x-audience": "public",
         "security": [
@@ -4317,7 +3599,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_model_registry_activate",
-          "line": 12025
+          "line": 13102
         },
         "x-audience": "public",
         "parameters": [
@@ -4365,7 +3647,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_model_registry_retire",
-          "line": 12074
+          "line": 13151
         },
         "x-audience": "public",
         "parameters": [
@@ -4413,7 +3695,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_submit_outcome",
-          "line": 10422
+          "line": 11459
         },
         "x-audience": "public",
         "security": [
@@ -4451,7 +3733,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_get_policy",
-          "line": 10058
+          "line": 10931
         },
         "x-audience": "public",
         "security": [
@@ -4489,307 +3771,9 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_save_policy",
-          "line": 10122
+          "line": 10995
         },
         "x-audience": "public",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/rlhf/stage_tick/trigger": {
-      "post": {
-        "summary": "RLHF Trigger Stage Tick",
-        "description": "Enqueue deterministic STAGE_TICK job for accelerated/local test runs.",
-        "operationId": "post_rlhf_trigger_stage_tick_api_rlhf_stage_tick_trigger",
-        "tags": [
-          "RLHF"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "rlhf_trigger_stage_tick",
-          "line": 11506
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/rlhf/status": {
-      "get": {
-        "summary": "RLHF Status",
-        "description": "Admin runtime status for one (org_id, agent_name) RLHF pipeline.",
-        "operationId": "get_rlhf_status_api_rlhf_status",
-        "tags": [
-          "RLHF"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "rlhf_status",
-          "line": 10734
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/rlhf/test/reset": {
-      "post": {
-        "summary": "RLHF Reset Test State",
-        "description": "Reset RLHF runtime tables for one org+agent to support repeatable E2E runs.",
-        "operationId": "post_rlhf_reset_test_state_api_rlhf_test_reset",
-        "tags": [
-          "RLHF"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "rlhf_reset_test_state",
-          "line": 11575
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/settings/api-key": {
-      "post": {
-        "summary": "Settings Generate API Key",
-        "description": "Generate or regenerate an API key for the current user.",
-        "operationId": "post_settings_generate_api_key_api_settings_api_key",
-        "tags": [
-          "Auth / Sessions"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "settings_generate_api_key",
-          "line": 8673
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      },
-      "get": {
-        "summary": "Settings Get API Key",
-        "description": "Get API key info (prefix, timestamps) for the current user.",
-        "operationId": "get_settings_get_api_key_api_settings_api_key",
-        "tags": [
-          "Auth / Sessions"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "settings_get_api_key",
-          "line": 8684
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      },
-      "delete": {
-        "summary": "Settings Revoke API Key",
-        "description": "Revoke the current user's API key.",
-        "operationId": "delete_settings_revoke_api_key_api_settings_api_key",
-        "tags": [
-          "Auth / Sessions"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "settings_revoke_api_key",
-          "line": 8695
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/user/profile": {
-      "get": {
-        "summary": "Get User Profile",
-        "description": "Return the authenticated user's own profile.",
-        "operationId": "get_get_user_profile_api_user_profile",
-        "tags": [
-          "User Profile"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "get_user_profile",
-          "line": 3529
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      },
-      "put": {
-        "summary": "Update User Profile",
-        "description": "Update the authenticated user's own profile fields.",
-        "operationId": "put_update_user_profile_api_user_profile",
-        "tags": [
-          "User Profile"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "update_user_profile",
-          "line": 3552
-        },
-        "x-audience": "partner",
         "security": [
           {
             "ApiKeyAuth": []
@@ -4826,7 +3810,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "create_workitem",
-          "line": 5646
+          "line": 6266
         },
         "x-audience": "public",
         "security": [
@@ -4863,7 +3847,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_workitems",
-          "line": 5308
+          "line": 5928
         },
         "x-audience": "public",
         "security": [
@@ -4902,7 +3886,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "delete_workitem",
-          "line": 6518
+          "line": 7210
         },
         "x-audience": "public",
         "parameters": [
@@ -4951,7 +3935,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "update_workitem_status",
-          "line": 6371
+          "line": 7025
         },
         "x-audience": "public",
         "parameters": [
@@ -4970,84 +3954,6 @@
           },
           {
             "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/api/worktray/chat": {
-      "post": {
-        "summary": "Worktray Chat",
-        "description": "Chat endpoint for worktray page with access to workitems context.",
-        "operationId": "post_worktray_chat_api_worktray_chat",
-        "tags": [
-          "Worktray"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "worktray_chat",
-          "line": 6563
-        },
-        "x-audience": "partner",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "SessionToken": []
-          }
-        ]
-      }
-    },
-    "/{path}": {
-      "get": {
-        "summary": "Spa Index",
-        "description": "Serve static files from frontend/dist; fallback to index.html for SPA routes.\n\nIf the build output is missing, return a friendly message suggesting to\nrun `npm run build` in the frontend directory.",
-        "operationId": "get_spa_index_path",
-        "tags": [
-          "Frontend Shell"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        },
-        "x-source": {
-          "file": "/Users/edwardc/Projects/amp-backend/app.py",
-          "function": "spa_index",
-          "line": 3104
-        },
-        "x-audience": "internal",
-        "parameters": [
-          {
-            "name": "path",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ]
       }
