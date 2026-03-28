@@ -52,7 +52,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: abort_agent
-        line: 7358
+        line: 7508
       x-audience: public
       security:
         -
@@ -192,7 +192,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: agent_init
-        line: 9406
+        line: 9556
       x-audience: public
       security:
         -
@@ -220,7 +220,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: agent_set_state
-        line: 9423
+        line: 9573
       x-audience: public
       security:
         -
@@ -248,7 +248,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: agent_start
-        line: 9412
+        line: 9562
       x-audience: public
       security:
         -
@@ -276,7 +276,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: get_agent_autonomy_ops
-        line: 10567
+        line: 10717
       x-audience: public
       parameters:
         -
@@ -310,7 +310,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: save_agent_autonomy_ops
-        line: 10606
+        line: 10756
       x-audience: public
       parameters:
         -
@@ -345,7 +345,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: get_agent_criteria
-        line: 10432
+        line: 10582
       x-audience: public
       parameters:
         -
@@ -379,7 +379,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: save_agent_criteria
-        line: 10475
+        line: 10625
       x-audience: public
       parameters:
         -
@@ -414,7 +414,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: get_agent_features
-        line: 10249
+        line: 10399
       x-audience: public
       parameters:
         -
@@ -448,7 +448,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: save_agent_features
-        line: 10339
+        line: 10489
       x-audience: public
       parameters:
         -
@@ -483,7 +483,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: generate_feature_description
-        line: 10828
+        line: 10978
       x-audience: public
       parameters:
         -
@@ -518,7 +518,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: update_rlhf_enabled
-        line: 12938
+        line: 13088
       x-audience: public
       parameters:
         -
@@ -553,7 +553,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: get_policy_versions
-        line: 12858
+        line: 13008
       x-audience: public
       parameters:
         -
@@ -588,7 +588,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: get_policy_version
-        line: 12910
+        line: 13060
       x-audience: public
       parameters:
         -
@@ -629,7 +629,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: approve_rlhf_policy
-        line: 10681
+        line: 10831
       x-audience: public
       parameters:
         -
@@ -727,7 +727,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_list_agents
-        line: 8323
+        line: 8473
       x-audience: public
       security:
         -
@@ -783,7 +783,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_get_defaults
-        line: 8987
+        line: 9137
       x-audience: public
       parameters:
         -
@@ -818,7 +818,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_list_default_artifacts
-        line: 8896
+        line: 9046
       x-audience: public
       parameters:
         -
@@ -853,7 +853,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_get_default_artifact
-        line: 8929
+        line: 9079
       x-audience: public
       parameters:
         -
@@ -894,7 +894,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_update_defaults_config
-        line: 9017
+        line: 9167
       x-audience: public
       parameters:
         -
@@ -929,7 +929,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_update_defaults_prompt
-        line: 9041
+        line: 9191
       x-audience: public
       parameters:
         -
@@ -964,7 +964,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_list_instances
-        line: 8349
+        line: 8499
       x-audience: public
       parameters:
         -
@@ -999,7 +999,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_delete_instance
-        line: 8965
+        line: 9115
       x-audience: public
       parameters:
         -
@@ -1039,7 +1039,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_get_instance
-        line: 8684
+        line: 8834
       x-audience: public
       parameters:
         -
@@ -1080,7 +1080,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_abort_instance
-        line: 12715
+        line: 12865
       x-audience: public
       parameters:
         -
@@ -1121,7 +1121,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_list_artifacts
-        line: 8848
+        line: 8998
       x-audience: public
       parameters:
         -
@@ -1162,7 +1162,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: upload_artifact
-        line: 9735
+        line: 9885
       x-audience: public
       parameters:
         -
@@ -1208,7 +1208,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_get_artifact
-        line: 8946
+        line: 9096
       x-audience: public
       parameters:
         -
@@ -1255,7 +1255,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_instance_chat
-        line: 8746
+        line: 8896
       x-audience: public
       parameters:
         -
@@ -1295,7 +1295,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_instance_chat
-        line: 8746
+        line: 8896
       x-audience: public
       parameters:
         -
@@ -1335,7 +1335,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_instance_chat
-        line: 8746
+        line: 8896
       x-audience: public
       parameters:
         -
@@ -1376,7 +1376,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_update_instance_config
-        line: 9549
+        line: 9699
       x-audience: public
       parameters:
         -
@@ -1417,7 +1417,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_execute_instance
-        line: 10238
+        line: 10388
       x-audience: public
       parameters:
         -
@@ -1458,7 +1458,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: get_instance_files
-        line: 9601
+        line: 9751
       x-audience: public
       parameters:
         -
@@ -1499,7 +1499,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_hitl_callback
-        line: 10243
+        line: 10393
       x-audience: public
       parameters:
         -
@@ -1540,7 +1540,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_launch_instance
-        line: 9769
+        line: 9919
       x-audience: public
       parameters:
         -
@@ -1581,7 +1581,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_log_initiated
-        line: 9844
+        line: 9994
       x-audience: public
       parameters:
         -
@@ -1622,7 +1622,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: update_instance_meta
-        line: 9639
+        line: 9789
       x-audience: public
       parameters:
         -
@@ -1663,7 +1663,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: append_instance_progress
-        line: 9696
+        line: 9846
       x-audience: public
       parameters:
         -
@@ -1704,7 +1704,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_update_instance_prompt
-        line: 9574
+        line: 9724
       x-audience: public
       parameters:
         -
@@ -1745,7 +1745,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_get_instance_summary
-        line: 8647
+        line: 8797
       x-audience: public
       parameters:
         -
@@ -1785,7 +1785,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_save_instance_summary
-        line: 8663
+        line: 8813
       x-audience: public
       parameters:
         -
@@ -1826,7 +1826,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: alp_create_run
-        line: 9065
+        line: 9215
       x-audience: public
       parameters:
         -
@@ -1861,7 +1861,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: analytics_agent_events
-        line: 7854
+        line: 8004
       x-audience: public
       security:
         -
@@ -1889,7 +1889,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: analytics_config
-        line: 7772
+        line: 7922
       x-audience: public
       security:
         -
@@ -1917,7 +1917,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: analytics_hitl_events
-        line: 7903
+        line: 8053
       x-audience: public
       security:
         -
@@ -1945,7 +1945,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: analytics_page_view
-        line: 7781
+        line: 7931
       x-audience: public
       security:
         -
@@ -1973,7 +1973,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: analytics_rlhf_autonomy
-        line: 7993
+        line: 8143
       x-audience: public
       security:
         -
@@ -2001,7 +2001,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: analytics_rlhf_stages
-        line: 8055
+        line: 8205
       x-audience: public
       security:
         -
@@ -2029,7 +2029,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: analytics_user_activity
-        line: 7950
+        line: 8100
       x-audience: public
       security:
         -
@@ -2085,7 +2085,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: hitl_get_decision
-        line: 5329
+        line: 5461
       x-audience: public
       security:
         -
@@ -2113,7 +2113,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: proxy_hitl_progress
-        line: 5252
+        line: 5384
       x-audience: public
       security:
         -
@@ -2125,7 +2125,7 @@ paths:
   /api/hitl/request:
     post:
       summary: HITL Request
-      description: "Submit a Human-in-the-Loop (HITL) review request for an agent action.\n\nUse this endpoint when an automated flow needs human approval or input. AMP forwards the request to the internal HITL service, which creates and tracks the review task.\n\nTypical outcome:\n- 200: request accepted and routed for human review\n- 4xx/5xx: request rejected or routing failed"
+      description: "Submit a HITL request and optionally register a completion callback.\n\nThis endpoint forwards the payload to AMP-HITL for WHEN/WHO/WHAT/WHERE evaluation. It may return immediately with no HITL needed, or accept the request and complete later via human or auto routing.\n\nRequest JSON (common fields):\n{\n  \"caller_id\": \"<instance-or-activity-id>\",\n  \"instance_id\": \"<optional alias of caller_id>\",\n  \"org_id\": \"<optional>\",\n  \"agent_name\": \"<optional>\",\n  \"hitl\": {\n    \"enable\": true,\n    \"when\": \"<condition|always>\",\n    \"who\": \"<initiator|email>\",\n    \"what\": \"approval|notify\",\n    \"where\": \"amp|email\"\n  },\n  \"callback\": {\n    \"url\": \"https://caller.example.com/hitl/callback\",\n    \"secret\": \"<optional shared secret>\",\n    \"timeout_ms\": 5000\n  }\n}\n\nCallback payload on completion:\n{\n  \"caller_id\": \"<id>\",\n  \"status\": \"complete\",\n  \"resolution\": \"approve|reject|modify|defer|unknown\",\n  \"method\": \"human|auto\",\n  \"workitem_id\": \"<id_or_empty>\",\n  \"information\": \"<optional detail>\",\n  \"event_ts\": \"<ISO-8601 UTC timestamp>\"\n}"
       operationId: post_proxy_hitl_api_hitl_request
       tags:
         - HITL
@@ -2141,7 +2141,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: proxy_hitl
-        line: 5200
+        line: 5287
       x-audience: public
       security:
         -
@@ -2169,7 +2169,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: proxy_hitl_status
-        line: 5238
+        line: 5370
       x-audience: public
       security:
         -
@@ -2197,7 +2197,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: proxy_log
-        line: 5610
+        line: 5742
       x-audience: public
       security:
         -
@@ -2225,7 +2225,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: proxy_log_hitl_progress
-        line: 5683
+        line: 5815
       x-audience: public
       security:
         -
@@ -2253,7 +2253,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: proxy_log_progress_all
-        line: 5666
+        line: 5798
       x-audience: public
       security:
         -
@@ -2421,7 +2421,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: register
-        line: 12786
+        line: 12936
       x-audience: public
       security:
         -
@@ -2448,7 +2448,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: register
-        line: 12786
+        line: 12936
       x-audience: public
       security:
         -
@@ -2476,7 +2476,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_fetch_approval_request
-        line: 11596
+        line: 11746
       x-audience: public
       security:
         -
@@ -2504,7 +2504,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_bootstrap_agent
-        line: 12449
+        line: 12599
       x-audience: public
       security:
         -
@@ -2532,7 +2532,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_approve_contract
-        line: 11033
+        line: 11183
       x-audience: public
       security:
         -
@@ -2560,7 +2560,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_bind_workitem
-        line: 11240
+        line: 11390
       x-audience: public
       security:
         -
@@ -2588,7 +2588,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_decision_status
-        line: 11697
+        line: 11847
       x-audience: public
       security:
         -
@@ -2616,7 +2616,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_model_registry_list
-        line: 13044
+        line: 13194
       x-audience: public
       security:
         -
@@ -2644,7 +2644,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_model_registry_activate
-        line: 13102
+        line: 13252
       x-audience: public
       parameters:
         -
@@ -2679,7 +2679,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_model_registry_retire
-        line: 13151
+        line: 13301
       x-audience: public
       parameters:
         -
@@ -2714,7 +2714,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_submit_outcome
-        line: 11459
+        line: 11609
       x-audience: public
       security:
         -
@@ -2742,7 +2742,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_get_policy
-        line: 10931
+        line: 11081
       x-audience: public
       security:
         -
@@ -2770,7 +2770,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: rlhf_save_policy
-        line: 10995
+        line: 11145
       x-audience: public
       security:
         -
@@ -2799,7 +2799,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: create_workitem
-        line: 6266
+        line: 6398
       x-audience: public
       security:
         -
@@ -2827,7 +2827,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: get_workitems
-        line: 5928
+        line: 6060
       x-audience: public
       security:
         -
@@ -2856,7 +2856,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: delete_workitem
-        line: 7210
+        line: 7360
       x-audience: public
       parameters:
         -
@@ -2892,7 +2892,7 @@ paths:
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: update_workitem_status
-        line: 7025
+        line: 7157
       x-audience: public
       parameters:
         -

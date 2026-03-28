@@ -57,7 +57,7 @@
         "POST"
       ],
       "function_name": "abort_agent",
-      "line": 7358,
+      "line": 7508,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -239,7 +239,7 @@
         "GET"
       ],
       "function_name": "get_agent_autonomy_ops",
-      "line": 10567,
+      "line": 10717,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -252,7 +252,7 @@
         "POST"
       ],
       "function_name": "save_agent_autonomy_ops",
-      "line": 10606,
+      "line": 10756,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -265,7 +265,7 @@
         "GET"
       ],
       "function_name": "get_agent_criteria",
-      "line": 10432,
+      "line": 10582,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -278,7 +278,7 @@
         "POST"
       ],
       "function_name": "save_agent_criteria",
-      "line": 10475,
+      "line": 10625,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -291,7 +291,7 @@
         "GET"
       ],
       "function_name": "get_agent_features",
-      "line": 10249,
+      "line": 10399,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -304,7 +304,7 @@
         "POST"
       ],
       "function_name": "save_agent_features",
-      "line": 10339,
+      "line": 10489,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -317,7 +317,7 @@
         "POST"
       ],
       "function_name": "generate_feature_description",
-      "line": 10828,
+      "line": 10978,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -330,7 +330,7 @@
         "GET"
       ],
       "function_name": "get_policy_version",
-      "line": 12910,
+      "line": 13060,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -343,7 +343,7 @@
         "PUT"
       ],
       "function_name": "update_rlhf_enabled",
-      "line": 12938,
+      "line": 13088,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -356,7 +356,7 @@
         "GET"
       ],
       "function_name": "get_policy_versions",
-      "line": 12858,
+      "line": 13008,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -369,7 +369,7 @@
         "POST"
       ],
       "function_name": "approve_rlhf_policy",
-      "line": 10681,
+      "line": 10831,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -382,7 +382,7 @@
         "POST"
       ],
       "function_name": "agent_init",
-      "line": 9406,
+      "line": 9556,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -395,7 +395,7 @@
         "POST"
       ],
       "function_name": "agent_set_state",
-      "line": 9423,
+      "line": 9573,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -408,7 +408,7 @@
         "POST"
       ],
       "function_name": "agent_start",
-      "line": 9412,
+      "line": 9562,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -447,7 +447,7 @@
         "GET"
       ],
       "function_name": "alp_list_agents",
-      "line": 8323,
+      "line": 8473,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -460,7 +460,7 @@
         "GET"
       ],
       "function_name": "alp_get_defaults",
-      "line": 8987,
+      "line": 9137,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -473,7 +473,7 @@
         "GET"
       ],
       "function_name": "alp_list_default_artifacts",
-      "line": 8896,
+      "line": 9046,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -486,7 +486,7 @@
         "GET"
       ],
       "function_name": "alp_get_default_artifact",
-      "line": 8929,
+      "line": 9079,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -499,7 +499,7 @@
         "POST"
       ],
       "function_name": "alp_update_defaults_config",
-      "line": 9017,
+      "line": 9167,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -512,7 +512,7 @@
         "POST"
       ],
       "function_name": "alp_update_defaults_prompt",
-      "line": 9041,
+      "line": 9191,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -525,7 +525,7 @@
         "GET"
       ],
       "function_name": "alp_list_instances",
-      "line": 8349,
+      "line": 8499,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -538,7 +538,7 @@
         "DELETE"
       ],
       "function_name": "alp_delete_instance",
-      "line": 8965,
+      "line": 9115,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -551,7 +551,7 @@
         "GET"
       ],
       "function_name": "alp_get_instance",
-      "line": 8684,
+      "line": 8834,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -564,7 +564,7 @@
         "POST"
       ],
       "function_name": "alp_abort_instance",
-      "line": 12715,
+      "line": 12865,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -577,7 +577,7 @@
         "GET"
       ],
       "function_name": "alp_list_artifacts",
-      "line": 8848,
+      "line": 8998,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -590,7 +590,7 @@
         "POST"
       ],
       "function_name": "upload_artifact",
-      "line": 9735,
+      "line": 9885,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -603,7 +603,7 @@
         "GET"
       ],
       "function_name": "alp_get_artifact",
-      "line": 8946,
+      "line": 9096,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -618,7 +618,7 @@
         "POST"
       ],
       "function_name": "alp_instance_chat",
-      "line": 8746,
+      "line": 8896,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -631,7 +631,7 @@
         "POST"
       ],
       "function_name": "alp_update_instance_config",
-      "line": 9549,
+      "line": 9699,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -644,7 +644,7 @@
         "POST"
       ],
       "function_name": "alp_execute_instance",
-      "line": 10238,
+      "line": 10388,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -657,7 +657,7 @@
         "GET"
       ],
       "function_name": "get_instance_files",
-      "line": 9601,
+      "line": 9751,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -670,7 +670,7 @@
         "POST"
       ],
       "function_name": "alp_hitl_callback",
-      "line": 10243,
+      "line": 10393,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -683,7 +683,7 @@
         "POST"
       ],
       "function_name": "hitl_callback_remote",
-      "line": 5702,
+      "line": 5834,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -696,7 +696,7 @@
         "POST"
       ],
       "function_name": "alp_launch_instance",
-      "line": 9769,
+      "line": 9919,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -709,7 +709,7 @@
         "POST"
       ],
       "function_name": "alp_log_initiated",
-      "line": 9844,
+      "line": 9994,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -722,7 +722,7 @@
         "PUT"
       ],
       "function_name": "update_instance_meta",
-      "line": 9639,
+      "line": 9789,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -735,7 +735,7 @@
         "POST"
       ],
       "function_name": "append_instance_progress",
-      "line": 9696,
+      "line": 9846,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -748,7 +748,7 @@
         "POST"
       ],
       "function_name": "alp_update_instance_prompt",
-      "line": 9574,
+      "line": 9724,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -761,7 +761,7 @@
         "GET"
       ],
       "function_name": "alp_get_instance_summary",
-      "line": 8647,
+      "line": 8797,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -774,7 +774,7 @@
         "POST"
       ],
       "function_name": "alp_save_instance_summary",
-      "line": 8663,
+      "line": 8813,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -787,7 +787,7 @@
         "POST"
       ],
       "function_name": "alp_create_run",
-      "line": 9065,
+      "line": 9215,
       "tags": [
         "Agent Lifecycle"
       ],
@@ -841,7 +841,7 @@
         "GET"
       ],
       "function_name": "refresh_events",
-      "line": 5799,
+      "line": 5931,
       "tags": [
         "Ops Utilities"
       ],
@@ -854,7 +854,7 @@
         "GET"
       ],
       "function_name": "sse_status",
-      "line": 5916,
+      "line": 6048,
       "tags": [
         "Ops Utilities"
       ],
@@ -867,7 +867,7 @@
         "POST"
       ],
       "function_name": "trigger_refresh",
-      "line": 5906,
+      "line": 6038,
       "tags": [
         "Ops Utilities"
       ],
@@ -880,7 +880,7 @@
         "GET"
       ],
       "function_name": "analytics_agent_events",
-      "line": 7854,
+      "line": 8004,
       "tags": [
         "Analytics"
       ],
@@ -893,7 +893,7 @@
         "GET"
       ],
       "function_name": "analytics_config",
-      "line": 7772,
+      "line": 7922,
       "tags": [
         "Analytics"
       ],
@@ -906,7 +906,7 @@
         "GET"
       ],
       "function_name": "analytics_hitl_events",
-      "line": 7903,
+      "line": 8053,
       "tags": [
         "Analytics"
       ],
@@ -919,7 +919,7 @@
         "POST"
       ],
       "function_name": "analytics_page_view",
-      "line": 7781,
+      "line": 7931,
       "tags": [
         "Analytics"
       ],
@@ -932,7 +932,7 @@
         "GET"
       ],
       "function_name": "analytics_rlhf_autonomy",
-      "line": 7993,
+      "line": 8143,
       "tags": [
         "Analytics"
       ],
@@ -945,7 +945,7 @@
         "GET"
       ],
       "function_name": "analytics_rlhf_stages",
-      "line": 8055,
+      "line": 8205,
       "tags": [
         "Analytics"
       ],
@@ -958,7 +958,7 @@
         "GET"
       ],
       "function_name": "analytics_user_activity",
-      "line": 7950,
+      "line": 8100,
       "tags": [
         "Analytics"
       ],
@@ -971,7 +971,7 @@
         "POST"
       ],
       "function_name": "classify_intent_api",
-      "line": 12814,
+      "line": 12964,
       "tags": [
         "LLM Utilities"
       ],
@@ -997,7 +997,7 @@
         "POST"
       ],
       "function_name": "dashboard_chat",
-      "line": 7597,
+      "line": 7747,
       "tags": [
         "Dashboard"
       ],
@@ -1010,7 +1010,7 @@
         "GET"
       ],
       "function_name": "dashboard_chat_history",
-      "line": 7759,
+      "line": 7909,
       "tags": [
         "Dashboard"
       ],
@@ -1023,7 +1023,7 @@
         "GET"
       ],
       "function_name": "dashboard_demo_data",
-      "line": 8100,
+      "line": 8250,
       "tags": [
         "Dashboard"
       ],
@@ -1036,12 +1036,12 @@
         "POST"
       ],
       "function_name": "proxy_hitl",
-      "line": 5200,
+      "line": 5287,
       "tags": [
         "HITL"
       ],
       "audience": "public",
-      "description": "Proxy endpoint for HITL requests from remote agents.\nForwards requests to internal HITL service."
+      "description": "Submit a HITL request and optionally register a completion callback.\n\nThis endpoint forwards the request payload to the internal HITL service,\nwhich evaluates WHEN/WHO/WHAT/WHERE and either:\n- returns immediately with `status=no-hitl`, or\n- accepts the request and waits for human/auto completion.\n\nRequest JSON (fields commonly used by callers):\n{\n  \"caller_id\": \"<instance-or-activity-id>\",\n  \"instance_id\": \"<optional alias of caller_id>\",\n  \"org_id\": \"<optional; inferred from session/api key when available>\",\n  \"agent_name\": \"<optional>\",\n  \"hitl\": {\n    \"enable\": true,\n    \"when\": \"<condition|always>\",\n    \"who\": \"<initiator|email>\",\n    \"what\": \"approval|notify\",\n    \"where\": \"amp|email\"\n  },\n  \"callback\": {\n    \"url\": \"https://caller.example.com/hitl/callback\",\n    \"secret\": \"<optional shared secret>\",\n    \"timeout_ms\": 5000\n  }\n}\n\nCallback payload on completion (single attempt, best effort):\n{\n  \"caller_id\": \"<id>\",\n  \"status\": \"complete\",\n  \"resolution\": \"approve|reject|modify|defer|unknown\",\n  \"method\": \"human|auto\",\n  \"workitem_id\": \"<id_or_empty>\",\n  \"information\": \"<optional detail>\",\n  \"event_ts\": \"<ISO-8601 UTC timestamp>\"\n}"
     },
     {
       "path": "/api/hitl-agent/progress",
@@ -1049,7 +1049,7 @@
         "GET"
       ],
       "function_name": "proxy_hitl_progress",
-      "line": 5252,
+      "line": 5384,
       "tags": [
         "HITL"
       ],
@@ -1062,7 +1062,7 @@
         "GET"
       ],
       "function_name": "proxy_hitl_status",
-      "line": 5238,
+      "line": 5370,
       "tags": [
         "HITL"
       ],
@@ -1075,7 +1075,7 @@
         "GET"
       ],
       "function_name": "hitl_get_decision",
-      "line": 5329,
+      "line": 5461,
       "tags": [
         "HITL"
       ],
@@ -1088,7 +1088,7 @@
         "GET"
       ],
       "function_name": "proxy_hitl_progress",
-      "line": 5252,
+      "line": 5384,
       "tags": [
         "HITL"
       ],
@@ -1101,12 +1101,12 @@
         "POST"
       ],
       "function_name": "proxy_hitl",
-      "line": 5200,
+      "line": 5287,
       "tags": [
         "HITL"
       ],
       "audience": "public",
-      "description": "Proxy endpoint for HITL requests from remote agents.\nForwards requests to internal HITL service."
+      "description": "Submit a HITL request and optionally register a completion callback.\n\nThis endpoint forwards the request payload to the internal HITL service,\nwhich evaluates WHEN/WHO/WHAT/WHERE and either:\n- returns immediately with `status=no-hitl`, or\n- accepts the request and waits for human/auto completion.\n\nRequest JSON (fields commonly used by callers):\n{\n  \"caller_id\": \"<instance-or-activity-id>\",\n  \"instance_id\": \"<optional alias of caller_id>\",\n  \"org_id\": \"<optional; inferred from session/api key when available>\",\n  \"agent_name\": \"<optional>\",\n  \"hitl\": {\n    \"enable\": true,\n    \"when\": \"<condition|always>\",\n    \"who\": \"<initiator|email>\",\n    \"what\": \"approval|notify\",\n    \"where\": \"amp|email\"\n  },\n  \"callback\": {\n    \"url\": \"https://caller.example.com/hitl/callback\",\n    \"secret\": \"<optional shared secret>\",\n    \"timeout_ms\": 5000\n  }\n}\n\nCallback payload on completion (single attempt, best effort):\n{\n  \"caller_id\": \"<id>\",\n  \"status\": \"complete\",\n  \"resolution\": \"approve|reject|modify|defer|unknown\",\n  \"method\": \"human|auto\",\n  \"workitem_id\": \"<id_or_empty>\",\n  \"information\": \"<optional detail>\",\n  \"event_ts\": \"<ISO-8601 UTC timestamp>\"\n}"
     },
     {
       "path": "/api/hitl/status",
@@ -1114,7 +1114,7 @@
         "GET"
       ],
       "function_name": "proxy_hitl_status",
-      "line": 5238,
+      "line": 5370,
       "tags": [
         "HITL"
       ],
@@ -1127,7 +1127,7 @@
         "POST"
       ],
       "function_name": "resolve_user_identity",
-      "line": 11118,
+      "line": 11268,
       "tags": [
         "Internal"
       ],
@@ -1140,7 +1140,7 @@
         "POST"
       ],
       "function_name": "classify_llm_prompt",
-      "line": 12825,
+      "line": 12975,
       "tags": [
         "LLM Utilities"
       ],
@@ -1153,7 +1153,7 @@
         "POST"
       ],
       "function_name": "proxy_log",
-      "line": 5610,
+      "line": 5742,
       "tags": [
         "Log Proxy"
       ],
@@ -1166,7 +1166,7 @@
         "GET"
       ],
       "function_name": "proxy_log_hitl_progress",
-      "line": 5683,
+      "line": 5815,
       "tags": [
         "Log Proxy"
       ],
@@ -1179,7 +1179,7 @@
         "GET"
       ],
       "function_name": "proxy_log_progress_all",
-      "line": 5666,
+      "line": 5798,
       "tags": [
         "Log Proxy"
       ],
@@ -1271,7 +1271,7 @@
         "POST"
       ],
       "function_name": "register",
-      "line": 12786,
+      "line": 12936,
       "tags": [
         "Auth / Sessions"
       ],
@@ -1284,7 +1284,7 @@
         "GET"
       ],
       "function_name": "rlhf_fetch_approval_request",
-      "line": 11596,
+      "line": 11746,
       "tags": [
         "RLHF"
       ],
@@ -1297,7 +1297,7 @@
         "POST"
       ],
       "function_name": "rlhf_bootstrap_agent",
-      "line": 12449,
+      "line": 12599,
       "tags": [
         "RLHF"
       ],
@@ -1310,7 +1310,7 @@
         "POST"
       ],
       "function_name": "rlhf_approve_contract",
-      "line": 11033,
+      "line": 11183,
       "tags": [
         "RLHF"
       ],
@@ -1323,7 +1323,7 @@
         "POST"
       ],
       "function_name": "rlhf_bind_workitem",
-      "line": 11240,
+      "line": 11390,
       "tags": [
         "RLHF"
       ],
@@ -1336,7 +1336,7 @@
         "GET"
       ],
       "function_name": "rlhf_decision_status",
-      "line": 11697,
+      "line": 11847,
       "tags": [
         "RLHF"
       ],
@@ -1349,7 +1349,7 @@
         "POST"
       ],
       "function_name": "rlhf_enqueue_job",
-      "line": 12511,
+      "line": 12661,
       "tags": [
         "RLHF"
       ],
@@ -1362,7 +1362,7 @@
         "GET"
       ],
       "function_name": "rlhf_model_registry_list",
-      "line": 13044,
+      "line": 13194,
       "tags": [
         "RLHF"
       ],
@@ -1375,7 +1375,7 @@
         "POST"
       ],
       "function_name": "rlhf_model_registry_activate",
-      "line": 13102,
+      "line": 13252,
       "tags": [
         "RLHF"
       ],
@@ -1388,7 +1388,7 @@
         "POST"
       ],
       "function_name": "rlhf_model_registry_retire",
-      "line": 13151,
+      "line": 13301,
       "tags": [
         "RLHF"
       ],
@@ -1401,7 +1401,7 @@
         "POST"
       ],
       "function_name": "rlhf_submit_outcome",
-      "line": 11459,
+      "line": 11609,
       "tags": [
         "RLHF"
       ],
@@ -1414,7 +1414,7 @@
         "GET"
       ],
       "function_name": "rlhf_get_policy",
-      "line": 10931,
+      "line": 11081,
       "tags": [
         "RLHF"
       ],
@@ -1427,7 +1427,7 @@
         "POST"
       ],
       "function_name": "rlhf_save_policy",
-      "line": 10995,
+      "line": 11145,
       "tags": [
         "RLHF"
       ],
@@ -1440,7 +1440,7 @@
         "POST"
       ],
       "function_name": "rlhf_trigger_stage_tick",
-      "line": 12583,
+      "line": 12733,
       "tags": [
         "RLHF"
       ],
@@ -1453,7 +1453,7 @@
         "GET"
       ],
       "function_name": "rlhf_status",
-      "line": 11771,
+      "line": 11921,
       "tags": [
         "RLHF"
       ],
@@ -1466,7 +1466,7 @@
         "POST"
       ],
       "function_name": "rlhf_reset_test_state",
-      "line": 12652,
+      "line": 12802,
       "tags": [
         "RLHF"
       ],
@@ -1479,7 +1479,7 @@
         "POST"
       ],
       "function_name": "settings_generate_api_key",
-      "line": 9511,
+      "line": 9661,
       "tags": [
         "Auth / Sessions"
       ],
@@ -1492,7 +1492,7 @@
         "GET"
       ],
       "function_name": "settings_get_api_key",
-      "line": 9522,
+      "line": 9672,
       "tags": [
         "Auth / Sessions"
       ],
@@ -1505,7 +1505,7 @@
         "DELETE"
       ],
       "function_name": "settings_revoke_api_key",
-      "line": 9533,
+      "line": 9683,
       "tags": [
         "Auth / Sessions"
       ],
@@ -1544,7 +1544,7 @@
         "POST"
       ],
       "function_name": "create_workitem",
-      "line": 6266,
+      "line": 6398,
       "tags": [
         "Workitems",
         "HITL"
@@ -1558,7 +1558,7 @@
         "GET"
       ],
       "function_name": "get_workitems",
-      "line": 5928,
+      "line": 6060,
       "tags": [
         "Workitems",
         "HITL"
@@ -1572,7 +1572,7 @@
         "DELETE"
       ],
       "function_name": "delete_workitem",
-      "line": 7210,
+      "line": 7360,
       "tags": [
         "Workitems",
         "HITL"
@@ -1586,7 +1586,7 @@
         "PUT"
       ],
       "function_name": "update_workitem_status",
-      "line": 7025,
+      "line": 7157,
       "tags": [
         "Workitems",
         "HITL"
@@ -1600,7 +1600,7 @@
         "POST"
       ],
       "function_name": "worktray_chat",
-      "line": 7255,
+      "line": 7405,
       "tags": [
         "Worktray"
       ],
