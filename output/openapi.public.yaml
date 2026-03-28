@@ -2069,13 +2069,36 @@ paths:
   /api/hitl/get-decision:
     get:
       summary: HITL Get Decision
-      description: Return normalized HITL decision state for a caller without exposing stage routing details.
+      description: Poll normalized HITL decision state for a caller/activity ID.
       operationId: get_hitl_get_decision_api_hitl_get_decision
       tags:
         - HITL
       responses:
         200:
-          description: Success
+          description: Decision state found or still pending.
+          content:
+            application/json:
+              examples:
+                pending:
+                  value:
+                    caller_id: invoice-payment-agent-5c58-20260310135042
+                    status: pending
+                complete_human:
+                  value:
+                    caller_id: invoice-payment-agent-5c58-20260310135042
+                    status: complete
+                    resolution: approve
+                    method: human
+                    workitem_id: invoice-payment-agent-5c58-20260310135042-20260314013057
+                    information: approved by reviewer
+                complete_auto:
+                  value:
+                    caller_id: invoice-payment-agent-5c58-20260310135042
+                    status: complete
+                    resolution: approve
+                    method: auto
+                    workitem_id: ''
+                    information: auto decision recorded; workitem not created
         400:
           description: Bad request
         401:
@@ -2094,6 +2117,21 @@ paths:
         -
           SessionToken:
             []
+      parameters:
+        -
+          name: caller_id
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Canonical HITL correlation ID.
+        -
+          name: instance_id
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Alias of caller_id (use either one).
   /api/hitl/progress:
     get:
       summary: Proxy HITL Progress
@@ -2125,19 +2163,43 @@ paths:
   /api/hitl/request:
     post:
       summary: HITL Request
-      description: "Submit a HITL request and optionally register a completion callback.\n\nThis endpoint forwards the payload to AMP-HITL for WHEN/WHO/WHAT/WHERE evaluation. It may return immediately with no HITL needed, or accept the request and complete later via human or auto routing.\n\nRequest JSON (common fields):\n{\n  \"caller_id\": \"<instance-or-activity-id>\",\n  \"instance_id\": \"<optional alias of caller_id>\",\n  \"org_id\": \"<optional>\",\n  \"agent_name\": \"<optional>\",\n  \"hitl\": {\n    \"enable\": true,\n    \"when\": \"<condition|always>\",\n    \"who\": \"<initiator|email>\",\n    \"what\": \"approval|notify\",\n    \"where\": \"amp|email\"\n  },\n  \"callback\": {\n    \"url\": \"https://caller.example.com/hitl/callback\",\n    \"secret\": \"<optional shared secret>\",\n    \"timeout_ms\": 5000\n  }\n}\n\nCallback payload on completion:\n{\n  \"caller_id\": \"<id>\",\n  \"status\": \"complete\",\n  \"resolution\": \"approve|reject|modify|defer|unknown\",\n  \"method\": \"human|auto\",\n  \"workitem_id\": \"<id_or_empty>\",\n  \"information\": \"<optional detail>\",\n  \"event_ts\": \"<ISO-8601 UTC timestamp>\"\n}"
+      description: "Submit a HITL request and optionally register a completion callback.\n\nAMP-HITL evaluates WHEN/WHO/WHAT/WHERE and either returns `no-hitl` immediately or accepts the request and completes later via human or auto routing."
       operationId: post_proxy_hitl_api_hitl_request
       tags:
         - HITL
       responses:
         200:
-          description: Success
+          description: No HITL needed or HITL disabled.
+          content:
+            application/json:
+              example:
+                status: no-hitl
+                information: WHEN condition not met
         400:
-          description: Bad request
+          description: Validation or preflight error.
+          content:
+            application/json:
+              example:
+                status: error
+                error: callback_url_invalid_scheme
+                information: callback URL must use http or https
         401:
           description: Unauthorized
         500:
           description: Server error
+        202:
+          description: Accepted for asynchronous HITL processing.
+          content:
+            application/json:
+              example:
+                status: waiting-for-response
+                caller_id: invoice-payment-agent-5c58-20260310135042
+                information:
+                  who: "initiator@example.com"
+                  what: approval
+                  where: amp
+                links:
+                  status: "/api/hitl/status?caller_id=invoice-payment-agent-5c58-20260310135042"
       x-source:
         file: /Users/edwardc/Projects/amp-backend/app.py
         function: proxy_hitl
@@ -2150,6 +2212,70 @@ paths:
         -
           SessionToken:
             []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                caller_id:
+                  type: string
+                  description: Canonical HITL correlation ID.
+                instance_id:
+                  type: string
+                  description: Alias of caller_id for compatibility.
+                org_id:
+                  type: string
+                agent_name:
+                  type: string
+                hitl:
+                  type: object
+                  properties:
+                    enable:
+                      type: boolean
+                    when:
+                      type: string
+                    who:
+                      type: string
+                    what:
+                      type: string
+                      enum:
+                        - approval
+                        - notify
+                    where:
+                      type: string
+                      enum:
+                        - amp
+                        - email
+                callback:
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                      format: uri
+                    secret:
+                      type: string
+                    timeout_ms:
+                      type: integer
+                      minimum: 500
+                      maximum: 30000
+                  required:
+                    - url
+            example:
+              caller_id: invoice-payment-agent-5c58-20260310135042
+              org_id: O-0011-ST20251201090030
+              agent_name: invoice-payment-agent-5c58
+              hitl:
+                enable: true
+                when: "amount > 1000"
+                who: initiator
+                what: approval
+                where: amp
+              callback:
+                url: "https://caller.example.com/hitl/callback"
+                secret: shared-secret
+                timeout_ms: 5000
   /api/hitl/status:
     get:
       summary: Proxy HITL Status
