@@ -68,16 +68,44 @@ _OPERATION_OVERRIDES: dict[tuple[str, str], dict[str, Any]] = {
             "immediately or accepts the request and completes later via human or auto routing."
         ),
         "requestBody": {
-            "required": False,
+            "required": True,
             "content": {
                 "application/json": {
                     "schema": {
                         "type": "object",
+                        "required": ["caller_id", "instance_id", "org_id", "agent_name"],
                         "properties": {
                             "caller_id": {"type": "string", "description": "Canonical HITL correlation ID."},
                             "instance_id": {"type": "string", "description": "Alias of caller_id for compatibility."},
                             "org_id": {"type": "string"},
                             "agent_name": {"type": "string"},
+                            "rlhf": {
+                                "type": "object",
+                                "description": "RLHF/policy evaluation inputs for this HITL request.",
+                                "properties": {
+                                    "policy_values_source": {
+                                        "type": "string",
+                                        "enum": ["external", "internal"],
+                                    },
+                                    "action_context": {
+                                        "type": "object",
+                                        "additionalProperties": True,
+                                    },
+                                    "facts_context": {
+                                        "type": "object",
+                                        "additionalProperties": True,
+                                    },
+                                    "criteria": {
+                                        "type": "array",
+                                        "items": {"type": "object", "additionalProperties": True},
+                                    },
+                                    "evidence": {"type": "object", "additionalProperties": True},
+                                    "run_mode": {"type": "string"},
+                                    "sim_run_id": {"type": "string"},
+                                    "sim_time": {"type": "string"},
+                                    "checkpoint_id": {"type": "string"},
+                                },
+                            },
                             "hitl": {
                                 "type": "object",
                                 "properties": {
@@ -101,8 +129,24 @@ _OPERATION_OVERRIDES: dict[tuple[str, str], dict[str, Any]] = {
                     },
                     "example": {
                         "caller_id": "invoice-payment-agent-5c58-20260310135042",
+                        "instance_id": "invoice-payment-agent-5c58-20260310135042",
                         "org_id": "O-0011-ST20251201090030",
                         "agent_name": "invoice-payment-agent-5c58",
+                        "rlhf": {
+                            "policy_values_source": "external",
+                            "action_context": {
+                                "action_type": "approve_payment",
+                                "resource_type": "invoice",
+                                "resource_id": "invoice-payment-agent-5c58-20260310135042",
+                            },
+                            "facts_context": {
+                                "amount_over_threshold": True,
+                            },
+                            "criteria": [
+                                {"criterion_id": "c_amount_within_policy", "result": True},
+                                {"criterion_id": "c_vendor_risk_acceptable", "result": True},
+                            ],
+                        },
                         "hitl": {
                             "enable": True,
                             "when": "amount > 1000",

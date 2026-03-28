@@ -137,7 +137,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "abort_agent",
-          "line": 7508
+          "line": 7519
         },
         "x-audience": "public",
         "security": [
@@ -693,7 +693,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "agent_init",
-          "line": 9556
+          "line": 9567
         },
         "x-audience": "public",
         "security": [
@@ -731,7 +731,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "agent_set_state",
-          "line": 9573
+          "line": 9584
         },
         "x-audience": "public",
         "security": [
@@ -769,7 +769,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "agent_start",
-          "line": 9562
+          "line": 9573
         },
         "x-audience": "public",
         "security": [
@@ -807,7 +807,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agent_autonomy_ops",
-          "line": 10717
+          "line": 10728
         },
         "x-audience": "public",
         "parameters": [
@@ -853,7 +853,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "save_agent_autonomy_ops",
-          "line": 10756
+          "line": 10767
         },
         "x-audience": "public",
         "parameters": [
@@ -901,7 +901,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agent_criteria",
-          "line": 10582
+          "line": 10593
         },
         "x-audience": "public",
         "parameters": [
@@ -947,7 +947,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "save_agent_criteria",
-          "line": 10625
+          "line": 10636
         },
         "x-audience": "public",
         "parameters": [
@@ -995,7 +995,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_agent_features",
-          "line": 10399
+          "line": 10410
         },
         "x-audience": "public",
         "parameters": [
@@ -1041,7 +1041,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "save_agent_features",
-          "line": 10489
+          "line": 10500
         },
         "x-audience": "public",
         "parameters": [
@@ -1089,7 +1089,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "generate_feature_description",
-          "line": 10978
+          "line": 10989
         },
         "x-audience": "public",
         "parameters": [
@@ -1137,7 +1137,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "update_rlhf_enabled",
-          "line": 13088
+          "line": 13099
         },
         "x-audience": "public",
         "parameters": [
@@ -1185,7 +1185,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_policy_versions",
-          "line": 13008
+          "line": 13019
         },
         "x-audience": "public",
         "parameters": [
@@ -1233,7 +1233,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_policy_version",
-          "line": 13060
+          "line": 13071
         },
         "x-audience": "public",
         "parameters": [
@@ -1289,7 +1289,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "approve_rlhf_policy",
-          "line": 10831
+          "line": 10842
         },
         "x-audience": "public",
         "parameters": [
@@ -1423,7 +1423,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_agents",
-          "line": 8473
+          "line": 8484
         },
         "x-audience": "public",
         "security": [
@@ -1499,7 +1499,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_defaults",
-          "line": 9137
+          "line": 9148
         },
         "x-audience": "public",
         "parameters": [
@@ -1547,7 +1547,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_default_artifacts",
-          "line": 9046
+          "line": 9057
         },
         "x-audience": "public",
         "parameters": [
@@ -1595,7 +1595,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_default_artifact",
-          "line": 9079
+          "line": 9090
         },
         "x-audience": "public",
         "parameters": [
@@ -1651,7 +1651,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_defaults_config",
-          "line": 9167
+          "line": 9178
         },
         "x-audience": "public",
         "parameters": [
@@ -1699,7 +1699,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_defaults_prompt",
-          "line": 9191
+          "line": 9202
         },
         "x-audience": "public",
         "parameters": [
@@ -1747,7 +1747,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_instances",
-          "line": 8499
+          "line": 8510
         },
         "x-audience": "public",
         "parameters": [
@@ -1795,7 +1795,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_delete_instance",
-          "line": 9115
+          "line": 9126
         },
         "x-audience": "public",
         "parameters": [
@@ -1849,7 +1849,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_instance",
-          "line": 8834
+          "line": 8845
         },
         "x-audience": "public",
         "parameters": [
@@ -1905,7 +1905,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_abort_instance",
-          "line": 12865
+          "line": 12876
         },
         "x-audience": "public",
         "parameters": [
@@ -1961,7 +1961,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_list_artifacts",
-          "line": 8998
+          "line": 9009
         },
         "x-audience": "public",
         "parameters": [
@@ -2017,7 +2017,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "upload_artifact",
-          "line": 9885
+          "line": 9896
         },
         "x-audience": "public",
         "parameters": [
@@ -2079,7 +2079,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_artifact",
-          "line": 9096
+          "line": 9107
         },
         "x-audience": "public",
         "parameters": [
@@ -2143,7 +2143,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_instance_chat",
-          "line": 8896
+          "line": 8907
         },
         "x-audience": "public",
         "parameters": [
@@ -2197,7 +2197,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_instance_chat",
-          "line": 8896
+          "line": 8907
         },
         "x-audience": "public",
         "parameters": [
@@ -2251,7 +2251,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_instance_chat",
-          "line": 8896
+          "line": 8907
         },
         "x-audience": "public",
         "parameters": [
@@ -2307,7 +2307,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_instance_config",
-          "line": 9699
+          "line": 9710
         },
         "x-audience": "public",
         "parameters": [
@@ -2363,7 +2363,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_execute_instance",
-          "line": 10388
+          "line": 10399
         },
         "x-audience": "public",
         "parameters": [
@@ -2419,7 +2419,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_instance_files",
-          "line": 9751
+          "line": 9762
         },
         "x-audience": "public",
         "parameters": [
@@ -2475,7 +2475,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_hitl_callback",
-          "line": 10393
+          "line": 10404
         },
         "x-audience": "public",
         "parameters": [
@@ -2531,7 +2531,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_launch_instance",
-          "line": 9919
+          "line": 9930
         },
         "x-audience": "public",
         "parameters": [
@@ -2587,7 +2587,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_log_initiated",
-          "line": 9994
+          "line": 10005
         },
         "x-audience": "public",
         "parameters": [
@@ -2643,7 +2643,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "update_instance_meta",
-          "line": 9789
+          "line": 9800
         },
         "x-audience": "public",
         "parameters": [
@@ -2699,7 +2699,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "append_instance_progress",
-          "line": 9846
+          "line": 9857
         },
         "x-audience": "public",
         "parameters": [
@@ -2755,7 +2755,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_update_instance_prompt",
-          "line": 9724
+          "line": 9735
         },
         "x-audience": "public",
         "parameters": [
@@ -2811,7 +2811,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_get_instance_summary",
-          "line": 8797
+          "line": 8808
         },
         "x-audience": "public",
         "parameters": [
@@ -2865,7 +2865,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_save_instance_summary",
-          "line": 8813
+          "line": 8824
         },
         "x-audience": "public",
         "parameters": [
@@ -2921,7 +2921,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "alp_create_run",
-          "line": 9215
+          "line": 9226
         },
         "x-audience": "public",
         "parameters": [
@@ -3117,7 +3117,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "refresh_events",
-          "line": 5931
+          "line": 5942
         },
         "x-audience": "partner",
         "security": [
@@ -3155,7 +3155,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "sse_status",
-          "line": 6048
+          "line": 6059
         },
         "x-audience": "partner",
         "security": [
@@ -3193,7 +3193,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "trigger_refresh",
-          "line": 6038
+          "line": 6049
         },
         "x-audience": "partner",
         "security": [
@@ -3231,7 +3231,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_agent_events",
-          "line": 8004
+          "line": 8015
         },
         "x-audience": "public",
         "security": [
@@ -3269,7 +3269,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_config",
-          "line": 7922
+          "line": 7933
         },
         "x-audience": "public",
         "security": [
@@ -3307,7 +3307,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_hitl_events",
-          "line": 8053
+          "line": 8064
         },
         "x-audience": "public",
         "security": [
@@ -3345,7 +3345,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_page_view",
-          "line": 7931
+          "line": 7942
         },
         "x-audience": "public",
         "security": [
@@ -3383,7 +3383,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_rlhf_autonomy",
-          "line": 8143
+          "line": 8154
         },
         "x-audience": "public",
         "security": [
@@ -3421,7 +3421,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_rlhf_stages",
-          "line": 8205
+          "line": 8216
         },
         "x-audience": "public",
         "security": [
@@ -3459,7 +3459,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "analytics_user_activity",
-          "line": 8100
+          "line": 8111
         },
         "x-audience": "public",
         "security": [
@@ -3497,7 +3497,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "classify_intent_api",
-          "line": 12964
+          "line": 12975
         },
         "x-audience": "partner",
         "security": [
@@ -3573,7 +3573,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "dashboard_chat",
-          "line": 7747
+          "line": 7758
         },
         "x-audience": "partner",
         "security": [
@@ -3611,7 +3611,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "dashboard_chat_history",
-          "line": 7909
+          "line": 7920
         },
         "x-audience": "partner",
         "security": [
@@ -3649,7 +3649,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "dashboard_demo_data",
-          "line": 8250
+          "line": 8261
         },
         "x-audience": "partner",
         "parameters": [
@@ -3729,7 +3729,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "hitl_get_decision",
-          "line": 5461
+          "line": 5472
         },
         "x-audience": "public",
         "security": [
@@ -3787,7 +3787,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_hitl_progress",
-          "line": 5384
+          "line": 5395
         },
         "x-audience": "public",
         "security": [
@@ -3873,11 +3873,17 @@
           }
         ],
         "requestBody": {
-          "required": false,
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
+                "required": [
+                  "caller_id",
+                  "instance_id",
+                  "org_id",
+                  "agent_name"
+                ],
                 "properties": {
                   "caller_id": {
                     "type": "string",
@@ -3892,6 +3898,50 @@
                   },
                   "agent_name": {
                     "type": "string"
+                  },
+                  "rlhf": {
+                    "type": "object",
+                    "description": "RLHF/policy evaluation inputs for this HITL request.",
+                    "properties": {
+                      "policy_values_source": {
+                        "type": "string",
+                        "enum": [
+                          "external",
+                          "internal"
+                        ]
+                      },
+                      "action_context": {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      "facts_context": {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      "criteria": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": true
+                        }
+                      },
+                      "evidence": {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      "run_mode": {
+                        "type": "string"
+                      },
+                      "sim_run_id": {
+                        "type": "string"
+                      },
+                      "sim_time": {
+                        "type": "string"
+                      },
+                      "checkpoint_id": {
+                        "type": "string"
+                      }
+                    }
                   },
                   "hitl": {
                     "type": "object",
@@ -3945,8 +3995,30 @@
               },
               "example": {
                 "caller_id": "invoice-payment-agent-5c58-20260310135042",
+                "instance_id": "invoice-payment-agent-5c58-20260310135042",
                 "org_id": "O-0011-ST20251201090030",
                 "agent_name": "invoice-payment-agent-5c58",
+                "rlhf": {
+                  "policy_values_source": "external",
+                  "action_context": {
+                    "action_type": "approve_payment",
+                    "resource_type": "invoice",
+                    "resource_id": "invoice-payment-agent-5c58-20260310135042"
+                  },
+                  "facts_context": {
+                    "amount_over_threshold": true
+                  },
+                  "criteria": [
+                    {
+                      "criterion_id": "c_amount_within_policy",
+                      "result": true
+                    },
+                    {
+                      "criterion_id": "c_vendor_risk_acceptable",
+                      "result": true
+                    }
+                  ]
+                },
                 "hitl": {
                   "enable": true,
                   "when": "amount > 1000",
@@ -3990,7 +4062,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_hitl_status",
-          "line": 5370
+          "line": 5381
         },
         "x-audience": "public",
         "security": [
@@ -4028,7 +4100,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "resolve_user_identity",
-          "line": 11268
+          "line": 11279
         },
         "x-audience": "internal"
       }
@@ -4058,7 +4130,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "classify_llm_prompt",
-          "line": 12975
+          "line": 12986
         },
         "x-audience": "partner",
         "security": [
@@ -4096,7 +4168,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_log",
-          "line": 5742
+          "line": 5753
         },
         "x-audience": "public",
         "security": [
@@ -4134,7 +4206,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_log_hitl_progress",
-          "line": 5815
+          "line": 5826
         },
         "x-audience": "public",
         "security": [
@@ -4172,7 +4244,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "proxy_log_progress_all",
-          "line": 5798
+          "line": 5809
         },
         "x-audience": "public",
         "security": [
@@ -4438,7 +4510,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "register",
-          "line": 12936
+          "line": 12947
         },
         "x-audience": "public",
         "security": [
@@ -4474,7 +4546,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "register",
-          "line": 12936
+          "line": 12947
         },
         "x-audience": "public",
         "security": [
@@ -4512,7 +4584,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_fetch_approval_request",
-          "line": 11746
+          "line": 11757
         },
         "x-audience": "public",
         "security": [
@@ -4550,7 +4622,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_bootstrap_agent",
-          "line": 12599
+          "line": 12610
         },
         "x-audience": "public",
         "security": [
@@ -4588,7 +4660,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_approve_contract",
-          "line": 11183
+          "line": 11194
         },
         "x-audience": "public",
         "security": [
@@ -4626,7 +4698,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_bind_workitem",
-          "line": 11390
+          "line": 11401
         },
         "x-audience": "public",
         "security": [
@@ -4664,7 +4736,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_decision_status",
-          "line": 11847
+          "line": 11858
         },
         "x-audience": "public",
         "security": [
@@ -4702,7 +4774,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_enqueue_job",
-          "line": 12661
+          "line": 12672
         },
         "x-audience": "partner",
         "security": [
@@ -4740,7 +4812,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_model_registry_list",
-          "line": 13194
+          "line": 13205
         },
         "x-audience": "public",
         "security": [
@@ -4778,7 +4850,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_model_registry_activate",
-          "line": 13252
+          "line": 13263
         },
         "x-audience": "public",
         "parameters": [
@@ -4826,7 +4898,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_model_registry_retire",
-          "line": 13301
+          "line": 13312
         },
         "x-audience": "public",
         "parameters": [
@@ -4874,7 +4946,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_submit_outcome",
-          "line": 11609
+          "line": 11620
         },
         "x-audience": "public",
         "security": [
@@ -4912,7 +4984,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_get_policy",
-          "line": 11081
+          "line": 11092
         },
         "x-audience": "public",
         "security": [
@@ -4950,7 +5022,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_save_policy",
-          "line": 11145
+          "line": 11156
         },
         "x-audience": "public",
         "security": [
@@ -4988,7 +5060,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_trigger_stage_tick",
-          "line": 12733
+          "line": 12744
         },
         "x-audience": "partner",
         "security": [
@@ -5026,7 +5098,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_status",
-          "line": 11921
+          "line": 11932
         },
         "x-audience": "partner",
         "security": [
@@ -5064,7 +5136,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "rlhf_reset_test_state",
-          "line": 12802
+          "line": 12813
         },
         "x-audience": "partner",
         "security": [
@@ -5102,7 +5174,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "settings_generate_api_key",
-          "line": 9661
+          "line": 9672
         },
         "x-audience": "partner",
         "security": [
@@ -5138,7 +5210,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "settings_get_api_key",
-          "line": 9672
+          "line": 9683
         },
         "x-audience": "partner",
         "security": [
@@ -5174,7 +5246,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "settings_revoke_api_key",
-          "line": 9683
+          "line": 9694
         },
         "x-audience": "partner",
         "security": [
@@ -5287,7 +5359,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "create_workitem",
-          "line": 6398
+          "line": 6409
         },
         "x-audience": "public",
         "security": [
@@ -5324,7 +5396,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "get_workitems",
-          "line": 6060
+          "line": 6071
         },
         "x-audience": "public",
         "security": [
@@ -5363,7 +5435,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "delete_workitem",
-          "line": 7360
+          "line": 7371
         },
         "x-audience": "public",
         "parameters": [
@@ -5412,7 +5484,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "update_workitem_status",
-          "line": 7157
+          "line": 7168
         },
         "x-audience": "public",
         "parameters": [
@@ -5460,7 +5532,7 @@
         "x-source": {
           "file": "/Users/edwardc/Projects/amp-backend/app.py",
           "function": "worktray_chat",
-          "line": 7405
+          "line": 7416
         },
         "x-audience": "partner",
         "security": [
