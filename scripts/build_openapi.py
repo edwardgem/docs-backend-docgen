@@ -97,7 +97,9 @@ _OPERATION_OVERRIDES: dict[tuple[str, str], dict[str, Any]] = {
                             },
                             "rlhf": {
                                 "type": "object",
-                                "description": "RLHF/policy evaluation inputs for this HITL request.",
+                                "description": "RLHF/policy evaluation inputs for this HITL request. "
+                                "This may include action context, facts context, criteria results, and other relevant information to inform HITL routing and decisions. "
+                                "AMP will evaluate this information against the RLHF policies associated with the agent to help determine the appropriate routing and decision logic for this HITL request.",
                                 "properties": {
                                     "policy_values_source": {
                                         "type": "string",
