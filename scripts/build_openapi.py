@@ -75,10 +75,26 @@ _OPERATION_OVERRIDES: dict[tuple[str, str], dict[str, Any]] = {
                         "type": "object",
                         "required": ["caller_id", "instance_id", "org_id", "agent_name"],
                         "properties": {
-                            "caller_id": {"type": "string", "description": "Canonical HITL correlation ID."},
-                            "instance_id": {"type": "string", "description": "Alias of caller_id for compatibility."},
-                            "org_id": {"type": "string"},
-                            "agent_name": {"type": "string"},
+                            "caller_id": {
+                                "type": "string",
+                                "description": (
+                                    "Canonical HITL correlation ID. Usually the instance_id is the caller_id, "
+                                    "but when an agent calls HITL multiple of times, caller_id can add a suffix "
+                                    "to instance_id to differentiate the calls."
+                                ),
+                            },
+                            "instance_id": {
+                                "type": "string",
+                                "description": "Agent instance id. Alias of caller_id for compatibility.",
+                            },
+                            "org_id": {"type": "string", "description": "The organization id."},
+                            "agent_name": {
+                                "type": "string",
+                                "description": (
+                                    "The name of the agent type registered under this organization. "
+                                    'E.g., "invoice-payment-agent-5c58".'
+                                ),
+                            },
                             "rlhf": {
                                 "type": "object",
                                 "description": "RLHF/policy evaluation inputs for this HITL request.",
@@ -108,6 +124,11 @@ _OPERATION_OVERRIDES: dict[tuple[str, str], dict[str, Any]] = {
                             },
                             "hitl": {
                                 "type": "object",
+                                "description": (
+                                    "HITL configuration for this request in JSON to specify the WHEN, WHO, WHAT, "
+                                    "and WHERE conditions for the HITL request. If not provided, AMP will use "
+                                    "default HITL settings if enabled."
+                                ),
                                 "properties": {
                                     "enable": {"type": "boolean"},
                                     "when": {"type": "string"},
@@ -118,6 +139,10 @@ _OPERATION_OVERRIDES: dict[tuple[str, str], dict[str, Any]] = {
                             },
                             "callback": {
                                 "type": "object",
+                                "description": (
+                                    "Optional callback configuration for HITL completion. If provided, AMP will "
+                                    "call the specified URL with the HITL result when available."
+                                ),
                                 "properties": {
                                     "url": {"type": "string", "format": "uri"},
                                     "secret": {"type": "string"},
@@ -220,7 +245,11 @@ _OPERATION_OVERRIDES: dict[tuple[str, str], dict[str, Any]] = {
                 "in": "query",
                 "required": False,
                 "schema": {"type": "string"},
-                "description": "Canonical HITL correlation ID.",
+                "description": (
+                    "Canonical HITL correlation ID. Usually the instance_id is the caller_id, "
+                    "but when an agent calls HITL multiple of times, caller_id can add a suffix "
+                    "to instance_id to differentiate the calls."
+                ),
             },
             {
                 "name": "instance_id",
