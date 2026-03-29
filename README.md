@@ -26,6 +26,20 @@ make generate
 make check
 ```
 
+Sync generated public OpenAPI YAML into `../docs-amp-api` in one command:
+
+```bash
+cd /Users/edwardc/Projects/docs-backend-docgen
+make sync-docs-amp-api
+```
+
+Optional direct script usage (sync + commit + push):
+
+```bash
+cd /Users/edwardc/Projects/docs-backend-docgen
+python3 scripts/sync_docs_amp_api.py --commit-message "Minor updates" --push
+```
+
 Equivalent direct commands:
 
 ```bash

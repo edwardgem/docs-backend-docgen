@@ -8,7 +8,7 @@ OPENAPI_YAML := $(OUT_DIR)/openapi.draft.yaml
 OPENAPI_PUBLIC_JSON := $(OUT_DIR)/openapi.public.json
 OPENAPI_PUBLIC_YAML := $(OUT_DIR)/openapi.public.yaml
 
-.PHONY: generate extract openapi openapi-public check clean
+.PHONY: generate extract openapi openapi-public check sync-docs-amp-api clean
 
 generate: extract openapi openapi-public
 
@@ -36,6 +36,9 @@ check:
 		--inventory $(INVENTORY_JSON) \
 		--openapi $(OPENAPI_JSON) \
 		--allow-collisions
+
+sync-docs-amp-api:
+	python3 scripts/sync_docs_amp_api.py
 
 clean:
 	rm -f $(INVENTORY_JSON) $(INVENTORY_MD) $(OPENAPI_JSON) $(OPENAPI_YAML) $(OPENAPI_PUBLIC_JSON) $(OPENAPI_PUBLIC_YAML)
