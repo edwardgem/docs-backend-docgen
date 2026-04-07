@@ -29,7 +29,7 @@ def _function_name_to_summary(function_name: str) -> str:
     return " ".join(words)
 
 TAG_DESCRIPTIONS = {
-    "Agent Lifecycle": "Agent registration, launch, polling, and lifecycle operations.",
+    "Agent Lifecycle": "Agent registration, launch, callback, and lifecycle operations.",
     "Dashboard": "Dashboard-facing APIs (generally non-customer integration surface).",
     "Frontend Shell": "Frontend SPA shell routes.",
     "Log Proxy": "Agent log ingestion and proxy APIs.",
@@ -49,9 +49,7 @@ TAG_DESCRIPTIONS = {
 }
 
 _FLASK_PATH_PARAM_RE = re.compile(r"<(?:(?P<converter>[^:>]+):)?(?P<name>[^>]+)>")
-_PREFERRED_HANDLER_BY_PATH_METHOD = {
-    ("/api/alp/agents/{name}/instances/{instance_id}/hitl-callback", "post"): "alp_hitl_callback",
-}
+_PREFERRED_HANDLER_BY_PATH_METHOD = {}
 
 # Endpoint-specific wording overrides for customer-facing clarity.
 # Keep this map small and only use it where function-name summaries/docstrings
